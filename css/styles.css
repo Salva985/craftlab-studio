@@ -1,0 +1,59 @@
+:root{
+    --charcoal:#121212;
+    --ivory:#F7F4F2;
+    --sand:#E9E5E3;
+    --neon:#FF5C58;       /* main accent */
+    --lime:#B9FF66;       /* optional highlight */
+    --grey:#2C2C2C;
+  }
+  
+  body{ background-color:var(--charcoal); color:var(--ivory); font-family:'Manrope',system-ui,Segoe UI,Arial,sans-serif; }
+  .hero-title{ font-family:'Bebas Neue',system-ui,sans-serif; line-height:0.95; letter-spacing:1px; }
+  .section-title{ font-family:'Bebas Neue',system-ui,sans-serif; font-size:2.25rem; letter-spacing:.5px; }
+  
+  .bg-darker{ background:#181818; }
+  .text-muted-ivory{ color:#E9E5E3 !important; }
+  
+  .btn-accent{
+    --bs-btn-bg: var(--neon);
+    --bs-btn-border-color: var(--neon);
+    --bs-btn-hover-bg: #ff3e3a;
+    --bs-btn-hover-border-color: #ff3e3a;
+    --bs-btn-color: #121212;
+    --bs-btn-hover-color:#121212;
+  }
+  .btn-outline-accent{
+    --bs-btn-color: var(--ivory);
+    --bs-btn-border-color: var(--neon);
+    --bs-btn-hover-bg: var(--neon);
+    --bs-btn-hover-border-color: var(--neon);
+    --bs-btn-hover-color:#121212;
+    border-width:2px;
+  }
+  
+  .card, .project-card, .service-card{
+    background:#1A1A1A;
+    border:1px solid var(--grey);
+    border-radius:12px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover, .project-card:hover, .service-card:hover{
+    transform: translateY(-2px);
+    box-shadow:0 0 12px rgba(255,92,88,.35);
+  }
+  
+  .shadow-soft{ box-shadow:0 6px 18px rgba(0,0,0,0.18); }
+  .step-card{
+    background:#1A1A1A; border:1px solid var(--grey); border-radius:12px;
+    padding:18px;
+  }
+  .step-num{ color:var(--neon); font-family:'Bebas Neue'; font-size:28px; line-height:1; }
+  
+  .neon-glow{
+    position:absolute; inset:auto -20% -40% -20%; height:240px;
+    background: radial-gradient(40% 60% at 50% 0%, rgba(255,92,88,.35), rgba(255,92,88,0) 70%);
+    filter: blur(22px); pointer-events:none;
+  }
+  
+  a.nav-link:hover{ color:var(--neon) !important; }
+  .navbar-brand .text-accent{ color:var(--neon); }
