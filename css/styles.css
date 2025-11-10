@@ -57,3 +57,57 @@
   
   a.nav-link:hover{ color:var(--neon) !important; }
   .navbar-brand .text-accent{ color:var(--neon); }
+
+  /* Add subtle lime hover effects */
+.btn-accent:hover {
+    box-shadow: 0 0 12px rgba(185, 255, 102, 0.6);
+    transform: translateY(-2px);
+  }
+  
+  a.nav-link:hover {
+    color: var(--lime) !important;
+  }
+  
+  /* Accent underline effect for headings */
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin-top: 8px;
+    background: linear-gradient(90deg, var(--neon), var(--lime));
+    border-radius: 2px;
+  }
+  
+  /* Hero subtle lime gradient overlay */
+  .neon-glow {
+    position: absolute;
+    inset: auto -20% -40% -20%;
+    height: 240px;
+    background: radial-gradient(40% 60% at 50% 0%, rgba(255,92,88,.3), rgba(185,255,102,.2) 70%);
+    filter: blur(28px);
+    pointer-events: none;
+  }
+
+  /* Force light text inside all cards */
+.card,
+.card * {
+  color: var(--ivory) !important;
+}
+
+/* Keep muted text variant readable too */
+.card .text-muted-ivory {
+  color: var(--sand) !important;
+}
+
+/* (Optional) slightly brighten prices/titles for emphasis */
+.service-card h3,
+.service-card .fw-bold {
+  color: var(--ivory) !important;
+}
+
+/* Make card borders a touch clearer on dark bg */
+.service-card,
+.project-card {
+  border-color: #3a3a3a;
+}
