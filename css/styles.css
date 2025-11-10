@@ -82,11 +82,12 @@
   /* Hero subtle lime gradient overlay */
   .neon-glow {
     position: absolute;
-    inset: auto -20% -40% -20%;
-    height: 240px;
-    background: radial-gradient(40% 60% at 50% 0%, rgba(255,92,88,.3), rgba(185,255,102,.2) 70%);
-    filter: blur(28px);
+    inset: auto -40% -50% -40%;
+    height: 300px;
+    background: radial-gradient(60% 80% at 50% 0%, rgba(255,92,88,.3), rgba(185,255,102,.2) 70%);
+    filter: blur(48px);
     pointer-events: none;
+    z-index: 0;
   }
 
   /* Force light text inside all cards */
@@ -111,3 +112,31 @@
 .project-card {
   border-color: #3a3a3a;
 }
+
+/* Bigger, flexible logo holder */
+.hero-media{
+    background: transparent;
+    border:none;
+    box-shadow: none;
+  }
+  
+  /* Taller on large screens */
+  @media (min-width: 994px){
+    .hero-media{ min-height: 420px; }
+  }
+  
+  /* Responsive logo sizing */
+  .hero-logo {
+    width: clamp(280px, 45vw, 620px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(255,92,88,0.25))
+            drop-shadow(0 0 10px rgba(185,255,102,0.15));
+    transition: transform .3s ease, filter .3s ease;
+  }
+  
+  .hero-logo:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 18px rgba(255,92,88,0.3))
+            drop-shadow(0 0 12px rgba(185,255,102,0.2));
+  }
