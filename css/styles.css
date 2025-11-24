@@ -6,6 +6,34 @@
     --lime:#B9FF66;       /* optional highlight */
     --grey:#2C2C2C;
   }
+
+  /* Extra vertical spacing helpers (Bootstrap-style) */
+.py-6 {
+    padding-top: 4.5rem !important;   /* 72px */
+    padding-bottom: 4.5rem !important;
+  }
+  
+  .py-lg-7 {
+    padding-top: 6rem !important;     /* 96px */
+    padding-bottom: 6rem !important;
+  }
+  
+  @media (max-width: 767.98px) {
+    .py-6 {
+      padding-top: 3.5rem !important;
+      padding-bottom: 3.5rem !important;
+    }
+  
+    .py-lg-7 {
+      padding-top: 4.5rem !important;
+      padding-bottom: 4.5rem !important;
+    }
+  }
+
+  /* Soft divider between sections */
+section + section {
+    border-top: 1px solid #222;
+  }
   
   body{ background-color:var(--charcoal); color:var(--ivory); font-family:'Manrope',system-ui,Segoe UI,Arial,sans-serif; }
   .hero-title{ font-family:'Bebas Neue',system-ui,sans-serif; line-height:0.95; letter-spacing:1px; }
