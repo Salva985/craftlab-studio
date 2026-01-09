@@ -52,22 +52,54 @@ if (glow) {
   });
 }
 
-// ===== Contact form (prevent reload + send to your API) =====
+// ===== DOM Ready =====
 document.addEventListener("DOMContentLoaded", () => {
+  // ---------- Cookie modal ----------
+  const CONSENT_KEY = "craftlab_cookie_consent"; // "accepted" | "rejected"
+  const modalEl = document.getElementById("cookieModal");
+  const acceptBtn = document.getElementById("cookieAccept");
+  const rejectBtn = document.getElementById("cookieReject");
+
+  if (modalEl && typeof bootstrap !== "undefined") {
+    const consent = sessionStorage.getItem(CONSENT_KEY);
+
+    // Show only if no choice yet
+    if (!consent) {
+      const modal = bootstrap.Modal.getOrCreateInstance(modalEl, {
+        backdrop: "static",
+        keyboard: false,
+      });
+      modal.show();
+    }
+
+    const closeModal = () => {
+      const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+      modal.hide();
+    };
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", () => {
+        sessionStorage.setItem(CONSENT_KEY, "accepted");
+        closeModal();
+      });
+    }
+
+    if (rejectBtn) {
+      rejectBtn.addEventListener("click", () => {
+        sessionStorage.setItem(CONSENT_KEY, "rejected");
+        closeModal();
+      });
+    }
+  } else {
+    console.warn("Cookie modal not found or Bootstrap not loaded.");
+  }
+
+  // ---------- Contact form ----------
   const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("contactStatus");
   const btn = document.getElementById("contactBtn");
 
-  if (!form) {
-    console.warn("contactForm not found (missing id='contactForm')");
-    return;
-  }
-
-  const setStatus = (msg, type = "info") => {
-    if (!statusEl) return;
-    statusEl.textContent = msg;
-    statusEl.className = `form-status mt-2 ${type}`;
-  };
+  if (!form) return;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -76,8 +108,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      if (btn) btn.disabled = true;
-      setStatus("Sending…", "info");
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+      }
+      if (statusEl) {
+        statusEl.className = "form-status info mt-2";
+        statusEl.textContent = "Sending…";
+      }
 
       const res = await fetch("http://localhost:5050/api/contact", {
         method: "POST",
@@ -88,18 +126,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data?.error || "Failed to send");
 
-      setStatus("✅ Sent! I’ll reply within 24–48 hours.", "success");
-      form.reset();
-
-      // Optional: show Ethereal preview link (test mode)
-      if (data?.preview) {
-        console.log("Ethereal preview:", data.preview);
+      if (statusEl) {
+        statusEl.className = "form-status success mt-2";
+        statusEl.textContent = "✅ Sent! I’ll reply within 24–48 hours.";
       }
+
+      form.reset();
     } catch (err) {
       console.error(err);
-      setStatus(`❌ ${err.message || "Something went wrong."}`, "error");
+      if (statusEl) {
+        statusEl.className = "form-status error mt-2";
+        statusEl.textContent = `❌ ${err.message || "Something went wrong. Try again."}`;
+      }
     } finally {
-      if (btn) btn.disabled = false;
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Send";
+      }
     }
   });
 });

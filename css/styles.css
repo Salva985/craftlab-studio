@@ -326,6 +326,16 @@ section + section {
   overflow: hidden;
 }
 
+/* Cookie modal: keep it on-brand */
+#cookieModal .modal-title {
+  font-family: "Bebas Neue", system-ui, sans-serif;
+  letter-spacing: .5px;
+}
+
+#cookieModal .modal-content {
+  box-shadow: 0 0 24px rgba(255, 92, 88, 0.18);
+}
+
 
  
   
