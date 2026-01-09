@@ -7,28 +7,99 @@
     --grey:#2C2C2C;
   }
 
-  /* Extra vertical spacing helpers (Bootstrap-style) */
-.py-6 {
-    padding-top: 4.5rem !important;   /* 72px */
-    padding-bottom: 4.5rem !important;
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
   }
-  
-  .py-lg-7 {
-    padding-top: 6rem !important;     /* 96px */
+
+/* Spacing utilities */
+.py-6{
+  padding-top: 3.5rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
+.py-7{
+  padding-top: 4.5rem !important;
+  padding-bottom: 4.5rem !important;
+}
+
+/* Bigger spacing on desktop */
+@media (min-width: 992px){
+  .py-6{
+    padding-top: 6rem !important;
     padding-bottom: 6rem !important;
   }
-  
-  @media (max-width: 767.98px) {
-    .py-6 {
-      padding-top: 3.5rem !important;
-      padding-bottom: 3.5rem !important;
-    }
-  
-    .py-lg-7 {
-      padding-top: 4.5rem !important;
-      padding-bottom: 4.5rem !important;
-    }
+  .py-7{
+    padding-top: 7rem !important;
+    padding-bottom: 7rem !important;
   }
+}
+
+/* Navbar sizing */
+.navbar {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  min-height: 64px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 0; 
+}
+
+.navbar-logo {
+  height: 52px;       
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .navbar {
+    min-height: 160px;
+  }
+
+  .navbar-logo {
+    height: 200px;     /* bigger on desktop */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem; /* big but not crazy */
+    padding: .5rem .65rem;
+  }
+
+  .navbar .btn {
+    font-size: 1rem;
+    padding: .55rem 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .navbar-logo {
+    height: 160px;     /* NOT 160px */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.05rem;
+    padding: .85rem .6rem;
+  }
+
+  .navbar-collapse {
+    margin-top: .75rem;
+    padding: .75rem;
+    background: #000;
+    border: 1px solid #2C2C2C;
+    border-radius: 12px;
+  }
+
+  .navbar .btn {
+    width: 100%;
+    margin-top: .5rem;
+  }
+}
 
   /* Soft divider between sections */
 section + section {
@@ -77,13 +148,6 @@ section + section {
   }
   .step-num{ color:var(--neon); font-family:'Bebas Neue'; font-size:28px; line-height:1; }
   
-  .neon-glow{
-    position:absolute; inset:auto -20% -40% -20%; height:240px;
-    background: radial-gradient(40% 60% at 50% 0%, rgba(255,92,88,.35), rgba(255,92,88,0) 70%);
-    filter: blur(22px); pointer-events:none;
-  }
-  
-  a.nav-link:hover{ color:var(--neon) !important; }
   .navbar-brand .text-accent{ color:var(--neon); }
 
   /* Add subtle lime hover effects */
@@ -119,10 +183,8 @@ section + section {
   }
 
   /* Force light text inside all cards */
-.card,
-.card * {
-  color: var(--ivory) !important;
-}
+  .card { color: var(--ivory); }
+  .card .text-muted-ivory { color: var(--sand) !important; }
 
 /* Keep muted text variant readable too */
 .card .text-muted-ivory {
@@ -196,7 +258,75 @@ section + section {
     transform: scale(.96);
     box-shadow: 0 0 8px rgba(0,0,0,.4);
   }
+
+  .form-status.info { 
+    color: var(--sand);
+  }
+
+  .form-status.success {
+     color: var(--lime); 
+  }
   
+  .form-status.error { 
+    color: #ff8a87; 
+  }
+
+  section + section {
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+
+  /* === ACCORDION (Packages & Details) === */
+
+/* Base accordion button */
+.accordion-button {
+  background: #181818;
+  color: var(--ivory);
+  border-radius: 12px;
+  box-shadow: none;
+  transition: all 0.25s ease;
+}
+
+/* Remove Bootstrap blue focus */
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* Hover effect (like buttons) */
+.accordion-button:hover {
+  background: #1e1e1e;
+  box-shadow: 0 0 12px rgba(255, 92, 88, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Active / open state */
+.accordion-button:not(.collapsed) {
+  background: #1a1a1a;
+  color: var(--ivory);
+  box-shadow:
+    0 0 14px rgba(255, 92, 88, 0.35),
+    inset 0 0 0 1px rgba(255, 92, 88, 0.4);
+}
+
+/* Arrow icon color */
+.accordion-button::after {
+  filter: invert(1);
+}
+
+/* Accordion body */
+.accordion-body {
+  background: #161616;
+  color: var(--sand);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Accordion item spacing */
+.accordion-item {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+
  
   
  
