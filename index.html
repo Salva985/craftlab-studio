@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="api-base" content="http://localhost:5050">
     <title>
       CraftLab Studio — Handcrafted websites for creators & small brands
     </title>
@@ -61,22 +62,26 @@
         >
           <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
         </button>
+
+        <div class="ms-lg-3 d-flex align-items-center gap-2 lang-switch">
+          <button class="btn btn-outline-accent btn-sm" data-lang="en" type="button">EN</button>
+          <button class="btn btn-outline-accent btn-sm" data-lang="es" type="button">ES</button>
+          <button class="btn btn-outline-accent btn-sm" data-lang="it" type="button">IT</button>
+        </div>
+        
         <div class="collapse navbar-collapse" id="nav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-light" href="#services">Services</a>
+              <a class="nav-link text-light" href="#services" data-i18n="nav.services">Services</a>
             </li>
             <li class="nav-item">
-<!--               <a class="nav-link text-light" href="#work">Work</a>
- -->            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#process">Process</a>
+              <a class="nav-link text-light" href="#process" data-i18n="nav.process">Process</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#about">About</a>
+              <a class="nav-link text-light" href="#about" data-i18n="nav.about">About</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-accent ms-lg-3" href="#contact">Get a quote</a>
+              <a class="btn btn-accent ms-lg-3" href="#contact" data-i18n="nav.quote">Get a quote</a>
             </li>
           </ul>
         </div>
@@ -91,23 +96,20 @@
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-lg-7">
-            <h1 class="display-3 hero-title mb-5">
+            <h1 class="display-3 hero-title mb-5" data-i18n="hero.title">
               Handcrafted websites<br />for artists & small brands.
             </h1>
-            <p class="lead text-muted-ivory mb-4">
+            <p class="lead text-muted-ivory mb-4" data-i18n="hero.subtitle">
               Built by one person, not an agency. Modern, minimal, and made to
               convert.
             </p>
             <div class="d-flex gap-3">
-<!--               <a href="#work" class="btn btn-accent btn-lg">See my work</a>
- -->              <a href="#contact" class="btn btn-outline-accent btn-lg"
-                >Get a quote</a
-              >
+             <a href="#contact" class="btn btn-outline-accent btn-lg" data-i18n="hero.ctaQuote">Get a quote</a>
             </div>
-            <div class="d-flex gap-3 mt-4 small text-muted-ivory">
-              <span>Fast delivery</span>·<span>Mobile-first</span>·<span
-                >SEO-ready</span
-              >
+             <div class="d-flex gap-3 mt-4 small text-muted-ivory">
+              <span data-i18n="hero.fast">Fast delivery</span>·
+              <span data-i18n="hero.mobile">Mobile-first</span>·
+              <span data-i18n="hero.seo">SEO-ready</span>
             </div>
           </div>
           <div
@@ -129,50 +131,46 @@
       <div class="container">
         <div class="row mb-4">
           <div class="col-lg-8">
-            <h2 class="section-title">Services</h2>
-            <p class="text-muted-ivory">
+            <h2 class="section-title" data-i18n="services.title">Services</h2>
+            <p class="text-muted-ivory" data-i18n="services.subtitle">
               Choose your starting point — we’ll tailor it to your brand.
             </p>
           </div>
         </div>
-
+    
         <div class="row g-4">
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 service-card">
               <div class="card-body">
-                <h3 class="h4 mb-4">Launch Page</h3>
-                <p class="text-muted-ivory">
+                <h3 class="h4 mb-4" data-i18n="services.launch.title">Launch Page</h3>
+                <p class="text-muted-ivory" data-i18n="services.launch.desc">
                   1-page site, contact form, basic SEO. 5–7 days.
                 </p>
-                <a href="#packages" class="btn btn-outline-accent btn-sm"
-                  >Get info</a
-                >
+                <a href="#packages" class="btn btn-outline-accent btn-sm" data-i18n="services.getInfo">Get info</a>
               </div>
             </div>
           </div>
+    
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 service-card">
               <div class="card-body">
-                <h3 class="h4 mb-4">Starter Website</h3>
-                <p class="text-muted-ivory">
+                <h3 class="h4 mb-4" data-i18n="services.starter.title">Starter Website</h3>
+                <p class="text-muted-ivory" data-i18n="services.starter.desc">
                   3–5 pages, mobile-first, SEO, hosting setup. 10–14 days.
                 </p>
-                <a href="#packages" class="btn btn-outline-accent btn-sm"
-                  >Get info</a
-                >
+                <a href="#packages" class="btn btn-outline-accent btn-sm" data-i18n="services.getInfo">Get info</a>
               </div>
             </div>
           </div>
+    
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 service-card">
               <div class="card-body">
-                <h3 class="h4 mb-4">Creator Site</h3>
-                <p class="text-muted-ivory">
+                <h3 class="h4 mb-4" data-i18n="services.creator.title">Creator Site</h3>
+                <p class="text-muted-ivory" data-i18n="services.creator.desc">
                   Portfolio/gallery, embeds, analytics. 14–21 days.
                 </p>
-                <a href="#packages" class="btn btn-outline-accent btn-sm"
-                  >Get info</a
-                >
+                <a href="#packages" class="btn btn-outline-accent btn-sm" data-i18n="services.getInfo">Get info</a>
               </div>
             </div>
           </div>
@@ -186,8 +184,8 @@
       <div class="container">
         <div class="row mb-4">
           <div class="col-lg-8">
-            <h2 class="section-title">Packages & Details</h2>
-            <p class="text-muted-ivory">
+            <h2 class="section-title" data-i18n="packages.title">Packages & Details</h2>
+            <p class="text-muted-ivory" data-i18n="packages.subtitle">
               What’s included, timelines, and how we’ll work together.
             </p>
           </div>
@@ -195,113 +193,107 @@
 
         <div class="accordion" id="packageAccordion">
           <!-- Launch Page -->
-          <div
-            class="accordion-item bg-darker text-light border-0 mb-3 rounded-3"
-          >
-            <h2 class="accordion-header">
+          <div class="accordion-item bg-darker text-light border-0 mb-3 rounded-3">
+            <h2 class="accordion-header" id="headingLaunch">
               <button
                 class="accordion-button collapsed bg-darker text-light"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#pkgLaunch"
+                aria-expanded="false"
+                aria-controls="pkgLaunch"
               >
-                Launch Page — 1-page site
+                <span data-i18n="packages.launch.header">Launch Page — 1 page site</span>
               </button>
             </h2>
+        
             <div
               id="pkgLaunch"
               class="accordion-collapse collapse"
+              aria-labelledby="headingLaunch"
               data-bs-parent="#packageAccordion"
             >
               <div class="accordion-body">
                 <ul class="mb-3">
-                  <li>Hero, About, Services, Contact form</li>
-                  <li>Mobile-first, fast load, basic SEO (titles, meta, OG)</li>
-                  <li>1 revision round · Delivery 4–6 days</li>
+                  <li data-i18n="packages.launch.li1">Hero, About, Services, Contact form</li>
+                  <li data-i18n="packages.launch.li2">Mobile-first, fast load, basic SEO (titles, meta, OG)</li>
+                  <li data-i18n="packages.launch.li3">1 revision round · Delivery 4–6 days</li>
                 </ul>
+        
                 <div class="d-flex gap-2">
-                  <a href="#contact" class="btn btn-accent"
-                    >Start this package</a
-                  >
-                  <a href="#work" class="btn btn-outline-accent"
-                    >See examples</a
-                  >
+                  <a href="#contact" class="btn btn-accent" data-i18n="packages.start">Start this package</a>
                 </div>
               </div>
             </div>
           </div>
-
+        
           <!-- Starter Website -->
-          <div
-            class="accordion-item bg-darker text-light border-0 mb-3 rounded-3"
-          >
-            <h2 class="accordion-header">
+          <div class="accordion-item bg-darker text-light border-0 mb-3 rounded-3">
+            <h2 class="accordion-header" id="headingStarter">
               <button
                 class="accordion-button collapsed bg-darker text-light"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#pkgStarter"
+                aria-expanded="false"
+                aria-controls="pkgStarter"
               >
-                Starter Website — 3–5 pages
+                <span data-i18n="packages.starter.header">Starter Website — 3–5 pages</span>
               </button>
             </h2>
+        
             <div
               id="pkgStarter"
               class="accordion-collapse collapse"
+              aria-labelledby="headingStarter"
               data-bs-parent="#packageAccordion"
             >
               <div class="accordion-body">
                 <ul class="mb-3">
-                  <li>Home, About, Services, Contact (+ map/form)</li>
-                  <li>Hosting & domain setup guidance, basic analytics</li>
-                  <li>2 revision rounds · Delivery 7–10 days</li>
-                  <li>Add-on: blog or extra page anytime</li>
+                  <li data-i18n="packages.starter.li1">Home, About, Services, Contact (+ map/form)</li>
+                  <li data-i18n="packages.starter.li2">Hosting & domain setup guidance, basic analytics</li>
+                  <li data-i18n="packages.starter.li3">2 revision rounds · Delivery 7–10 days</li>
+                  <li data-i18n="packages.starter.li4">Add-on: blog or extra page anytime</li>
                 </ul>
+        
                 <div class="d-flex gap-2">
-                  <a href="#contact" class="btn btn-accent"
-                    >Start this package</a
-                  >
-                  <a href="#work" class="btn btn-outline-accent"
-                    >See examples</a
-                  >
+                  <a href="#contact" class="btn btn-accent" data-i18n="packages.start">Start this package</a>
                 </div>
               </div>
             </div>
           </div>
-
+        
           <!-- Creator Site -->
-          <div
-            class="accordion-item bg-darker text-light border-0 mb-3 rounded-3"
-          >
-            <h2 class="accordion-header">
+          <div class="accordion-item bg-darker text-light border-0 mb-3 rounded-3">
+            <h2 class="accordion-header" id="headingCreator">
               <button
                 class="accordion-button collapsed bg-darker text-light"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#pkgCreator"
+                aria-expanded="false"
+                aria-controls="pkgCreator"
               >
-                Creator Site — portfolio or gallery
+                <span data-i18n="packages.creator.header">Creator Site — portfolio or gallery</span>
               </button>
             </h2>
+        
             <div
               id="pkgCreator"
               class="accordion-collapse collapse"
+              aria-labelledby="headingCreator"
               data-bs-parent="#packageAccordion"
             >
               <div class="accordion-body">
                 <ul class="mb-3">
-                  <li>Portfolio grid or gallery, embeds (YouTube/Spotify)</li>
-                  <li>Performance tweaks, basic SEO, analytics</li>
-                  <li>2 revision rounds · Delivery 10–14 days</li>
-                  <li>Optional: CMS later (Notion/Headless/WordPress)</li>
+                  <li data-i18n="packages.creator.li1">Portfolio grid or gallery, embeds (YouTube/Spotify)</li>
+                  <li data-i18n="packages.creator.li2">Performance tweaks, basic SEO, analytics</li>
+                  <li data-i18n="packages.creator.li3">2 revision rounds · Delivery 10–14 days</li>
+                  <li data-i18n="packages.creator.li4">Optional: CMS later (Notion/Headless/WordPress)</li>
                 </ul>
+        
                 <div class="d-flex gap-2">
-                  <a href="#contact" class="btn btn-accent"
-                    >Start this package</a
-                  >
-                  <a href="#work" class="btn btn-outline-accent"
-                    >See examples</a
-                  >
+                  <a href="#contact" class="btn btn-accent" data-i18n="packages.start">Start this package</a>
                 </div>
               </div>
             </div>
@@ -378,11 +370,11 @@
 
     <section class="py-6 bg-darker reveal">
       <div class="container">
-        <h2 class="section-title">Why CraftLab</h2>
+        <h2 class="section-title" data-i18n="why.title">Why CraftLab</h2>
         <div class="row g-4">
-          <div class="col-md-4">Fast delivery (7–14 days)</div>
-          <div class="col-md-4">Built by a developer, not templates</div>
-          <div class="col-md-4">Mobile-first & SEO-ready</div>
+          <div class="col-md-4" data-i18n="why.a">Fast delivery (7–14 days)</div>
+          <div class="col-md-4" data-i18n="why.b">Built by a developer, not templates</div>
+          <div class="col-md-4" data-i18n="why.c">Mobile-first & SEO-ready</div>
         </div>
       </div>
     </section>
@@ -392,45 +384,37 @@
       <div class="container">
         <div class="row mb-4">
           <div class="col-lg-8">
-            <h2 class="section-title">Process</h2>
-            <p class="text-muted-ivory">Simple, clear, and collaborative.</p>
+            <h2 class="section-title" data-i18n="process.title">Process</h2>
+            <p class="text-muted-ivory" data-i18n="process.subtitle">Simple, clear, and collaborative.</p>
           </div>
         </div>
         <div class="row g-4">
           <div class="col-md-6 col-lg-3">
             <div class="step-card">
               <div class="step-num">1</div>
-              <div class="fw-semibold">Brief & mood</div>
-              <div class="small text-muted-ivory">
-                Quick call + examples you love
-              </div>
+                <div class="fw-semibold" data-i18n="process.s1.title">Brief & mood</div>
+                  <div class="small text-muted-ivory" data-i18n="process.s1.desc">Quick call + examples you love</div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="step-card">
               <div class="step-num">2</div>
-              <div class="fw-semibold">Design draft</div>
-              <div class="small text-muted-ivory">
-                Hero, palette, type scale
-              </div>
+              <div class="fw-semibold" data-i18n="process.s2.title">Design draft</div>
+              <div class="small text-muted-ivory" data-i18n="process.s2.desc">Hero, palette, type scale</div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="step-card">
               <div class="step-num">3</div>
-              <div class="fw-semibold">Build & iterate</div>
-              <div class="small text-muted-ivory">
-                Responsive, fast, accessible
-              </div>
+              <div class="fw-semibold" data-i18n="process.s3.title">Build & iterate</div>
+              <div class="small text-muted-ivory" data-i18n="process.s3.desc">Responsive, fast, accessible</div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="step-card">
               <div class="step-num">4</div>
-              <div class="fw-semibold">Launch & handoff</div>
-              <div class="small text-muted-ivory">
-                Domain, analytics, support
-              </div>
+              <div class="fw-semibold" data-i18n="process.s4.title">Launch & handoff</div>
+              <div class="small text-muted-ivory" data-i18n="process.s4.desc">Domain, analytics, support</div>
             </div>
           </div>
         </div>
@@ -442,16 +426,17 @@
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
-            <h2 class="section-title">Studio, not agency.</h2>
-            <p class="text-muted-ivory">
+            <h2 class="section-title" data-i18n="about.title">Studio, not agency.</h2>
+
+            <p class="text-muted-ivory" data-i18n="about.body">
               CraftLab Studio is a one-person creative lab in Barcelona. I build
               websites for artists, creators, and small brands. Minimal, fast,
               and handcrafted — no templates, no fluff.
             </p>
             <ul class="list-inline small text-muted-ivory">
-              <li class="list-inline-item">Stack: Bootstrap · React · Node</li>
-              <li class="list-inline-item">Languages: EN · ES · IT</li>
-              <li class="list-inline-item">Invoices via cooperative</li>
+              <li class="list-inline-item" data-i18n="about.stack">Stack: HTML · CSS · JavaScript</li>
+              <li class="list-inline-item" data-i18n="about.langs">Languages: EN · ES · IT</li>
+              <li class="list-inline-item" data-i18n="about.invoice">Invoices via cooperative</li>
             </ul>
           </div>
           <div class="col-lg-6">
@@ -472,8 +457,8 @@
       <div class="container">
         <div class="row mb-4">
           <div class="col-lg-8">
-            <h2 class="section-title">Let’s build something real</h2>
-            <p class="text-muted-ivory">
+            <h2 class="section-title" data-i18n="contact.title">Let’s build something real</h2>
+            <p class="text-muted-ivory" data-i18n="contact.subtitle">
               Tell me about your project. I’ll reply within 24–48 hours.
             </p>
           </div>
@@ -482,41 +467,45 @@
         <form id="contactForm" class="row g-3" novalidate>
           
           <div class="col-md-6">
-            <label class="form-label">Name</label>
-            <input
-              type="text"
-              name="name"
-              class="form-control bg-black border-secondary text-light"
-              required
-            />
+            <label class="form-label" data-i18n="contact.nameLabel">Name</label>
+            <input   
+            type="text"
+            name="name"
+            class="form-control bg-black border-secondary text-light"
+            data-i18n-placeholder="contact.namePh"
+            placeholder="Your name"
+            required 
+            data-i18n-placeholder="contact.namePh" placeholder="Your name" />
           </div>
           <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input
-              type="email"
-              name="email"
-              class="form-control bg-black border-secondary text-light"
-              required
-            />
+            <label class="form-label" data-i18n="contact.emailLabel">Email</label>
+            <input 
+            type="text"
+            name="name"
+            class="form-control bg-black border-secondary text-light"
+            data-i18n-placeholder="contact.namePh"
+            placeholder="Your name"
+            required
+            data-i18n-placeholder="contact.emailPh" placeholder="you@email.com" />
           </div>
           <div class="col-12">
-            <label class="form-label">Brand / Project</label>
-            <input
-              type="text"
-              name="brand"
-              class="form-control bg-black border-secondary text-light"
-            />
+            <label class="form-label" data-i18n="contact.brandLabel">Brand / Project</label>
+            <input 
+            type="text"
+            name="name"
+            class="form-control bg-black border-secondary text-light"
+            data-i18n-placeholder="contact.namePh"
+            placeholder="Your name"
+            required
+            data-i18n-placeholder="contact.brandPh" placeholder="e.g. DJ booking page" />
           </div>
           <div class="col-md-6">
-            <label class="form-label">Budget</label>
-            <select
-              name="budget"
-              class="form-select bg-black border-secondary text-light"
-            >
-              <option value="under-400">Under €400</option>
-              <option value="400-800">€400–800</option>
-              <option value="800-1200">€800–1,200</option>
-              <option value="1200-plus">€1,200+</option>
+            <label class="form-label" data-i18n="contact.budgetLabel">Budget</label>
+            <select name="budget" class="form-select bg-black border-secondary text-light">
+              <option value="under-400" data-i18n="contact.budget.under">Under €400</option>
+              <option value="400-800" data-i18n="contact.budget.mid">€400–€800</option>
+              <option value="800-1200" data-i18n="contact.budget.high">€800–€1,200</option>
+              <option value="1200-plus" data-i18n="contact.budget.plus">+€1,200</option>
             </select>
           </div>
           <div class="col-12">
@@ -529,12 +518,11 @@
             ></textarea>
           </div>
           <div class="col-12">
-            <button id="contactBtn" class="btn btn-accent btn-lg" type="submit">
-              Send
-            </button>
+            <button id="contactBtn" ... data-i18n="contact.send">Send</button>
+
             <div id="contactStatus" class="form-status mt-2"></div>
           </div>
-          <p class="small text-muted mt-2">
+          <p class="small text-muted mt-2" data-i18n="contact.note">
             Invoices via cooperative. 50% to start, 50% on delivery.
           </p>
         </form>
@@ -547,15 +535,15 @@
         class="container small d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
       >
         <div>
-          © <span id="y"></span> CraftLab Studio — Built by hand. Designed with
+          © <span id="y"></span data-i18n="footer.tagline"> CraftLab Studio — Built by hand. Designed with
           soul.
         </div>
         <div class="d-flex gap-3">
           <a href="privacy.html" class="link-light text-decoration-none">Privacy</a>
           <a href="cookies.html" class="link-light text-decoration-none">Cookies</a>          <a
-            href="mailto:hello@craftlab-studio.com"
+            href="mailto:info@craftlab-studio.com"
             class="link-light text-decoration-none"
-            >hello@craftlab-studio.com</a
+            >info@craftlab-studio.com</a
           >
         </div>
       </div>
@@ -572,7 +560,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content bg-darker text-light border border-secondary rounded-3">
             <div class="modal-header border-secondary">
-              <h5 class="modal-title" id="cookieModalLabel">Cookies</h5>
+              <h5 class="modal-title" id="cookieModalLabel" data-i18n="cookie.title">Cookies</h5>
               <button
                 type="button"
                 class="btn-close btn-close-white"
@@ -581,7 +569,7 @@
               ></button>
             </div>
   
-            <div class="modal-body text-muted-ivory">
+            <div class="modal-body text-muted-ivory" data-i18n="cookie.body">
               We use cookies to improve your experience. You can accept all cookies or reject non-essential ones.
               <div class="mt-3 small">
                 <a href="privacy.html" class="link-light">Privacy</a>
@@ -591,12 +579,8 @@
             </div>
   
             <div class="modal-footer border-secondary d-flex gap-2">
-              <button type="button" class="btn btn-outline-accent" id="cookieReject">
-                Reject
-              </button>
-              <button type="button" class="btn btn-accent" id="cookieAccept">
-                Accept
-              </button>
+              <button ... id="cookieReject" data-i18n="cookie.reject">Reject</button>
+              <button ... id="cookieAccept" data-i18n="cookie.accept">Accept</button>
             </div>
           </div>
         </div>

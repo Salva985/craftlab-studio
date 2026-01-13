@@ -275,68 +275,52 @@ section + section {
     border-top: 1px solid rgba(255,255,255,.06);
   }
 
-  /* === ACCORDION (Packages & Details) === */
+ /* === ACCORDION (Packages) – scoped & consistent === */
+#packages .accordion-item{
+  background: transparent;
+  border: 0;
+}
 
-/* Base accordion button */
-.accordion-button {
-  background: #181818;
+#packages .accordion-button{
+  background: #1A1A1A;
   color: var(--ivory);
-  border-radius: 12px;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px !important;
   box-shadow: none;
-  transition: all 0.25s ease;
+  padding: 14px 18px;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
-/* Remove Bootstrap blue focus */
-.accordion-button:focus {
+#packages .accordion-button:focus{
   box-shadow: none;
-  border-color: transparent;
+  border-color: var(--neon);
 }
 
-/* Hover effect (like buttons) */
-.accordion-button:hover {
-  background: #1e1e1e;
-  box-shadow: 0 0 12px rgba(255, 92, 88, 0.35);
+#packages .accordion-button:hover{
+  box-shadow: 0 0 12px rgba(185,255,102,.35);
   transform: translateY(-1px);
+  border-color: var(--lime);
 }
 
-/* Active / open state */
-.accordion-button:not(.collapsed) {
-  background: #1a1a1a;
+#packages .accordion-button:not(.collapsed){
+  background: #1A1A1A;
   color: var(--ivory);
-  box-shadow:
-    0 0 14px rgba(255, 92, 88, 0.35),
-    inset 0 0 0 1px rgba(255, 92, 88, 0.4);
+  border-color: var(--neon);
+  box-shadow: 0 0 12px rgba(255,92,88,.25);
 }
 
-/* Arrow icon color */
-.accordion-button::after {
+/* chevron */
+#packages .accordion-button::after{
   filter: invert(1);
+  opacity: .85;
 }
 
-/* Accordion body */
-.accordion-body {
-  background: #161616;
+/* body panel */
+#packages .accordion-body{
+  background: #1A1A1A;
   color: var(--sand);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 10px;
 }
-
-/* Accordion item spacing */
-.accordion-item {
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-/* Cookie modal: keep it on-brand */
-#cookieModal .modal-title {
-  font-family: "Bebas Neue", system-ui, sans-serif;
-  letter-spacing: .5px;
-}
-
-#cookieModal .modal-content {
-  box-shadow: 0 0 24px rgba(255, 92, 88, 0.18);
-}
-
-
- 
-  
- 

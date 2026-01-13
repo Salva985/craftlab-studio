@@ -3,59 +3,87 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Privacy Policy — CraftLab Studio</title>
+  <title data-i18n="privacy.metaTitle">Privacy Policy — CraftLab Studio</title>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body class="bg-dark text-light">
+
+  <!-- NAV -->
   <nav class="navbar bg-black border-bottom border-secondary">
-    <div class="container-fluid px-3 px-lg-4">
-      <a class="navbar-brand text-light text-decoration-none" href="index.html">← Back</a>
+    <div class="container-fluid px-3 px-lg-4 d-flex justify-content-between">
+      <a
+        class="navbar-brand text-light text-decoration-none"
+        href="index.html"
+        data-i18n="privacy.back"
+      >
+        ← Back
+      </a>
+
+      <!-- Language switch (same as main site) -->
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-accent btn-sm" data-lang="en">EN</button>
+        <button class="btn btn-outline-accent btn-sm" data-lang="es">ES</button>
+        <button class="btn btn-outline-accent btn-sm" data-lang="it">IT</button>
+      </div>
     </div>
   </nav>
 
+  <!-- CONTENT -->
   <main class="container py-6">
-    <h1 class="section-title">Privacy Policy</h1>
-    <p class="text-muted-ivory mt-3">
+    <h1 class="section-title" data-i18n="privacy.title">Privacy Policy</h1>
+
+    <p class="text-muted-ivory mt-3" data-i18n="privacy.intro">
       CraftLab Studio is a one-person studio. This website collects personal data only when you submit the contact form.
     </p>
 
-    <h2 class="h4 mt-4">What data we collect</h2>
+    <h2 class="h4 mt-4" data-i18n="privacy.collectTitle">What data we collect</h2>
     <ul class="text-muted-ivory">
-      <li>Name</li>
-      <li>Email</li>
-      <li>Message content and optional project details</li>
+      <li data-i18n="privacy.collect.li1">Name</li>
+      <li data-i18n="privacy.collect.li2">Email</li>
+      <li data-i18n="privacy.collect.li3">Message content and optional project details</li>
     </ul>
 
-    <h2 class="h4 mt-4">Why we collect it</h2>
-    <p class="text-muted-ivory">
+    <h2 class="h4 mt-4" data-i18n="privacy.why.title">Why we collect it</h2>
+    <p class="text-muted-ivory" data-i18n="privacy.why.body">
       We use it only to reply to your enquiry and discuss your project.
     </p>
 
-    <h2 class="h4 mt-4">Data retention</h2>
-    <p class="text-muted-ivory">
+    <h2 class="h4 mt-4" data-i18n="privacy.retention.title">Data retention</h2>
+    <p class="text-muted-ivory" data-i18n="privacy.retention.body">
       Messages are kept only as long as needed for communication and project administration.
     </p>
 
-    <h2 class="h4 mt-4">Third parties</h2>
-    <p class="text-muted-ivory">
-      The contact form may use an email delivery provider (to send the message to our inbox). No marketing lists.
+    <h2 class="h4 mt-4" data-i18n="privacy.third.title">Third parties</h2>
+    <p class="text-muted-ivory" data-i18n="privacy.third.body">
+      The contact form may use an email delivery provider to send messages to our inbox. No marketing lists are used.
     </p>
 
-    <h2 class="h4 mt-4">Your rights</h2>
-    <p class="text-muted-ivory">
+    <h2 class="h4 mt-4" data-i18n="privacy.rights.title">Your rights</h2>
+    <p class="text-muted-ivory" data-i18n="privacy.rights.body">
       You can request access, correction, or deletion of your data by emailing:
-      <a class="link-light" href="mailto:hello@craftlab-studio.com">hello@craftlab-studio.com</a>
+      <a class="link-light" href="mailto:hello@craftlab-studio.com">
+        hello@craftlab-studio.com
+      </a>
     </p>
 
     <p class="small text-muted mt-5">
-      Last updated: <span id="d"></span>
+      <span data-i18n="privacy.updated">Last updated:</span>
+      <span id="d"></span>
     </p>
   </main>
 
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
   <script>
-    document.getElementById("d").textContent = new Date().toISOString().slice(0,10);
+    document.getElementById("d").textContent =
+      new Date().toISOString().slice(0, 10);
   </script>
+
 </body>
 </html>
