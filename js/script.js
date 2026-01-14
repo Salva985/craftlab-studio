@@ -512,7 +512,7 @@ function applyLang(lang) {
 }
 
 function getApiBase() {
-  return document.querySelector('meta[name="api-base"]')?.content?.trim() || "";
+  return "https://craftlab-studio-backend.onrender.com";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -567,7 +567,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-  // Parallax glow (optional)
+  // Parallax glow 
   const glow = document.querySelector(".neon-glow");
   if (glow) {
     document.addEventListener("mousemove", (e) => {
