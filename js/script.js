@@ -1,4 +1,4 @@
-console.log("script.js loaded ✅");
+
 
 // =========================
 // i18n (EN/ES/IT)
