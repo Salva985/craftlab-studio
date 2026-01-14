@@ -47,14 +47,7 @@ async function createTransporter() {
     })
   }
 
-  // Default: Ethereal test inbox (no real email needed)
-  const testAccount = await nodemailer.createTestAccount()
-  return nodemailer.createTransport({
-    host: testAccount.smtp.host,
-    port: testAccount.smtp.port,
-    secure: testAccount.smtp.secure,
-    auth: { user: testAccount.user, pass: testAccount.pass }
-  })
+  return nodemailer.createTransport({ jsonTransport: true })
 }
 
 app.post('/api/contact', async (req, res) => {
@@ -98,10 +91,7 @@ app.post('/api/contact', async (req, res) => {
       text
     })
 
-    // In test mode show preview URL
-    const preview = nodemailer.getTestMessageUrl(info)
-
-    return res.json({ ok: true, preview })
+    return res.json({ ok: true })
   } catch (err) {
     console.error(err)
     return res.status(500).json({ ok: false, error: 'Server error. Try again later.' })
