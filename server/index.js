@@ -67,9 +67,8 @@ app.post("/api/contact", async (req, res) => {
     const { name, email, brand, budget, message, website, company } =
       req.body || {};
 
-    // Honeypot (bots fill hidden fields)
     if (website || company) {
-      return res.status(200).json({ ok: true }); // pretend success
+      return res.status(200).json({ ok: true });
     }
 
     if (!name || typeof name !== "string" || name.trim().length < 2) {
@@ -88,12 +87,26 @@ app.post("/api/contact", async (req, res) => {
         .json({ ok: false, error: "Message must be at least 10 characters." });
     }
 
+    const mode = (process.env.MAIL_MODE || "test").toLowerCase();
+
+    if (mode === "test") {
+      console.log("✅ CONTACT FORM (TEST MODE):", {
+        name,
+        email,
+        brand,
+        budget,
+        message,
+      });
+      return res.json({ ok: true, mode: "test" });
+    }
+
     const transporter = await createTransporter();
 
-    const mode = (process.env.MAIL_MODE || "test").toLowerCase();
-    const mailTo =
-      mode === "smtp" ? process.env.MAIL_TO || "" : "test@ethereal.email";
-
+    const mailTo = process.env.MAIL_TO || "";
+    if (!mailTo) {
+      return res.status(500).json({ ok: false, error: "MAIL_TO missing on server." });
+    }
+    
     const subject = `CraftLab Contact — ${name} (${email})`;
     const text = [
       `Name: ${name}`,
