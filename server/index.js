@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 10000;
 // ---------- CORS ----------
 const CORS_ORIGINS = (process.env.CORS_ORIGINS || "")
   .split(",")
-  .map(s => s.trim())
+  .map((s) => s.trim())
   .filter(Boolean);
 
 app.use(
@@ -29,8 +29,7 @@ app.get("/health", (_, res) => res.json({ ok: true }));
 
 // ---------- HELPERS ----------
 function isEmail(value) {
-  return typeof value === "string" &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 async function createTransporter() {
@@ -43,7 +42,11 @@ async function createTransporter() {
   }
 
   // SMTP MODE (production)
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+  if (
+    !process.env.SMTP_HOST ||
+    !process.env.SMTP_USER ||
+    !process.env.SMTP_PASS
+  ) {
     throw new Error("SMTP config missing (SMTP_HOST / SMTP_USER / SMTP_PASS)");
   }
 
@@ -59,6 +62,13 @@ async function createTransporter() {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
+    // avoid long hanging requests
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+
+    logger: true,
+    debug: true,
   });
 }
 
@@ -70,7 +80,8 @@ app.post("/api/contact", async (req, res) => {
   console.log("MAIL_TO:", process.env.MAIL_TO);
 
   try {
-    const { name, email, brand, budget, message, website, company } = req.body || {};
+    const { name, email, brand, budget, message, website, company } =
+      req.body || {};
 
     // Honeypot
     if (website || company) {
@@ -90,6 +101,9 @@ app.post("/api/contact", async (req, res) => {
 
     const transporter = await createTransporter();
 
+    await transporter.verify();
+    console.log("✅ SMTP verify OK");
+
     const mailTo = process.env.MAIL_TO;
     if (!mailTo) {
       throw new Error("MAIL_TO not defined");
@@ -97,7 +111,8 @@ app.post("/api/contact", async (req, res) => {
 
     // ---------- ADMIN EMAIL ----------
     const adminMail = await transporter.sendMail({
-      from: process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
+      from:
+        process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
       to: mailTo,
       replyTo: email,
       subject: `CraftLab Contact — ${name}`,
@@ -120,7 +135,8 @@ ${message}
 
     // ---------- AUTOREPLY ----------
     const autoReply = await transporter.sendMail({
-      from: process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
+      from:
+        process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
       to: email,
       subject: "✅ Message received — CraftLab Studio",
       text: `Hi ${name},
@@ -149,7 +165,6 @@ I received your message and I’ll reply within 24–48 hours.
         rejected: autoReply.rejected,
       },
     });
-
   } catch (err) {
     console.error("❌ CONTACT ERROR:", err);
     return res.status(500).json({
