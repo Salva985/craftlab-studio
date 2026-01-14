@@ -4,19 +4,18 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 
 const app = express();
+const PORT = process.env.PORT || 10000;
 
-const PORT = process.env.PORT || 5050;
+// ---------- CORS ----------
 const CORS_ORIGINS = (process.env.CORS_ORIGINS || "")
   .split(",")
-  .map((s) => s.trim())
+  .map(s => s.trim())
   .filter(Boolean);
 
-// CORS
 app.use(
   cors({
     origin: (origin, cb) => {
-      // allow tools like curl/postman (no origin)
-      if (!origin) return cb(null, true);
+      if (!origin) return cb(null, true); // curl/postman
       if (CORS_ORIGINS.includes(origin)) return cb(null, true);
       return cb(new Error(`CORS blocked for origin: ${origin}`));
     },
@@ -25,125 +24,143 @@ app.use(
 
 app.use(express.json({ limit: "200kb" }));
 
+// ---------- HEALTH ----------
 app.get("/health", (_, res) => res.json({ ok: true }));
 
+// ---------- HELPERS ----------
 function isEmail(value) {
-  return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  return typeof value === "string" &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 async function createTransporter() {
   const mode = (process.env.MAIL_MODE || "test").toLowerCase();
 
-  // TEST: no external network, no real email — just returns the email as JSON
+  // TEST MODE (no emails sent)
   if (mode === "test") {
+    console.log("📨 MAIL_MODE=test → JSON transport");
     return nodemailer.createTransport({ jsonTransport: true });
   }
 
-  // SMTP: real email sending
-  if (mode === "smtp") {
-    if (
-      !process.env.SMTP_HOST ||
-      !process.env.SMTP_USER ||
-      !process.env.SMTP_PASS
-    ) {
-      throw new Error(
-        "SMTP config missing. Fill SMTP_HOST/SMTP_USER/SMTP_PASS in .env"
-      );
-    }
-
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: String(process.env.SMTP_SECURE || "false") === "true",
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-    });
+  // SMTP MODE (production)
+  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    throw new Error("SMTP config missing (SMTP_HOST / SMTP_USER / SMTP_PASS)");
   }
 
-  return nodemailer.createTransport({ jsonTransport: true });
+  console.log("📨 MAIL_MODE=smtp → SMTP transport");
+  console.log("SMTP HOST:", process.env.SMTP_HOST);
+  console.log("SMTP USER:", process.env.SMTP_USER);
+
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT || 587),
+    secure: String(process.env.SMTP_SECURE || "false") === "true",
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
 }
 
+// ---------- CONTACT ----------
 app.post("/api/contact", async (req, res) => {
-  try {
-    const { name, email, brand, budget, message, website, company } =
-      req.body || {};
+  console.log("➡️  /api/contact HIT", new Date().toISOString());
+  console.log("BODY:", req.body);
+  console.log("MAIL_MODE:", process.env.MAIL_MODE);
+  console.log("MAIL_TO:", process.env.MAIL_TO);
 
+  try {
+    const { name, email, brand, budget, message, website, company } = req.body || {};
+
+    // Honeypot
     if (website || company) {
-      return res.status(200).json({ ok: true });
+      return res.json({ ok: true });
     }
 
-    if (!name || typeof name !== "string" || name.trim().length < 2) {
-      return res
-        .status(400)
-        .json({ ok: false, error: "Please enter your name." });
+    // Validation
+    if (!name || name.trim().length < 2) {
+      return res.status(400).json({ ok: false, error: "Invalid name" });
     }
     if (!isEmail(email)) {
-      return res
-        .status(400)
-        .json({ ok: false, error: "Please enter a valid email." });
+      return res.status(400).json({ ok: false, error: "Invalid email" });
     }
-    if (!message || typeof message !== "string" || message.trim().length < 10) {
-      return res
-        .status(400)
-        .json({ ok: false, error: "Message must be at least 10 characters." });
-    }
-
-    const mode = (process.env.MAIL_MODE || "test").toLowerCase();
-
-    if (mode === "test") {
-      console.log("✅ CONTACT FORM (TEST MODE):", {
-        name,
-        email,
-        brand,
-        budget,
-        message,
-      });
-      return res.json({ ok: true, mode: "test" });
+    if (!message || message.trim().length < 10) {
+      return res.status(400).json({ ok: false, error: "Message too short" });
     }
 
     const transporter = await createTransporter();
 
-    const mailTo = process.env.MAIL_TO || "";
+    const mailTo = process.env.MAIL_TO;
     if (!mailTo) {
-      return res.status(500).json({ ok: false, error: "MAIL_TO missing on server." });
+      throw new Error("MAIL_TO not defined");
     }
-    
-    const subject = `CraftLab Contact — ${name} (${email})`;
-    const text = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Brand/Project: ${brand || "-"}`,
-      `Budget: ${budget || "-"}`,
-      `Message:\n${message}`,
-    ].join("\n");
 
-    const info = await transporter.sendMail({
-      from:
-        process.env.MAIL_FROM ||
-        "CraftLab Studio <no-reply@craftlab-studio.com>",
+    // ---------- ADMIN EMAIL ----------
+    const adminMail = await transporter.sendMail({
+      from: process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
       to: mailTo,
       replyTo: email,
-      subject,
-      text,
+      subject: `CraftLab Contact — ${name}`,
+      text: `
+Name: ${name}
+Email: ${email}
+Brand: ${brand || "-"}
+Budget: ${budget || "-"}
+Message:
+${message}
+      `.trim(),
     });
 
-    const modeNow = (process.env.MAIL_MODE || "test").toLowerCase();
+    console.log("📤 ADMIN MAIL RESULT:", {
+      messageId: adminMail.messageId,
+      accepted: adminMail.accepted,
+      rejected: adminMail.rejected,
+      response: adminMail.response,
+    });
 
-    let preview = null;
-    if (modeNow === "test") {
-      // jsonTransport puts the email content here
-      preview = info.message;
-    }
+    // ---------- AUTOREPLY ----------
+    const autoReply = await transporter.sendMail({
+      from: process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "✅ Message received — CraftLab Studio",
+      text: `Hi ${name},
 
-    return res.json({ ok: true, preview });
+Thanks for reaching out!
+I received your message and I’ll reply within 24–48 hours.
+
+— CraftLab Studio`,
+    });
+
+    console.log("📨 AUTOREPLY RESULT:", {
+      messageId: autoReply.messageId,
+      accepted: autoReply.accepted,
+      rejected: autoReply.rejected,
+    });
+
+    return res.json({
+      ok: true,
+      admin: {
+        accepted: adminMail.accepted,
+        rejected: adminMail.rejected,
+        response: adminMail.response,
+      },
+      autoreply: {
+        accepted: autoReply.accepted,
+        rejected: autoReply.rejected,
+      },
+    });
+
   } catch (err) {
-    console.error(err);
-    return res
-      .status(500)
-      .json({ ok: false, error: "Server error. Try again later." });
+    console.error("❌ CONTACT ERROR:", err);
+    return res.status(500).json({
+      ok: false,
+      error: err.message || "Server error",
+    });
   }
 });
 
+// ---------- START ----------
 app.listen(PORT, () => {
-  console.log(`✅ Contact API running on http://localhost:${PORT}`);
-  console.log(`✅ Health check: http://localhost:${PORT}/health`);
+  console.log(`✅ Contact API running on port ${PORT}`);
+  console.log(`✅ Health check: /health`);
 });
