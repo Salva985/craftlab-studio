@@ -61,47 +61,62 @@ async function createTransporter() {
   return nodemailer.createTransport({ jsonTransport: true });
 }
 
-// ---- ZeptoMail (recommended for Render)
-async function sendViaZepto({ to, fromEmail, subject, text, replyTo }) {
-  const url = process.env.ZEPTO_URL || "https://api.zeptomail.com/v1.1/as/email";
+async function sendViaZepto({ to, from, subject, text, replyTo }) {
+  const url = process.env.ZEPTO_URL || "https://api.zeptomail.eu/v1.1/pm/email";
   const token = process.env.ZEPTO_TOKEN;
 
   if (!token) throw new Error("ZEPTO_TOKEN missing on server.");
-  if (!to) throw new Error("TO missing for ZeptoMail.");
-  if (!fromEmail) throw new Error("FROM email missing for ZeptoMail.");
+  if (!to) throw new Error("MAIL_TO missing on server.");
+  if (!from) throw new Error("MAIL_FROM missing on server.");
 
+  const fromEmail = extractEmail(from);
+
+  // PM API expects these exact keys (case-sensitive)
   const payload = {
-    FromEmailAddress: fromEmail,
-    ReplyToAddresses: replyTo ? [replyTo] : undefined,
-    Destination: {
-      ToAddresses: [to],
-    },
-    Content: {
-      Simple: {
-        Subject: { Charset: "UTF-8", Data: subject },
-        Body: {
-          Text: { Charset: "UTF-8", Data: text },
-        },
-      },
-    },
+    From: fromEmail,
+    To: to,
+    Subject: subject,
+    // Use HtmlBody to avoid any encoding weirdness
+    HtmlBody: `<pre style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; white-space: pre-wrap;">${escapeHtml(text)}</pre>`,
   };
 
-  // ReplyToAddresses si no hay)
-  Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
+  if (replyTo) payload.ReplyTo = replyTo;
 
-  const resp = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Zoho-enczapikey ${token}`,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15_000);
 
-  const body = await resp.text();
-  if (!resp.ok) throw new Error(`ZeptoMail error ${resp.status}: ${body}`);
-  return body;
+  try {
+    const resp = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Zoho-enczapikey ${token}`,
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    });
+
+    const bodyText = await resp.text();
+
+    if (!resp.ok) {
+      // this will finally show the real Zepto error message in Render logs
+      throw new Error(`ZeptoMail error ${resp.status}: ${bodyText || resp.statusText}`);
+    }
+
+    return { ok: true, raw: bodyText };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function escapeHtml(str = "") {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function extractEmail(from) {
@@ -109,14 +124,6 @@ function extractEmail(from) {
   const match = String(from || "").match(/<([^>]+)>/);
   if (match?.[1]) return match[1];
   return String(from || "").trim();
-}
-
-function extractName(from) {
-  // "CraftLab Studio <...>" -> CraftLab Studio
-  const s = String(from || "");
-  const idx = s.indexOf("<");
-  if (idx > 0) return s.slice(0, idx).trim().replace(/^"|"$/g, "");
-  return "";
 }
 
 app.post("/api/contact", async (req, res) => {
