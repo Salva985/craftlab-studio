@@ -61,20 +61,30 @@ async function createTransporter() {
   return nodemailer.createTransport({ jsonTransport: true });
 }
 
+function extractEmail(from) {
+  // 'CraftLab Studio <info@craftlab-studio.com>' -> info@craftlab-studio.com
+  const match = String(from || "").match(/<([^>]+)>/);
+  if (match?.[1]) return match[1].trim();
+  return String(from || "").trim();
+}
+
+function extractName(from) {
+  // 'CraftLab Studio <...>' -> CraftLab Studio
+  const s = String(from || "");
+  const idx = s.indexOf("<");
+  if (idx > 0) return s.slice(0, idx).trim().replace(/^"|"$/g, "");
+  return "";
+}
+
 async function sendViaZepto({ to, from, subject, text, replyTo }) {
   const url = process.env.ZEPTO_URL || "https://api.zeptomail.eu/v1.1/pm/email";
   const token = process.env.ZEPTO_TOKEN;
-
-  const safeFrom =
-  from ||
-  process.env.MAIL_FROM ||
-  `CraftLab Studio <${process.env.MAIL_TO || "info@craftlab-studio.com"}>`;
 
   if (!token) throw new Error("ZEPTO_TOKEN missing on server.");
   if (!to) throw new Error("MAIL_TO missing on server.");
 
   const payload = {
-    from: { address: extractEmail(safeFrom), name: extractName(safeFrom) || "CraftLab Studio" },
+    from: { address: extractEmail(from), name: extractName(from) || "CraftLab Studio" },
     to: [{ email_address: { address: to } }],
     subject,
     textbody: text,
