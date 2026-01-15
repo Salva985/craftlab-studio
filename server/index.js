@@ -135,9 +135,6 @@ app.post("/api/contact", async (req, res) => {
   console.log("MAIL_FROM env raw:", JSON.stringify(process.env.MAIL_FROM));
   console.log("MAIL_FROM env len:", (process.env.MAIL_FROM || "").length);
 
-  console.log("mailFrom computed:", JSON.stringify(mailFrom));
-  console.log("mailFrom len:", (mailFrom || "").length);
-
   try {
     const { name, email, brand, budget, message, website, company } = req.body || {};
 
@@ -159,6 +156,9 @@ app.post("/api/contact", async (req, res) => {
     const mode = (process.env.MAIL_MODE || "test").toLowerCase();
     const mailTo = process.env.MAIL_TO || "";
     const mailFrom = process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER || "no-reply@craftlab-studio.com"}>`;
+
+    console.log("mailFrom computed:", JSON.stringify(mailFrom));
+    console.log("mailFrom len:", (mailFrom || "").length);
 
     const subjectOwner = `CraftLab Contact — ${name} (${email})`;
     const textOwner = [
