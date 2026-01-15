@@ -4,10 +4,11 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 
 const app = express();
-
 const PORT = process.env.PORT || 5050;
 
-// ---- CORS
+// --------------------
+// CORS
+// --------------------
 const CORS_ORIGINS = (process.env.CORS_ORIGINS || "")
   .split(",")
   .map((s) => s.trim())
@@ -27,38 +28,11 @@ app.use(express.json({ limit: "200kb" }));
 
 app.get("/health", (_, res) => res.json({ ok: true }));
 
+// --------------------
+// Helpers
+// --------------------
 function isEmail(value) {
   return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-// ---- SMTP transporter (local/dev only, NOT reliable on Render)
-async function createTransporter() {
-  const mode = (process.env.MAIL_MODE || "test").toLowerCase();
-
-  if (mode === "test") {
-    return nodemailer.createTransport({ jsonTransport: true });
-  }
-
-  if (mode === "smtp") {
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      throw new Error("SMTP config missing. Fill SMTP_HOST/SMTP_USER/SMTP_PASS in env.");
-    }
-
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: String(process.env.SMTP_SECURE || "false") === "true",
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-      // timeouts help you fail fast instead of hanging forever
-      connectionTimeout: 10_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 15_000,
-      logger: true,
-      debug: true,
-    });
-  }
-
-  return nodemailer.createTransport({ jsonTransport: true });
 }
 
 function extractEmail(from) {
@@ -76,24 +50,79 @@ function extractName(from) {
   return "";
 }
 
+function escapeHtml(str = "") {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+// --------------------
+// SMTP transporter (local/dev only)
+// --------------------
+async function createTransporter() {
+  const mode = (process.env.MAIL_MODE || "test").toLowerCase();
+
+  if (mode === "test") {
+    return nodemailer.createTransport({ jsonTransport: true });
+  }
+
+  if (mode === "smtp") {
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      throw new Error("SMTP config missing. Fill SMTP_HOST/SMTP_USER/SMTP_PASS in env.");
+    }
+
+    return nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      secure: String(process.env.SMTP_SECURE || "false") === "true",
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 15_000,
+      logger: true,
+      debug: true,
+    });
+  }
+
+  return nodemailer.createTransport({ jsonTransport: true });
+}
+
+// --------------------
+// ZeptoMail (recommended on Render)
+// IMPORTANT: ZEPTO_URL must be .../v1.1/md/email (not /email)
+// --------------------
 async function sendViaZepto({ to, from, subject, text, replyTo }) {
-  const url = process.env.ZEPTO_URL || "https://api.zeptomail.eu/v1.1/pm/email";
+  const url =
+    process.env.ZEPTO_URL || "https://api.zeptomail.eu/v1.1/md/email";
   const token = process.env.ZEPTO_TOKEN;
 
   if (!token) throw new Error("ZEPTO_TOKEN missing on server.");
   if (!to) throw new Error("MAIL_TO missing on server.");
+  if (!from) throw new Error("MAIL_FROM missing on server.");
+
+  const fromEmail = extractEmail(from);
+  const fromName = extractName(from) || "CraftLab Studio";
 
   const payload = {
-    from: { address: extractEmail(from), name: extractName(from) || "CraftLab Studio" },
-    to: [{ email_address: { address: to } }],
-    subject,
-    textbody: text,
+    message: {
+      subject,
+      from_email: fromEmail,
+      from_name: fromName,
+      to: [{ email: to, name: to, type: "to" }],
+      // send HTML (safe) so line breaks render properly
+      html: `<pre style="font-family: ui-monospace, Menlo, monospace; white-space: pre-wrap;">${escapeHtml(
+        text
+      )}</pre>`,
+    },
   };
 
-  if (replyTo) payload.reply_to = [{ address: replyTo }]
+  if (replyTo) payload.message.reply_to = replyTo;
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15_000);
+  const timeout = setTimeout(() => controller.abort(), 15000);
 
   try {
     const resp = await fetch(url, {
@@ -110,7 +139,8 @@ async function sendViaZepto({ to, from, subject, text, replyTo }) {
     const bodyText = await resp.text();
 
     if (!resp.ok) {
-      // this will finally show the real Zepto error message in Render logs
+      console.error("ZEPTO RESP STATUS:", resp.status);
+      console.error("ZEPTO RESP BODY:", bodyText);
       throw new Error(`ZeptoMail error ${resp.status}: ${bodyText || resp.statusText}`);
     }
 
@@ -120,32 +150,24 @@ async function sendViaZepto({ to, from, subject, text, replyTo }) {
   }
 }
 
-function escapeHtml(str = "") {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
+// --------------------
+// Route
+// --------------------
 app.post("/api/contact", async (req, res) => {
   console.log("➡️  /api/contact HIT", new Date().toISOString());
   console.log("BODY:", req.body);
   console.log("MAIL_MODE:", process.env.MAIL_MODE);
   console.log("MAIL_TO:", process.env.MAIL_TO);
-
-  console.log("MAIL_FROM env raw:", JSON.stringify(process.env.MAIL_FROM));
-  console.log("MAIL_FROM env len:", (process.env.MAIL_FROM || "").length);
+  console.log("MAIL_FROM:", process.env.MAIL_FROM);
+  console.log("ZEPTO_URL:", process.env.ZEPTO_URL);
 
   try {
     const { name, email, brand, budget, message, website, company } = req.body || {};
 
     // honeypot anti-bot
-    if (website || company) {
-      return res.status(200).json({ ok: true });
-    }
+    if (website || company) return res.status(200).json({ ok: true });
 
+    // validation
     if (!name || typeof name !== "string" || name.trim().length < 2) {
       return res.status(400).json({ ok: false, error: "Please enter your name." });
     }
@@ -157,11 +179,10 @@ app.post("/api/contact", async (req, res) => {
     }
 
     const mode = (process.env.MAIL_MODE || "test").toLowerCase();
-    const mailTo = process.env.MAIL_TO || "";
-    const mailFrom = process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER || "no-reply@craftlab-studio.com"}>`;
-
-    console.log("mailFrom computed:", JSON.stringify(mailFrom));
-    console.log("mailFrom len:", (mailFrom || "").length);
+    const mailTo = (process.env.MAIL_TO || "").trim();
+    const mailFrom =
+      (process.env.MAIL_FROM || "").trim() ||
+      `CraftLab Studio <${process.env.SMTP_USER || "no-reply@craftlab-studio.com"}>`;
 
     const subjectOwner = `CraftLab Contact — ${name} (${email})`;
     const textOwner = [
@@ -178,46 +199,46 @@ app.post("/api/contact", async (req, res) => {
       return res.json({ ok: true, mode: "test" });
     }
 
-    // ---- ZEPTO MODE (recommended on Render)
+    // ---- ZEPTO MODE
     if (mode === "zepto") {
-      const mailTo = process.env.MAIL_TO;
       if (!mailTo) return res.status(500).json({ ok: false, error: "MAIL_TO missing on server." });
-    
-      const fromEmail = "info@craftlab-studio.com";
-    
-      // 1) email para ti (owner)
+      if (!mailFrom) return res.status(500).json({ ok: false, error: "MAIL_FROM missing on server." });
+
+      // 1) email to you
       const r1 = await sendViaZepto({
         to: mailTo,
-        fromEmail,
+        from: mailFrom,
         subject: subjectOwner,
         text: textOwner,
         replyTo: email,
       });
-      console.log("✅ ZEPTO SENT (owner):", r1);
-    
-      // 2) autoreply para el usuario
+      console.log("✅ ZEPTO SENT (owner):", r1.raw);
+
+      // 2) auto-reply to user
       const subjectUser = "Thanks — I got your message (CraftLab Studio)";
-      const textUser = `Hi ${name},\n\nThanks for reaching out — I received your message and I’ll reply within 24–48 hours.\n\n— CraftLab Studio`;
-    
+      const textUser = [
+        `Hi ${name},`,
+        ``,
+        `Thanks for reaching out — I received your message and I’ll reply within 24–48 hours.`,
+        ``,
+        `— CraftLab Studio`,
+      ].join("\n");
+
       const r2 = await sendViaZepto({
         to: email,
-        fromEmail,
+        from: mailFrom,
         subject: subjectUser,
         text: textUser,
       });
-      console.log("✅ ZEPTO SENT (auto-reply):", r2);
-    
+      console.log("✅ ZEPTO SENT (auto-reply):", r2.raw);
+
       return res.json({ ok: true });
     }
 
-    // ---- SMTP MODE (works locally; Render likely times out)
-    if (!mailTo) {
-      return res.status(500).json({ ok: false, error: "MAIL_TO missing on server." });
-    }
+    // ---- SMTP MODE (local)
+    if (!mailTo) return res.status(500).json({ ok: false, error: "MAIL_TO missing on server." });
 
     const transporter = await createTransporter();
-
-    // verify (good for local debug)
     await transporter.verify();
     console.log("✅ SMTP verify OK");
 
@@ -239,7 +260,7 @@ app.post("/api/contact", async (req, res) => {
     return res.json({ ok: true });
   } catch (err) {
     console.error("❌ CONTACT ERROR:", err);
-    return res.status(500).json({ ok: false, error: "Server error. Try again later." });
+    return res.status(500).json({ ok: false, error: err.message || "Server error. Try again later." });
   }
 });
 
