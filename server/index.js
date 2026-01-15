@@ -65,22 +65,22 @@ async function sendViaZepto({ to, from, subject, text, replyTo }) {
   const url = process.env.ZEPTO_URL || "https://api.zeptomail.eu/v1.1/pm/email";
   const token = process.env.ZEPTO_TOKEN;
 
+  const safeFrom =
+  from ||
+  process.env.MAIL_FROM ||
+  `CraftLab Studio <${process.env.MAIL_TO || "info@craftlab-studio.com"}>`;
+
   if (!token) throw new Error("ZEPTO_TOKEN missing on server.");
   if (!to) throw new Error("MAIL_TO missing on server.");
-  if (!from) throw new Error("MAIL_FROM missing on server.");
 
-  const fromEmail = extractEmail(from);
-
-  // PM API expects these exact keys (case-sensitive)
   const payload = {
-    From: fromEmail,
-    To: to,
-    Subject: subject,
-    // Use HtmlBody to avoid any encoding weirdness
-    HtmlBody: `<pre style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; white-space: pre-wrap;">${escapeHtml(text)}</pre>`,
+    from: { address: extractEmail(safeFrom), name: extractName(safeFrom) || "CraftLab Studio" },
+    to: [{ email_address: { address: to } }],
+    subject,
+    textbody: text,
   };
 
-  if (replyTo) payload.ReplyTo = replyTo;
+  if (replyTo) payload.reply_to = [{ address: replyTo }]
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15_000);
@@ -131,6 +131,12 @@ app.post("/api/contact", async (req, res) => {
   console.log("BODY:", req.body);
   console.log("MAIL_MODE:", process.env.MAIL_MODE);
   console.log("MAIL_TO:", process.env.MAIL_TO);
+
+  console.log("MAIL_FROM env raw:", JSON.stringify(process.env.MAIL_FROM));
+  console.log("MAIL_FROM env len:", (process.env.MAIL_FROM || "").length);
+
+  console.log("mailFrom computed:", JSON.stringify(mailFrom));
+  console.log("mailFrom len:", (mailFrom || "").length);
 
   try {
     const { name, email, brand, budget, message, website, company } = req.body || {};
