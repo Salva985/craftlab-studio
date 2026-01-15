@@ -129,13 +129,6 @@ function escapeHtml(str = "") {
     .replaceAll("'", "&#039;");
 }
 
-function extractEmail(from) {
-  // "CraftLab Studio <info@craftlab-studio.com>" -> info@craftlab-studio.com
-  const match = String(from || "").match(/<([^>]+)>/);
-  if (match?.[1]) return match[1];
-  return String(from || "").trim();
-}
-
 app.post("/api/contact", async (req, res) => {
   console.log("➡️  /api/contact HIT", new Date().toISOString());
   console.log("BODY:", req.body);
