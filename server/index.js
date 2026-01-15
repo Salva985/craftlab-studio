@@ -4,9 +4,10 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 
 const app = express();
-const PORT = process.env.PORT || 10000;
 
-// ---------- CORS ----------
+const PORT = process.env.PORT || 5050;
+
+// ---- CORS
 const CORS_ORIGINS = (process.env.CORS_ORIGINS || "")
   .split(",")
   .map((s) => s.trim())
@@ -15,7 +16,7 @@ const CORS_ORIGINS = (process.env.CORS_ORIGINS || "")
 app.use(
   cors({
     origin: (origin, cb) => {
-      if (!origin) return cb(null, true); // curl/postman
+      if (!origin) return cb(null, true);
       if (CORS_ORIGINS.includes(origin)) return cb(null, true);
       return cb(new Error(`CORS blocked for origin: ${origin}`));
     },
@@ -24,55 +25,100 @@ app.use(
 
 app.use(express.json({ limit: "200kb" }));
 
-// ---------- HEALTH ----------
 app.get("/health", (_, res) => res.json({ ok: true }));
 
-// ---------- HELPERS ----------
 function isEmail(value) {
   return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+// ---- SMTP transporter (local/dev only, NOT reliable on Render)
 async function createTransporter() {
   const mode = (process.env.MAIL_MODE || "test").toLowerCase();
 
-  // TEST MODE (no emails sent)
   if (mode === "test") {
-    console.log("📨 MAIL_MODE=test → JSON transport");
     return nodemailer.createTransport({ jsonTransport: true });
   }
 
-  // SMTP MODE (production)
-  if (
-    !process.env.SMTP_HOST ||
-    !process.env.SMTP_USER ||
-    !process.env.SMTP_PASS
-  ) {
-    throw new Error("SMTP config missing (SMTP_HOST / SMTP_USER / SMTP_PASS)");
+  if (mode === "smtp") {
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      throw new Error("SMTP config missing. Fill SMTP_HOST/SMTP_USER/SMTP_PASS in env.");
+    }
+
+    return nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      secure: String(process.env.SMTP_SECURE || "false") === "true",
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+      // timeouts help you fail fast instead of hanging forever
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 15_000,
+      logger: true,
+      debug: true,
+    });
   }
 
-  console.log("📨 MAIL_MODE=smtp → SMTP transport");
-  console.log("SMTP HOST:", process.env.SMTP_HOST);
-  console.log("SMTP USER:", process.env.SMTP_USER);
-
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: String(process.env.SMTP_SECURE || "false") === "true",
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-    // avoid long hanging requests
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 15000,
-
-    logger: true,
-    debug: true,
-  });
+  return nodemailer.createTransport({ jsonTransport: true });
 }
 
-// ---------- CONTACT ----------
+// ---- ZeptoMail (recommended for Render)
+async function sendViaZepto({ to, fromEmail, subject, text, replyTo }) {
+  const url = process.env.ZEPTO_URL || "https://api.zeptomail.com/v1.1/as/email";
+  const token = process.env.ZEPTO_TOKEN;
+
+  if (!token) throw new Error("ZEPTO_TOKEN missing on server.");
+  if (!to) throw new Error("TO missing for ZeptoMail.");
+  if (!fromEmail) throw new Error("FROM email missing for ZeptoMail.");
+
+  const payload = {
+    FromEmailAddress: fromEmail,
+    ReplyToAddresses: replyTo ? [replyTo] : undefined,
+    Destination: {
+      ToAddresses: [to],
+    },
+    Content: {
+      Simple: {
+        Subject: { Charset: "UTF-8", Data: subject },
+        Body: {
+          Text: { Charset: "UTF-8", Data: text },
+        },
+      },
+    },
+  };
+
+  // ReplyToAddresses si no hay)
+  Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
+
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Zoho-enczapikey ${token}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const body = await resp.text();
+  if (!resp.ok) throw new Error(`ZeptoMail error ${resp.status}: ${body}`);
+  return body;
+}
+
+function extractEmail(from) {
+  // "CraftLab Studio <info@craftlab-studio.com>" -> info@craftlab-studio.com
+  const match = String(from || "").match(/<([^>]+)>/);
+  if (match?.[1]) return match[1];
+  return String(from || "").trim();
+}
+
+function extractName(from) {
+  // "CraftLab Studio <...>" -> CraftLab Studio
+  const s = String(from || "");
+  const idx = s.indexOf("<");
+  if (idx > 0) return s.slice(0, idx).trim().replace(/^"|"$/g, "");
+  return "";
+}
+
 app.post("/api/contact", async (req, res) => {
   console.log("➡️  /api/contact HIT", new Date().toISOString());
   console.log("BODY:", req.body);
@@ -80,101 +126,107 @@ app.post("/api/contact", async (req, res) => {
   console.log("MAIL_TO:", process.env.MAIL_TO);
 
   try {
-    const { name, email, brand, budget, message, website, company } =
-      req.body || {};
+    const { name, email, brand, budget, message, website, company } = req.body || {};
 
-    // Honeypot
+    // honeypot anti-bot
     if (website || company) {
+      return res.status(200).json({ ok: true });
+    }
+
+    if (!name || typeof name !== "string" || name.trim().length < 2) {
+      return res.status(400).json({ ok: false, error: "Please enter your name." });
+    }
+    if (!isEmail(email)) {
+      return res.status(400).json({ ok: false, error: "Please enter a valid email." });
+    }
+    if (!message || typeof message !== "string" || message.trim().length < 10) {
+      return res.status(400).json({ ok: false, error: "Message must be at least 10 characters." });
+    }
+
+    const mode = (process.env.MAIL_MODE || "test").toLowerCase();
+    const mailTo = process.env.MAIL_TO || "";
+    const mailFrom = process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER || "no-reply@craftlab-studio.com"}>`;
+
+    const subjectOwner = `CraftLab Contact — ${name} (${email})`;
+    const textOwner = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Brand/Project: ${brand || "-"}`,
+      `Budget: ${budget || "-"}`,
+      `Message:\n${message}`,
+    ].join("\n");
+
+    // ---- TEST MODE
+    if (mode === "test") {
+      console.log("✅ CONTACT FORM (TEST MODE):", { name, email, brand, budget, message });
+      return res.json({ ok: true, mode: "test" });
+    }
+
+    // ---- ZEPTO MODE (recommended on Render)
+    if (mode === "zepto") {
+      const mailTo = process.env.MAIL_TO;
+      if (!mailTo) return res.status(500).json({ ok: false, error: "MAIL_TO missing on server." });
+    
+      const fromEmail = "info@craftlab-studio.com";
+    
+      // 1) email para ti (owner)
+      const r1 = await sendViaZepto({
+        to: mailTo,
+        fromEmail,
+        subject: subjectOwner,
+        text: textOwner,
+        replyTo: email,
+      });
+      console.log("✅ ZEPTO SENT (owner):", r1);
+    
+      // 2) autoreply para el usuario
+      const subjectUser = "Thanks — I got your message (CraftLab Studio)";
+      const textUser = `Hi ${name},\n\nThanks for reaching out — I received your message and I’ll reply within 24–48 hours.\n\n— CraftLab Studio`;
+    
+      const r2 = await sendViaZepto({
+        to: email,
+        fromEmail,
+        subject: subjectUser,
+        text: textUser,
+      });
+      console.log("✅ ZEPTO SENT (auto-reply):", r2);
+    
       return res.json({ ok: true });
     }
 
-    // Validation
-    if (!name || name.trim().length < 2) {
-      return res.status(400).json({ ok: false, error: "Invalid name" });
-    }
-    if (!isEmail(email)) {
-      return res.status(400).json({ ok: false, error: "Invalid email" });
-    }
-    if (!message || message.trim().length < 10) {
-      return res.status(400).json({ ok: false, error: "Message too short" });
+    // ---- SMTP MODE (works locally; Render likely times out)
+    if (!mailTo) {
+      return res.status(500).json({ ok: false, error: "MAIL_TO missing on server." });
     }
 
     const transporter = await createTransporter();
 
+    // verify (good for local debug)
     await transporter.verify();
     console.log("✅ SMTP verify OK");
 
-    const mailTo = process.env.MAIL_TO;
-    if (!mailTo) {
-      throw new Error("MAIL_TO not defined");
-    }
-
-    // ---------- ADMIN EMAIL ----------
-    const adminMail = await transporter.sendMail({
-      from:
-        process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
+    const info = await transporter.sendMail({
+      from: mailFrom,
       to: mailTo,
       replyTo: email,
-      subject: `CraftLab Contact — ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Brand: ${brand || "-"}
-Budget: ${budget || "-"}
-Message:
-${message}
-      `.trim(),
+      subject: subjectOwner,
+      text: textOwner,
     });
 
-    console.log("📤 ADMIN MAIL RESULT:", {
-      messageId: adminMail.messageId,
-      accepted: adminMail.accepted,
-      rejected: adminMail.rejected,
-      response: adminMail.response,
+    console.log("✅ SMTP MAIL SENT:", {
+      messageId: info.messageId,
+      accepted: info.accepted,
+      rejected: info.rejected,
+      response: info.response,
     });
 
-    // ---------- AUTOREPLY ----------
-    const autoReply = await transporter.sendMail({
-      from:
-        process.env.MAIL_FROM || `CraftLab Studio <${process.env.SMTP_USER}>`,
-      to: email,
-      subject: "✅ Message received — CraftLab Studio",
-      text: `Hi ${name},
-
-Thanks for reaching out!
-I received your message and I’ll reply within 24–48 hours.
-
-— CraftLab Studio`,
-    });
-
-    console.log("📨 AUTOREPLY RESULT:", {
-      messageId: autoReply.messageId,
-      accepted: autoReply.accepted,
-      rejected: autoReply.rejected,
-    });
-
-    return res.json({
-      ok: true,
-      admin: {
-        accepted: adminMail.accepted,
-        rejected: adminMail.rejected,
-        response: adminMail.response,
-      },
-      autoreply: {
-        accepted: autoReply.accepted,
-        rejected: autoReply.rejected,
-      },
-    });
+    return res.json({ ok: true });
   } catch (err) {
     console.error("❌ CONTACT ERROR:", err);
-    return res.status(500).json({
-      ok: false,
-      error: err.message || "Server error",
-    });
+    return res.status(500).json({ ok: false, error: "Server error. Try again later." });
   }
 });
 
-// ---------- START ----------
 app.listen(PORT, () => {
   console.log(`✅ Contact API running on port ${PORT}`);
   console.log(`✅ Health check: /health`);
