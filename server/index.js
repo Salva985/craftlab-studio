@@ -8,16 +8,18 @@ const PORT = process.env.PORT || 5050;
 // ---------- CORS ----------
 const CORS_ORIGINS = (process.env.CORS_ORIGINS || "")
   .split(",")
-  .map(s => s.trim())
+  .map((s) => s.trim())
   .filter(Boolean);
 
-app.use(cors({
-  origin: (origin, cb) => {
-    if (!origin) return cb(null, true);
-    if (CORS_ORIGINS.includes(origin)) return cb(null, true);
-    return cb(new Error("CORS blocked"));
-  }
-}));
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (!origin) return cb(null, true);
+      if (CORS_ORIGINS.includes(origin)) return cb(null, true);
+      return cb(new Error("CORS blocked"));
+    },
+  })
+);
 
 app.use(express.json({ limit: "200kb" }));
 
@@ -31,7 +33,7 @@ function parseFrom(from) {
   const m = from.match(/^(.*)<(.+)>$/);
   return {
     name: m ? m[1].trim() : "CraftLab Studio",
-    email: m ? m[2].trim() : from.trim()
+    email: m ? m[2].trim() : from.trim(),
   };
 }
 
@@ -49,23 +51,21 @@ async function sendViaZepto({ to, subject, text, replyTo }) {
   const payload = {
     from: {
       address: from.email,
-      name: from.name
+      name: from.name,
     },
-    to: [
-      { email_address: { address: to } }
-    ],
+    to: [{ email_address: { address: to } }],
     subject,
     textbody: text,
-    ...(replyTo && { reply_to: [{ address: replyTo }] })
+    ...(replyTo && { reply_to: [{ address: replyTo }] }),
   };
 
   const res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Zoho-enczapikey ${token}`
+      Authorization: `Zoho-enczapikey ${token}`,
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
   });
 
   const body = await res.text();
@@ -110,18 +110,37 @@ ${message}
       to: process.env.MAIL_TO,
       subject: `New contact — ${name}`,
       text: ownerText,
-      replyTo: email
+      replyTo: email,
     });
 
     // autoreply
     await sendViaZepto({
       to: email,
       subject: "Thanks — CraftLab Studio",
-      text: `Hi ${name},\n\nThanks for your message. I’ll reply within 24–48h.\n\n— CraftLab Studio`
+      text: `Hi ${name},
+
+Thanks for your message. I’ll reply within 24–48 hours.
+
+— CraftLab Studio
+
+----------------------------
+
+Hola ${name},
+
+Gracias por tu mensaje. Te responderé en un plazo de 24–48 horas.
+
+— CraftLab Studio
+
+----------------------------
+
+Ciao ${name},
+
+Grazie per il tuo messaggio. Ti risponderò entro 24–48 ore.
+
+— CraftLab Studio`,
     });
 
     res.json({ ok: true });
-
   } catch (err) {
     console.error("CONTACT ERROR:", err);
     res.status(500).json({ ok: false, error: "Server error" });
