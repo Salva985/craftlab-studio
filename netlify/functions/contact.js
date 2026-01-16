@@ -177,6 +177,7 @@ export default async (req) => {
       to: email,
       subject: "Thanks — CraftLab Studio",
       text: autoText,
+      html: autoHtml,
     });
 
     return new Response(JSON.stringify({ ok: true }), {
