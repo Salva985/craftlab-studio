@@ -150,7 +150,7 @@ export default async (req) => {
       `IT: Ciao ${name},`,
       `Grazie per il tuo messaggio — l’ho ricevuto e ti risponderò entro 24–48 ore.`,
       `— CraftLab Studio`,
-    ].join("r\n");
+    ].join("\n");
 
     const autoHtml = `
     <div style="font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial; line-height:1.5">
