@@ -134,7 +134,7 @@ export default async (req) => {
         `IT: Ciao ${name},`,
         `Grazie per il tuo messaggio — l’ho ricevuto e ti risponderò entro 24–48 ore.`,
         `— CraftLab Studio`,
-      ].join("\n");
+      ].join("r\n");
   
       await sendViaZepto({
         to: email,
