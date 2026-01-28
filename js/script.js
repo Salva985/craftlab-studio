@@ -20,18 +20,22 @@ const I18N = {
 
     // SERVICES
     "services.title": "Services",
-    "services.subtitle": "Choose your starting point — we’ll tailor it to your project.",
+    "services.subtitle":
+      "Choose your starting point — we’ll tailor it to your project.",
     "services.launch.title": "Launch Page",
     "services.launch.desc": "1-page · mobile-first · booking focused",
     "services.studio.title": "Studio Website",
-    "services.studio.desc": "Structured site · artists & services · clear booking flow",
+    "services.studio.desc":
+      "Structured site · artists & services · clear booking flow",
     "services.custom.title": "Custom Website",
-    "services.custom.desc": "Tailored structure · advanced features · scoped after chat",
+    "services.custom.desc":
+      "Tailored structure · advanced features · scoped after chat",
     "services.viewDetails": "View details",
 
     // PACKAGES
     "packages.title": "Packages & Details",
-    "packages.subtitle": "What’s included, timelines, and how we’ll work together.",
+    "packages.subtitle":
+      "What’s included, timelines, and how we’ll work together.",
 
     "packages.from": "from",
     "packages.timelineLabel": "Typical delivery:",
@@ -46,7 +50,8 @@ const I18N = {
       "A clean, custom one-page website focused on clarity, mobile experience and an easy way for people to contact or book you.",
     "packages.launch.li1": "One-page custom website",
     "packages.launch.li2": "Mobile-first design",
-    "packages.launch.li3": "Clear booking / contact CTA (WhatsApp, email, form)",
+    "packages.launch.li3":
+      "Clear booking / contact CTA (WhatsApp, email, form)",
     "packages.launch.li4": "Custom layout (no templates)",
     "packages.launch.li5": "Basic SEO-ready structure",
     "packages.launch.li6": "Launch-ready setup",
@@ -110,7 +115,8 @@ const I18N = {
 
     // CONTACT
     "contact.title": "Let’s build something real",
-    "contact.subtitle": "Tell me about your project. I’ll reply within 24–48 hours.",
+    "contact.subtitle":
+      "Tell me about your project. I’ll reply within 24–48 hours.",
     "contact.nameLabel": "Name",
     "contact.emailLabel": "Email",
     "contact.brandLabel": "Brand / Project",
@@ -134,6 +140,36 @@ const I18N = {
     "status.sent": "✅ Sent! I’ll reply within 24–48 hours.",
     "status.error": "❌ Something went wrong. Try again.",
     "btn.sending": "Sending...",
+
+    // FAQ
+    "faq.title": "FAQ",
+    "faq.subtitle": "Quick answers to the most common questions.",
+
+    "faq.q1.q": "What do you need from me to start?",
+    "faq.q1.a":
+      "Ideally: your logo, a short description, services or prices (if any), contact details, and 5–10 photos. If you don’t have everything yet, we can still start and define what’s missing.",
+
+    "faq.q2.q": "Do you use templates?",
+    "faq.q2.a":
+      "No. I design and build each site based on your brand and goals. That’s how we keep it clean, fast, and different from generic websites.",
+
+    "faq.q3.q": "How do bookings work?",
+    "faq.q3.a":
+      "Usually via WhatsApp, a contact form, or both. The goal is fewer messages back and forth and clearer booking steps on mobile.",
+
+    "faq.q4.q": "Can you update the site later?",
+    "faq.q4.a":
+      "Yes. I can help with changes, new sections, and improvements. If you need frequent updates, we can plan a simple admin-lite solution later.",
+
+    "faq.q5.q": "Do you provide hosting and domain?",
+    "faq.q5.a":
+      "I can guide you through the setup or handle it with you. The goal is a clean launch: domain connected, SSL active, and analytics ready if needed.",
+
+    "faq.q6.q": "How many revisions are included?",
+    "faq.q6.a":
+      "Two revision rounds are included for most projects. Small tweaks are normal — the goal is to launch something you’re proud of without endless cycles.",
+
+    "faq.cta": "Ask a question",
 
     // FOOTER
     "footer.tagline": "CraftLab Studio — Built by hand. Designed with soul.",
@@ -208,13 +244,16 @@ const I18N = {
 
     // SERVICES
     "services.title": "Servicios",
-    "services.subtitle": "Elige un punto de partida — lo adaptamos a tu proyecto.",
+    "services.subtitle":
+      "Elige un punto de partida — lo adaptamos a tu proyecto.",
     "services.launch.title": "Launch Page",
     "services.launch.desc": "1 página · mobile-first · enfocada en reservas",
     "services.studio.title": "Studio Website",
-    "services.studio.desc": "Web estructurada · artistas y servicios · reservas claras",
+    "services.studio.desc":
+      "Web estructurada · artistas y servicios · reservas claras",
     "services.custom.title": "Custom Website",
-    "services.custom.desc": "A medida · funcionalidades avanzadas · tras una charla",
+    "services.custom.desc":
+      "A medida · funcionalidades avanzadas · tras una charla",
     "services.viewDetails": "Ver detalles",
 
     // PACKAGES
@@ -234,7 +273,8 @@ const I18N = {
       "Una web de una sola página, hecha a medida, centrada en claridad, experiencia móvil y una forma fácil de contacto o reserva.",
     "packages.launch.li1": "Web de 1 página hecha a medida",
     "packages.launch.li2": "Diseño mobile-first",
-    "packages.launch.li3": "CTA claro para reservas/contacto (WhatsApp, email, formulario)",
+    "packages.launch.li3":
+      "CTA claro para reservas/contacto (WhatsApp, email, formulario)",
     "packages.launch.li4": "Diseño personalizado (sin plantillas)",
     "packages.launch.li5": "Estructura SEO básica lista",
     "packages.launch.li6": "Preparada para publicar",
@@ -324,6 +364,36 @@ const I18N = {
     "status.error": "❌ Algo falló. Inténtalo de nuevo.",
     "btn.sending": "Enviando...",
 
+    // FAQ
+    "faq.title": "Preguntas frecuentes",
+    "faq.subtitle": "Respuestas rápidas a las dudas más comunes.",
+
+    "faq.q1.q": "¿Qué necesitas de mí para empezar?",
+    "faq.q1.a":
+      "Idealmente: tu logo, una breve descripción, servicios o precios (si los tienes), datos de contacto y 5–10 fotos. Si no lo tienes todo aún, podemos empezar igualmente y definir lo que falte.",
+
+    "faq.q2.q": "¿Usas plantillas?",
+    "faq.q2.a":
+      "No. Diseño y desarrollo cada web según tu marca y tus objetivos. Así evitamos webs genéricas y conseguimos algo limpio y rápido.",
+
+    "faq.q3.q": "¿Cómo funcionan las reservas?",
+    "faq.q3.a":
+      "Normalmente a través de WhatsApp, un formulario de contacto o ambos. La idea es reducir mensajes innecesarios y aclarar el proceso de reserva en móvil.",
+
+    "faq.q4.q": "¿Se puede actualizar la web más adelante?",
+    "faq.q4.a":
+      "Sí. Puedo ayudarte con cambios, nuevas secciones o mejoras. Si necesitas actualizaciones frecuentes, podemos plantear una solución sencilla tipo admin-lite.",
+
+    "faq.q5.q": "¿Incluyes hosting y dominio?",
+    "faq.q5.a":
+      "Puedo guiarte en la configuración o hacerlo contigo. El objetivo es un lanzamiento limpio: dominio conectado, SSL activo y analítica lista si hace falta.",
+
+    "faq.q6.q": "¿Cuántas revisiones incluye?",
+    "faq.q6.a":
+      "La mayoría de proyectos incluyen dos rondas de revisiones. Pequeños ajustes son normales — la idea es lanzar algo que te represente sin alargar el proceso.",
+
+    "faq.cta": "Hacer una consulta",
+
     // FOOTER
     "footer.tagline": "CraftLab Studio — Hecho a mano. Diseñado con alma.",
 
@@ -399,11 +469,13 @@ const I18N = {
 
     // SERVICES
     "services.title": "Servizi",
-    "services.subtitle": "Scegli un punto di partenza — lo adattiamo al tuo progetto.",
+    "services.subtitle":
+      "Scegli un punto di partenza — lo adattiamo al tuo progetto.",
     "services.launch.title": "Launch Page",
     "services.launch.desc": "1 pagina · mobile-first · booking focused",
     "services.studio.title": "Studio Website",
-    "services.studio.desc": "Sito strutturato · artisti e servizi · prenotazioni chiare",
+    "services.studio.desc":
+      "Sito strutturato · artisti e servizi · prenotazioni chiare",
     "services.custom.title": "Custom Website",
     "services.custom.desc": "Su misura · funzionalità avanzate · dopo una call",
     "services.viewDetails": "Dettagli",
@@ -425,7 +497,8 @@ const I18N = {
       "Un sito one-page su misura, focalizzato su chiarezza, esperienza mobile e un modo semplice per contattarti o prenotare.",
     "packages.launch.li1": "Sito one-page su misura",
     "packages.launch.li2": "Design mobile-first",
-    "packages.launch.li3": "CTA chiara per contatto/prenotazioni (WhatsApp, email, form)",
+    "packages.launch.li3":
+      "CTA chiara per contatto/prenotazioni (WhatsApp, email, form)",
     "packages.launch.li4": "Layout personalizzato (no template)",
     "packages.launch.li5": "Struttura SEO base pronta",
     "packages.launch.li6": "Pronto per la pubblicazione",
@@ -514,6 +587,36 @@ const I18N = {
     "status.sent": "✅ Inviato! Rispondo in 24–48 ore.",
     "status.error": "❌ Qualcosa è andato storto. Riprova.",
     "btn.sending": "Invio...",
+
+    // FAQ
+    "faq.title": "Domande frequenti",
+    "faq.subtitle": "Risposte rapide alle domande più comuni.",
+
+    "faq.q1.q": "Di cosa hai bisogno per iniziare?",
+    "faq.q1.a":
+      "Idealmente: logo, una breve descrizione, servizi o prezzi (se disponibili), contatti e 5–10 foto. Se non hai tutto subito, possiamo comunque iniziare e definire il resto strada facendo.",
+
+    "faq.q2.q": "Usi dei template?",
+    "faq.q2.a":
+      "No. Ogni sito viene progettato e sviluppato in base al tuo brand e ai tuoi obiettivi. È così che rimane pulito, veloce e non generico.",
+
+    "faq.q3.q": "Come funzionano le prenotazioni?",
+    "faq.q3.a":
+      "Di solito tramite WhatsApp, modulo di contatto o entrambi. L’obiettivo è ridurre i messaggi inutili e rendere il processo chiaro soprattutto da mobile.",
+
+    "faq.q4.q": "È possibile aggiornare il sito in futuro?",
+    "faq.q4.a":
+      "Sì. Posso occuparmi di modifiche, nuove sezioni o miglioramenti. Se servono aggiornamenti frequenti, possiamo valutare una soluzione admin-lite.",
+
+    "faq.q5.q": "Ti occupi di hosting e dominio?",
+    "faq.q5.a":
+      "Posso guidarti nella configurazione o farlo insieme a te. L’obiettivo è un lancio pulito: dominio collegato, SSL attivo e analytics pronti se necessari.",
+
+    "faq.q6.q": "Quante revisioni sono incluse?",
+    "faq.q6.a":
+      "La maggior parte dei progetti include due revisioni. Piccoli aggiustamenti sono normali — l’obiettivo è lanciare qualcosa di cui sei davvero soddisfatto.",
+
+    "faq.cta": "Fai una domanda",
 
     // FOOTER
     "footer.tagline": "CraftLab Studio — Fatto a mano. Progettato con anima.",
@@ -662,7 +765,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-  // Parallax glow 
+  // Parallax glow
   const glow = document.querySelector(".neon-glow");
   if (glow) {
     document.addEventListener("mousemove", (e) => {

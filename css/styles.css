@@ -263,6 +263,56 @@ textarea.form-control::placeholder {
   margin-top:10px;
 }
 
+/* ---------- FAQ accordion ---------- */
+#faq .accordion-item{
+  background:transparent;
+  border:0;
+}
+
+#faq .accordion-button{
+  background:#1A1A1A;
+  color:var(--ivory);
+  border:1px solid #3a3a3a;
+  border-radius:12px !important;
+  box-shadow:none;
+  padding:14px 18px;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+#faq .accordion-button:focus{
+  box-shadow:none;
+  border-color: var(--neon);
+}
+
+#faq .accordion-button:hover{
+  border-color: var(--lime);
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 6px var(--glow-lime-1),
+    0 0 14px var(--glow-lime-2);
+}
+
+#faq .accordion-button:not(.collapsed){
+  background:#1A1A1A;
+  color:var(--ivory);
+  border-color: var(--neon);
+  box-shadow: 0 0 12px rgba(255,92,88,.25);
+}
+
+#faq .accordion-button::after{
+  filter: invert(1);
+  opacity:.85;
+}
+
+#faq .accordion-body{
+  background:#1A1A1A;
+  color:var(--sand);
+  border:1px solid #3a3a3a;
+  border-radius:12px;
+  padding:18px;
+  margin-top:10px;
+}
+
 /* ---------- Footer links + social (lime glow) ---------- */
 .footer-link{
   color:#fff;
