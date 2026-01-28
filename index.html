@@ -179,12 +179,13 @@
           <div class="col-lg-8">
             <h2 class="section-title" data-i18n="services.title">Services</h2>
             <p class="text-muted-ivory" data-i18n="services.subtitle">
-              Choose your starting point — we’ll tailor it to your brand.
+              Choose your starting point — we’ll tailor it to your project.
             </p>
           </div>
         </div>
 
         <div class="row g-4">
+          <!-- Launch Page -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 service-card">
               <div class="card-body">
@@ -192,52 +193,57 @@
                   Launch Page
                 </h3>
                 <p class="text-muted-ivory" data-i18n="services.launch.desc">
-                  1-page site, contact form, basic SEO. 5–7 days.
+                  1-page · mobile-first · booking focused
                 </p>
                 <a
                   href="#packages"
                   class="btn btn-outline-accent btn-sm"
-                  data-i18n="services.getInfo"
-                  >Get info</a
+                  data-i18n="services.viewDetails"
                 >
+                  View details
+                </a>
               </div>
             </div>
           </div>
 
+          <!-- Studio Website -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 service-card">
               <div class="card-body">
-                <h3 class="h4 mb-4" data-i18n="services.starter.title">
-                  Starter Website
+                <h3 class="h4 mb-4" data-i18n="services.studio.title">
+                  Studio Website
                 </h3>
-                <p class="text-muted-ivory" data-i18n="services.starter.desc">
-                  3–5 pages, mobile-first, SEO, hosting setup. 10–14 days.
+                <p class="text-muted-ivory" data-i18n="services.studio.desc">
+                  Structured site · artists & services · clear booking flow
                 </p>
                 <a
                   href="#packages"
                   class="btn btn-outline-accent btn-sm"
-                  data-i18n="services.getInfo"
-                  >Get info</a
+                  data-i18n="services.viewDetails"
                 >
+                  View details
+                </a>
               </div>
             </div>
           </div>
 
+          <!-- Custom Website -->
           <div class="col-md-6 col-lg-4">
             <div class="card h-100 service-card">
               <div class="card-body">
-                <h3 class="h4 mb-4" data-i18n="services.creator.title">
-                  Creator Site
+                <h3 class="h4 mb-4" data-i18n="services.custom.title">
+                  Custom Website
                 </h3>
-                <p class="text-muted-ivory" data-i18n="services.creator.desc">
-                  Portfolio/gallery, embeds, analytics. 14–21 days.
+                <p class="text-muted-ivory" data-i18n="services.custom.desc">
+                  Tailored structure · advanced features · scoped after chat
                 </p>
                 <a
                   href="#packages"
                   class="btn btn-outline-accent btn-sm"
-                  data-i18n="services.getInfo"
-                  >Get info</a
+                  data-i18n="services.viewDetails"
                 >
+                  View details
+                </a>
               </div>
             </div>
           </div>
@@ -274,9 +280,9 @@
                 aria-expanded="false"
                 aria-controls="pkgLaunch"
               >
-                <span data-i18n="packages.launch.header"
-                  >Launch Page — 1 page site</span
-                >
+                <span data-i18n="packages.launch.header">
+                  Launch Page — One-page website
+                </span>
               </button>
             </h2>
 
@@ -287,135 +293,221 @@
               data-bs-parent="#packageAccordion"
             >
               <div class="accordion-body">
+                <p class="text-muted-ivory mb-2">
+                  <strong data-i18n="packages.from">from</strong>
+                  <strong data-i18n="packages.launch.price">€450</strong>
+                </p>
+
+                <p class="text-muted-ivory" data-i18n="packages.launch.intro">
+                  A clean, custom one-page website focused on clarity, mobile
+                  experience and an easy way for people to contact or book you.
+                </p>
+
                 <ul class="mb-3">
                   <li data-i18n="packages.launch.li1">
-                    Hero, About, Services, Contact form
+                    One-page custom website
                   </li>
-                  <li data-i18n="packages.launch.li2">
-                    Mobile-first, fast load, basic SEO (titles, meta, OG)
-                  </li>
+                  <li data-i18n="packages.launch.li2">Mobile-first design</li>
                   <li data-i18n="packages.launch.li3">
-                    1 revision round · Delivery 4–6 days
+                    Clear booking / contact CTA (WhatsApp, email, form)
                   </li>
+                  <li data-i18n="packages.launch.li4">
+                    Custom layout (no templates)
+                  </li>
+                  <li data-i18n="packages.launch.li5">
+                    Basic SEO-ready structure
+                  </li>
+                  <li data-i18n="packages.launch.li6">Launch-ready setup</li>
                 </ul>
+
+                <p class="text-muted-ivory mb-3">
+                  <strong data-i18n="packages.timelineLabel"
+                    >Typical delivery:</strong
+                  >
+                  <span data-i18n="packages.launch.timeline">~1 week</span>
+                </p>
+
+                <p class="text-muted-ivory" data-i18n="packages.launch.note">
+                  Perfect if you already have your content and want something
+                  clean, fast and effective.
+                </p>
 
                 <div class="d-flex gap-2">
                   <a
                     href="#contact"
                     class="btn btn-accent"
-                    data-i18n="packages.start"
-                    >Start this package</a
+                    data-i18n="packages.cta"
                   >
+                    Discuss this project
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Starter Website -->
+          <!-- Studio Website -->
           <div
             class="accordion-item bg-darker text-light border-0 mb-3 rounded-3"
           >
-            <h2 class="accordion-header" id="headingStarter">
+            <h2 class="accordion-header" id="headingStudio">
               <button
                 class="accordion-button collapsed bg-darker text-light"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#pkgStarter"
+                data-bs-target="#pkgStudio"
                 aria-expanded="false"
-                aria-controls="pkgStarter"
+                aria-controls="pkgStudio"
               >
-                <span data-i18n="packages.starter.header"
-                  >Starter Website — 3–5 pages</span
-                >
+                <span data-i18n="packages.studio.header">
+                  Studio Website — Structured studio site
+                </span>
               </button>
             </h2>
 
             <div
-              id="pkgStarter"
+              id="pkgStudio"
               class="accordion-collapse collapse"
-              aria-labelledby="headingStarter"
+              aria-labelledby="headingStudio"
               data-bs-parent="#packageAccordion"
             >
               <div class="accordion-body">
+                <p class="text-muted-ivory mb-2">
+                  <strong data-i18n="packages.from">from</strong>
+                  <strong data-i18n="packages.studio.price">€750</strong>
+                </p>
+
+                <p class="text-muted-ivory" data-i18n="packages.studio.intro">
+                  A more structured website for studios that need more content,
+                  multiple sections or artists, and a clearer booking flow.
+                </p>
+
                 <ul class="mb-3">
-                  <li data-i18n="packages.starter.li1">
-                    Home, About, Services, Contact (+ map/form)
+                  <li data-i18n="packages.studio.li1">
+                    Multi-section or multi-page website
                   </li>
-                  <li data-i18n="packages.starter.li2">
-                    Hosting & domain setup guidance, basic analytics
+                  <li data-i18n="packages.studio.li2">
+                    Structure for artists, services or styles
                   </li>
-                  <li data-i18n="packages.starter.li3">
-                    2 revision rounds · Delivery 7–10 days
+                  <li data-i18n="packages.studio.li3">
+                    Clear booking flow and contact paths
                   </li>
-                  <li data-i18n="packages.starter.li4">
-                    Add-on: blog or extra page anytime
+                  <li data-i18n="packages.studio.li4">Mobile-first UX</li>
+                  <li data-i18n="packages.studio.li5">SEO-ready base</li>
+                  <li data-i18n="packages.studio.li6">
+                    Scalable foundation for future updates
                   </li>
                 </ul>
+
+                <p class="text-muted-ivory mb-3">
+                  <strong data-i18n="packages.timelineLabel"
+                    >Typical delivery:</strong
+                  >
+                  <span data-i18n="packages.studio.timeline">~2–3 weeks</span>
+                </p>
+
+                <p class="text-muted-ivory" data-i18n="packages.studio.note">
+                  Designed for studios that want clarity, structure and a more
+                  professional digital presence.
+                </p>
 
                 <div class="d-flex gap-2">
                   <a
                     href="#contact"
                     class="btn btn-accent"
-                    data-i18n="packages.start"
-                    >Start this package</a
+                    data-i18n="packages.cta"
                   >
+                    Discuss this project
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Creator Site -->
+          <!-- Custom Website -->
           <div
             class="accordion-item bg-darker text-light border-0 mb-3 rounded-3"
           >
-            <h2 class="accordion-header" id="headingCreator">
+            <h2 class="accordion-header" id="headingCustom">
               <button
                 class="accordion-button collapsed bg-darker text-light"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#pkgCreator"
+                data-bs-target="#pkgCustom"
                 aria-expanded="false"
-                aria-controls="pkgCreator"
+                aria-controls="pkgCustom"
               >
-                <span data-i18n="packages.creator.header"
-                  >Creator Site — portfolio or gallery</span
-                >
+                <span data-i18n="packages.custom.header">
+                  Custom Website — Tailored solution
+                </span>
               </button>
             </h2>
 
             <div
-              id="pkgCreator"
+              id="pkgCustom"
               class="accordion-collapse collapse"
-              aria-labelledby="headingCreator"
+              aria-labelledby="headingCustom"
               data-bs-parent="#packageAccordion"
             >
               <div class="accordion-body">
+                <p class="text-muted-ivory mb-2">
+                  <strong data-i18n="packages.custom.price"
+                    >Custom quote</strong
+                  >
+                </p>
+
+                <p class="text-muted-ivory" data-i18n="packages.custom.intro">
+                  For projects that require something beyond a standard
+                  structure or need more flexibility.
+                </p>
+
                 <ul class="mb-3">
-                  <li data-i18n="packages.creator.li1">
-                    Portfolio grid or gallery, embeds (YouTube/Spotify)
+                  <li data-i18n="packages.custom.li1">
+                    Custom layouts or interactions
                   </li>
-                  <li data-i18n="packages.creator.li2">
-                    Performance tweaks, basic SEO, analytics
+                  <li data-i18n="packages.custom.li2">
+                    Galleries, filters or special sections
                   </li>
-                  <li data-i18n="packages.creator.li3">
-                    2 revision rounds · Delivery 10–14 days
+                  <li data-i18n="packages.custom.li3">
+                    Admin-lite or advanced setups
                   </li>
-                  <li data-i18n="packages.creator.li4">
-                    Optional: CMS later (Notion/Headless/WordPress)
+                  <li data-i18n="packages.custom.li4">
+                    More complex content structures
                   </li>
                 </ul>
+
+                <p class="text-muted-ivory mb-3">
+                  <strong data-i18n="packages.timelineLabel">Timeline:</strong>
+                  <span data-i18n="packages.custom.timeline"
+                    >defined after scoping</span
+                  >
+                </p>
+
+                <p class="text-muted-ivory" data-i18n="packages.custom.note">
+                  We define scope, timing and price together after a short chat.
+                </p>
 
                 <div class="d-flex gap-2">
                   <a
                     href="#contact"
                     class="btn btn-accent"
-                    data-i18n="packages.start"
-                    >Start this package</a
+                    data-i18n="packages.cta"
                   >
+                    Discuss this project
+                  </a>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="mt-4">
+          <p
+            class="text-muted-ivory small mb-0"
+            data-i18n="packages.pricingNote"
+          >
+            Prices are indicative and depend on content and features. Final
+            scope and price are always agreed upfront — no surprises.
+          </p>
         </div>
       </div>
     </section>
@@ -617,46 +709,40 @@
         <form id="contactForm" class="row g-3" novalidate>
           <div class="col-md-6">
             <label class="form-label" data-i18n="contact.nameLabel">Name</label>
-            <input
+            <textarea
               type="text"
               name="name"
               class="form-control bg-black border-secondary text-light"
               data-i18n-placeholder="contact.namePh"
               placeholder="Your name"
               required
-              data-i18n-placeholder="contact.namePh"
-              placeholder="Your name"
-            />
+            ></textarea>
           </div>
           <div class="col-md-6">
             <label class="form-label" data-i18n="contact.emailLabel"
               >Email</label
             >
-            <input
+            <textarea
               type="email"
               name="email"
               class="form-control bg-black border-secondary text-light"
               data-i18n-placeholder="contact.emailPh"
-              placeholder="Your name"
+              placeholder="your@email.com"
               required
-              data-i18n-placeholder="contact.emailPh"
-              placeholder="you@email.com"
-            />
+            ></textarea>
           </div>
           <div class="col-12">
             <label class="form-label" data-i18n="contact.brandLabel"
               >Brand / Project</label
             >
-            <input
+            <textarea
               type="text"
               name="brand"
               class="form-control bg-black border-secondary text-light"
               data-i18n-placeholder="contact.brandPh"
-              placeholder="Your name"
-              required
-              data-i18n-placeholder="contact.brandPh"
               placeholder="e.g. DJ booking page"
-            />
+              required
+            ></textarea>
           </div>
           <div class="col-md-6">
             <label class="form-label" data-i18n="contact.budgetLabel"
@@ -666,11 +752,14 @@
               name="budget"
               class="form-select bg-black border-secondary text-light"
             >
-              <option value="under-400" data-i18n="contact.budget.under">
-                Under €400
+            <option value="" disabled selected data-i18n="contact.budget.placeholder">
+              Select a budget range
+            </option>
+              <option value="400-500" data-i18n="contact.budget.under">
+                €400-€500
               </option>
-              <option value="400-800" data-i18n="contact.budget.mid">
-                €400–€800
+              <option value="500-800" data-i18n="contact.budget.mid">
+                €500–€800
               </option>
               <option value="800-1200" data-i18n="contact.budget.high">
                 €800–€1,200
@@ -686,6 +775,8 @@
               name="message"
               rows="5"
               class="form-control bg-black border-secondary text-light"
+              data-i18n-placeholder="contact.messagePh"
+              placeholder="Tell me what you need…"
               required
             ></textarea>
           </div>

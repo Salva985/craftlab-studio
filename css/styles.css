@@ -204,7 +204,6 @@ a.nav-link:hover{ color:var(--lime) !important; }
 .form-status.success{ color: var(--lime); }
 .form-status.error{ color: #ff8a87; }
 
-/* ---------- Form focus: remove bootstrap blue (lime instead) ---------- */
 .form-control:focus,
 .form-select:focus,
 textarea:focus,
@@ -212,6 +211,12 @@ input:focus{
   border-color: var(--lime) !important;
   box-shadow: 0 0 0 .2rem var(--focus-lime) !important;
   outline: none !important;
+}
+
+.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: rgba(247, 244, 242, 0.55);
+  opacity: 1; /* important: overrides browser default */
 }
 
 /* ---------- Packages accordion (lime hover) ---------- */
