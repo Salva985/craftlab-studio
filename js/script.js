@@ -142,12 +142,6 @@ const I18N = {
     "contact.emailPh": "you@email.com",
     "contact.brandPh": "e.g. DJ booking page",
     "contact.messagePh": "Tell me what you need…",
-    "contact.budget.placeholder": "Select a budget range",
-
-    "contact.budget.under": "€400-€500",
-    "contact.budget.mid": "€400–€800",
-    "contact.budget.high": "€800–€1,200",
-    "contact.budget.plus": "+€1,200",
 
     "status.sending": "Sending…",
     "status.sent": "✅ Sent! I’ll reply within 24–48 hours.",
@@ -380,12 +374,6 @@ const I18N = {
     "contact.emailPh": "tu@email.com",
     "contact.brandPh": "ej. landing para DJ",
     "contact.messagePh": "Cuéntame qué necesitas…",
-    "contact.budget.placeholder": "Selecciona un rango de presupuesto",
-
-    "contact.budget.under": "€400-€500",
-    "contact.budget.mid": "€400–€800",
-    "contact.budget.high": "€800–€1.200",
-    "contact.budget.plus": "+€1.200",
 
     "status.sending": "Enviando…",
     "status.sent": "✅ Enviado. Respondo en 24–48 horas.",
@@ -622,12 +610,6 @@ const I18N = {
     "contact.emailPh": "tu@email.com",
     "contact.brandPh": "es. landing per DJ",
     "contact.messagePh": "Dimmi di cosa hai bisogno…",
-    "contact.budget.placeholder": "Seleziona una fascia di budget",
-
-    "contact.budget.under": "€400-€500",
-    "contact.budget.mid": "€400–€800",
-    "contact.budget.high": "€800–€1.200",
-    "contact.budget.plus": "+€1.200",
 
     "status.sending": "Invio…",
     "status.sent": "✅ Inviato! Rispondo in 24–48 ore.",

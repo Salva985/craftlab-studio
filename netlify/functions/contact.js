@@ -80,8 +80,8 @@ export default async (req) => {
 
   try {
     const data = await req.json();
-    const { name, email, brand, budget, message, website, company } =
-      data || {};
+    const { name, email, brand, message, website, company } =
+    data || {};
 
     // honeypot
     if (website || company) {
@@ -125,7 +125,6 @@ export default async (req) => {
       `Name: ${name}`,
       `Email: ${email}`,
       `Project: ${brand || "-"}`,
-      `Budget: ${budget || "-"}`,
       `Message:\n${message}`,
     ].join("\n");
 
