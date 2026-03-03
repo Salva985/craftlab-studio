@@ -10,9 +10,9 @@ const I18N = {
     "nav.quote": "Get a quote",
 
     // HERO
-    "hero.title": "Handcrafted websites<br />for artists & small brands.",
+    "hero.title": "Handcrafted websites<br />for growing service businesses.",
     "hero.subtitle":
-      "Built by one person, not an agency. Modern, minimal, and made to convert.",
+      "Built by one person, not an agency. Structured, fast, and designed to convert.",
     "hero.ctaQuote": "Get a quote",
     "hero.fast": "Fast delivery",
     "hero.mobile": "Mobile-first",
@@ -22,14 +22,14 @@ const I18N = {
     "services.title": "Services",
     "services.subtitle":
       "Choose your starting point — we’ll tailor it to your project.",
-    "services.launch.title": "Launch Page",
-    "services.launch.desc": "1-page · mobile-first · booking focused",
+    "services.launch.title": "Strategic Landing",
+    "services.launch.desc": "Conversion-focused · one-page · booking ready",
     "services.studio.title": "Studio Website",
     "services.studio.desc":
       "Structured site · artists & services · clear booking flow",
-    "services.custom.title": "Custom Website",
+    "services.custom.title": "Custom Website + CMS",
     "services.custom.desc":
-      "Tailored structure · advanced features · scoped after chat",
+      "Advanced architecture · admin-lite CMS · scalable setup",
     "services.viewDetails": "View details",
 
     // PACKAGES
@@ -43,6 +43,19 @@ const I18N = {
     "packages.pricingNote":
       "Prices are indicative and depend on content and features. Final scope and price are always agreed upfront — no surprises.",
 
+    // Mini Web package
+    "packages.mini.header": "Mini Web — €249 (Fixed Structure)",
+    "packages.mini.intro":
+      "A fixed-structure one-page website. Layout stays the same — only colors, images and content are customized.",
+    "packages.mini.li1": "Predefined layout",
+    "packages.mini.li2": "Hero + Services + About + Contact",
+    "packages.mini.li3": "Mobile-first design",
+    "packages.mini.li4": "Basic SEO-ready structure",
+    "packages.mini.li5": "1 revision round",
+    "packages.mini.li6": "No additional sections",
+    "packages.mini.timeline": "5–7 days",
+    "packages.mini.cta": "Request Mini Web",
+
     // Launch package
     "packages.launch.header": "Launch Page — One-page website",
     "packages.launch.price": "€450",
@@ -55,13 +68,13 @@ const I18N = {
     "packages.launch.li4": "Custom layout (no templates)",
     "packages.launch.li5": "Basic SEO-ready structure",
     "packages.launch.li6": "Launch-ready setup",
-    "packages.launch.timeline": "~1 week",
+    "packages.launch.timeline": "7-10 days",
     "packages.launch.note":
       "Perfect if you already have your content and want something clean, fast and effective.",
 
     // Studio package
     "packages.studio.header": "Studio Website — Structured studio site",
-    "packages.studio.price": "€750",
+    "packages.studio.price": "€900",
     "packages.studio.intro":
       "A more structured website for studios that need more content, multiple sections or artists, and a clearer booking flow.",
     "packages.studio.li1": "Multi-section or multi-page website",
@@ -70,15 +83,15 @@ const I18N = {
     "packages.studio.li4": "Mobile-first UX",
     "packages.studio.li5": "SEO-ready base",
     "packages.studio.li6": "Scalable foundation for future updates",
-    "packages.studio.timeline": "~2–3 weeks",
+    "packages.studio.timeline": "2–3 weeks",
     "packages.studio.note":
       "Designed for studios that want clarity, structure and a more professional digital presence.",
 
     // Custom package
-    "packages.custom.header": "Custom Website — Tailored solution",
+    "packages.custom.header": "Custom Website + CMS — Scalable solution",
     "packages.custom.price": "Custom quote",
     "packages.custom.intro":
-      "For projects that require something beyond a standard structure or need more flexibility.",
+    "For projects that require advanced structure, admin-lite CMS integration, or a scalable architecture.",
     "packages.custom.li1": "Custom layouts or interactions",
     "packages.custom.li2": "Galleries, filters or special sections",
     "packages.custom.li3": "Admin-lite or advanced setups",
@@ -234,9 +247,9 @@ const I18N = {
     "nav.quote": "Pedir presupuesto",
 
     // HERO
-    "hero.title": "Webs artesanales<br />para artistas y pequeñas marcas.",
+    "hero.title": "Webs artesanales<br />para negocios de servicios en crecimiento.",
     "hero.subtitle":
-      "Hecho por una sola persona, no una agencia. Moderno, minimal y pensado para convertir.",
+      "Hecho por una sola persona, no una agencia. Estructuradas, rápidas y pensadas para convertir.",
     "hero.ctaQuote": "Pedir presupuesto",
     "hero.fast": "Entrega rápida",
     "hero.mobile": "Mobile-first",
@@ -246,15 +259,17 @@ const I18N = {
     "services.title": "Servicios",
     "services.subtitle":
       "Elige un punto de partida — lo adaptamos a tu proyecto.",
-    "services.launch.title": "Launch Page",
-    "services.launch.desc": "1 página · mobile-first · enfocada en reservas",
+    "services.launch.title": "Landing Estratégica",
+    "services.launch.desc": "Enfocada en conversión · una página · lista para reservas",
     "services.studio.title": "Studio Website",
     "services.studio.desc":
       "Web estructurada · artistas y servicios · reservas claras",
-    "services.custom.title": "Custom Website",
+    "services.custom.title": "Custom Website + CMS",
     "services.custom.desc":
-      "A medida · funcionalidades avanzadas · tras una charla",
+      "Arquitectura avanzada · CMS admin-lite · estructura escalable",
     "services.viewDetails": "Ver detalles",
+    "services.mini.note": "¿Buscas algo más sencillo?",
+    "services.mini.link": "Ver opción Mini Web",
 
     // PACKAGES
     "packages.title": "Paquetes y detalles",
@@ -265,6 +280,19 @@ const I18N = {
     "packages.cta": "Hablemos del proyecto",
     "packages.pricingNote":
       "Los precios son orientativos y dependen del contenido y las funcionalidades. El alcance y el precio final se acuerdan siempre antes de empezar — sin sorpresas.",
+
+    // Mini Web package
+    "packages.mini.header": "Mini Web — €249 (Estructura fija)",
+    "packages.mini.intro":
+      "Web de una sola página con estructura predefinida. Solo se personalizan colores, imágenes y contenido.",
+    "packages.mini.li1": "Layout predefinido",
+    "packages.mini.li2": "Hero + Servicios + Sobre mí + Contacto",
+    "packages.mini.li3": "Diseño mobile-first",
+    "packages.mini.li4": "Base SEO lista",
+    "packages.mini.li5": "1 ronda de revisión",
+    "packages.mini.li6": "No incluye secciones adicionales",
+    "packages.mini.timeline": "5–7 días",
+    "packages.mini.cta": "Solicitar Mini Web",
 
     // Launch package
     "packages.launch.header": "Launch Page — web de 1 página",
@@ -278,13 +306,13 @@ const I18N = {
     "packages.launch.li4": "Diseño personalizado (sin plantillas)",
     "packages.launch.li5": "Estructura SEO básica lista",
     "packages.launch.li6": "Preparada para publicar",
-    "packages.launch.timeline": "~1 semana",
+    "packages.launch.timeline": "7-10 días",
     "packages.launch.note":
       "Ideal si ya tienes el contenido y quieres algo limpio, rápido y efectivo.",
 
     // Studio package
     "packages.studio.header": "Studio Website — web para estudio",
-    "packages.studio.price": "€750",
+    "packages.studio.price": "€900",
     "packages.studio.intro":
       "Una web más estructurada para estudios que necesitan más contenido, varias secciones o artistas, y un flujo de reservas más claro.",
     "packages.studio.li1": "Web multi-sección o multi-página",
@@ -293,15 +321,15 @@ const I18N = {
     "packages.studio.li4": "UX mobile-first",
     "packages.studio.li5": "Base SEO lista",
     "packages.studio.li6": "Base escalable para futuras mejoras",
-    "packages.studio.timeline": "~2–3 semanas",
+    "packages.studio.timeline": "2–3 semanas",
     "packages.studio.note":
       "Pensada para estudios que quieren claridad, estructura y una presencia digital más profesional.",
 
     // Custom package
-    "packages.custom.header": "Custom Website — solución a medida",
+    "packages.custom.header": "Custom Website + CMS — solución escalable",
     "packages.custom.price": "Presupuesto a medida",
     "packages.custom.intro":
-      "Para proyectos que requieren algo fuera de una estructura estándar o necesitan más flexibilidad.",
+    "Para proyectos que requieren estructura avanzada, integración de CMS admin-lite o una arquitectura escalable.",
     "packages.custom.li1": "Layouts o interacciones personalizadas",
     "packages.custom.li2": "Galerías, filtros o secciones especiales",
     "packages.custom.li3": "Admin-lite o configuraciones avanzadas",
@@ -459,7 +487,7 @@ const I18N = {
     "nav.quote": "Richiedi preventivo",
 
     // HERO
-    "hero.title": "Siti web su misura<br />per artisti e piccoli brand.",
+    "hero.title": "Siti web su misura<br />per negozi di servizi in crescimento.",
     "hero.subtitle":
       "Creato da una sola persona, non da un’agenzia. Moderno, minimal e pensato per convertire.",
     "hero.ctaQuote": "Richiedi preventivo",
@@ -471,14 +499,19 @@ const I18N = {
     "services.title": "Servizi",
     "services.subtitle":
       "Scegli un punto di partenza — lo adattiamo al tuo progetto.",
-    "services.launch.title": "Launch Page",
-    "services.launch.desc": "1 pagina · mobile-first · booking focused",
+    "services.launch.title": "Landing Strategica",
+    "services.launch.desc": "Focalizzata sulla conversione · one-page · pronta per prenotazioni",
     "services.studio.title": "Studio Website",
     "services.studio.desc":
       "Sito strutturato · artisti e servizi · prenotazioni chiare",
-    "services.custom.title": "Custom Website",
-    "services.custom.desc": "Su misura · funzionalità avanzate · dopo una call",
+    "services.custom.title": "Custom Website + CMS",
+    "services.custom.desc":
+      "Architettura avanzata · CMS admin-lite · setup scalabile",
     "services.viewDetails": "Dettagli",
+    "services.mini.note": "Looking for something simpler?",
+    "services.mini.link": "See Mini Web option",
+    "services.mini.note": "Cerchi qualcosa di più semplice?",
+    "services.mini.link": "Scopri l'opzione Mini Web",
 
     // PACKAGES
     "packages.title": "Pacchetti e dettagli",
@@ -489,6 +522,19 @@ const I18N = {
     "packages.cta": "Parliamone",
     "packages.pricingNote":
       "I prezzi sono indicativi e dipendono da contenuti e funzionalità. Scopo e prezzo finale vengono concordati prima di iniziare — niente sorprese.",
+
+    // Mini Web package
+  "packages.mini.header": "Mini Web — €249 (Struttura fissa)",
+  "packages.mini.intro":
+    "Sito one-page con struttura predefinita. Si personalizzano solo colori, immagini e contenuti.",
+  "packages.mini.li1": "Layout predefinito",
+  "packages.mini.li2": "Hero + Servizi + Chi sono + Contatto",
+  "packages.mini.li3": "Design mobile-first",
+  "packages.mini.li4": "Struttura SEO pronta",
+  "packages.mini.li5": "1 revisione inclusa",
+  "packages.mini.li6": "Nessuna sezione aggiuntiva",
+  "packages.mini.timeline": "5–7 giorni",
+  "packages.mini.cta": "Richiedi Mini Web",
 
     // Launch package
     "packages.launch.header": "Launch Page — sito 1 pagina",
@@ -502,13 +548,13 @@ const I18N = {
     "packages.launch.li4": "Layout personalizzato (no template)",
     "packages.launch.li5": "Struttura SEO base pronta",
     "packages.launch.li6": "Pronto per la pubblicazione",
-    "packages.launch.timeline": "~1 settimana",
+    "packages.launch.timeline": "7-10 giorni",
     "packages.launch.note":
       "Perfetto se hai già i contenuti e vuoi qualcosa di pulito, veloce ed efficace.",
 
     // Studio package
     "packages.studio.header": "Studio Website — sito per studio",
-    "packages.studio.price": "€750",
+    "packages.studio.price": "€900",
     "packages.studio.intro":
       "Un sito più strutturato per studi che hanno più contenuti, sezioni o artisti, e un flusso prenotazioni più chiaro.",
     "packages.studio.li1": "Sito multi-sezione o multi-pagina",
@@ -517,15 +563,15 @@ const I18N = {
     "packages.studio.li4": "UX mobile-first",
     "packages.studio.li5": "Base SEO pronta",
     "packages.studio.li6": "Base scalabile per miglioramenti futuri",
-    "packages.studio.timeline": "~2–3 settimane",
+    "packages.studio.timeline": "2–3 settimane",
     "packages.studio.note":
       "Pensato per studi che vogliono chiarezza, struttura e una presenza digitale più professionale.",
 
     // Custom package
-    "packages.custom.header": "Custom Website — soluzione su misura",
+    "packages.custom.header": "Custom Website + CMS — soluzione scalabile",
     "packages.custom.price": "Preventivo su misura",
     "packages.custom.intro":
-      "Per progetti che richiedono qualcosa oltre una struttura standard o più flessibilità.",
+    "Per progetti che richiedono struttura avanzata, integrazione CMS admin-lite o architettura scalabile.",
     "packages.custom.li1": "Layout o interazioni personalizzate",
     "packages.custom.li2": "Gallerie, filtri o sezioni speciali",
     "packages.custom.li3": "Admin-lite o setup avanzati",

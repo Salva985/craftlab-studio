@@ -190,10 +190,10 @@
             <div class="card h-100 service-card">
               <div class="card-body">
                 <h3 class="h4 mb-4" data-i18n="services.launch.title">
-                  Launch Page
+                  Strategic Landing
                 </h3>
                 <p class="text-muted-ivory" data-i18n="services.launch.desc">
-                  1-page · mobile-first · booking focused
+                  Conversion-focused  · one-page · booking ready
                 </p>
                 <a
                   href="#packages"
@@ -232,10 +232,10 @@
             <div class="card h-100 service-card">
               <div class="card-body">
                 <h3 class="h4 mb-4" data-i18n="services.custom.title">
-                  Custom Website
+                  Custom Website + CMS
                 </h3>
                 <p class="text-muted-ivory" data-i18n="services.custom.desc">
-                  Tailored structure · advanced features · scoped after chat
+                  Advanced architecture · admin-lite CMS · scalable setup
                 </p>
                 <a
                   href="#packages"
@@ -248,6 +248,18 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <p class="text-muted-ivory small">
+          <span data-i18n="services.mini.note">
+            Looking for something simpler?
+          </span>
+          <a href="#packages" class="text-accent"
+             data-i18n="services.mini.link">
+            See Mini Web option
+          </a>
+        </p>
       </div>
     </section>
 
@@ -267,6 +279,70 @@
         </div>
 
         <div class="accordion" id="packageAccordion">
+
+        <!-- Mini Web -->
+        <div
+          class="accordion-item bg-darker text-light border-0 mb-3 rounded-3"
+        >
+          <h2 class="accordion-header" id="headingMini">
+            <button
+              class="accordion-button collapsed bg-darker text-light"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#pkgMini"
+              aria-expanded="false"
+              aria-controls="pkgMini"
+            >
+              <span data-i18n="packages.mini.header">
+                Mini Web — €249 (Fixed Structure)
+              </span>
+            </button>
+          </h2>
+
+          <div
+            id="pkgMini"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingMini"
+            data-bs-parent="#packageAccordion"
+          >
+            <div class="accordion-body">
+
+              <p class="text-muted-ivory mb-2"
+                data-i18n="packages.mini.intro">
+                A fixed-structure one-page website. Layout stays the same —
+                only colors, images and content are customized.
+              </p>
+
+              <ul class="mb-3">
+                <li data-i18n="packages.mini.li1">Predefined layout</li>
+                <li data-i18n="packages.mini.li2">Hero + Services + About + Contact</li>
+                <li data-i18n="packages.mini.li3">Mobile-first design</li>
+                <li data-i18n="packages.mini.li4">Basic SEO-ready structure</li>
+                <li data-i18n="packages.mini.li5">1 revision round</li>
+                <li data-i18n="packages.mini.li6">No additional sections</li>
+              </ul>
+
+              <p class="text-muted-ivory mb-3">
+                <strong data-i18n="packages.timelineLabel">
+                  Typical delivery:
+                </strong>
+                <span data-i18n="packages.mini.timeline">
+                  5–7 days
+                </span>
+              </p>
+
+              <div class="d-flex gap-2">
+                <a href="#contact"
+                  class="btn btn-outline-accent"
+                  data-i18n="packages.mini.cta">
+                  Request Mini Web
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
           <!-- Launch Page -->
           <div
             class="accordion-item bg-darker text-light border-0 mb-3 rounded-3"
@@ -324,7 +400,7 @@
                   <strong data-i18n="packages.timelineLabel"
                     >Typical delivery:</strong
                   >
-                  <span data-i18n="packages.launch.timeline">~1 week</span>
+                  <span data-i18n="packages.launch.timeline">7-10 days</span>
                 </p>
 
                 <p class="text-muted-ivory" data-i18n="packages.launch.note">
@@ -373,7 +449,7 @@
               <div class="accordion-body">
                 <p class="text-muted-ivory mb-2">
                   <strong data-i18n="packages.from">from</strong>
-                  <strong data-i18n="packages.studio.price">€750</strong>
+                  <strong data-i18n="packages.studio.price">€900</strong>
                 </p>
 
                 <p class="text-muted-ivory" data-i18n="packages.studio.intro">
@@ -437,7 +513,7 @@
                 aria-controls="pkgCustom"
               >
                 <span data-i18n="packages.custom.header">
-                  Custom Website — Tailored solution
+                  Custom Website + CMS — Scalable solution
                 </span>
               </button>
             </h2>
