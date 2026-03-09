@@ -10,9 +10,9 @@ const I18N = {
     "nav.quote": "Get a quote",
 
     // HERO
-    "hero.title": "Handcrafted websites<br />for growing service businesses.",
+    "hero.title": "Handcrafted websites for creative professionals and local businesses",
     "hero.subtitle":
-      "Built by one person, not an agency. Structured, fast, and designed to convert.",
+      "Custom websites designed to present your work clearly, build trust and help clients understand what you offer.",
     "hero.ctaQuote": "Get a quote",
     "hero.fast": "Fast delivery",
     "hero.mobile": "Mobile-first",
@@ -31,6 +31,23 @@ const I18N = {
     "services.custom.desc":
       "Advanced architecture · admin-lite CMS · scalable setup",
     "services.viewDetails": "View details",
+
+    //WHO I WORK WITH
+
+    "sectors_title": "Who I work with",
+
+    "sector_creative_title": "Creative Studios",
+    "sector_creative_desc": "Architecture, design and photography studios that need a strong portfolio presence.",
+
+    "sector_wellness_title": "Wellness",
+    "sector_wellness_desc": "Yoga, pilates and wellness professionals who want a clear and professional online presence.",
+
+    "sector_business_title": "Local Businesses",
+    "sector_business_desc": "Small businesses that want a clear website to present their services and attract clients.",
+
+    "sector_creators_title": "Artists & Creators",
+    "sector_creators_desc": "Tattoo artists, DJs and creatives who want to showcase their work professionally.",
+
 
     // PACKAGES
     "packages.title": "Packages & Details",
@@ -241,9 +258,9 @@ const I18N = {
     "nav.quote": "Pedir presupuesto",
 
     // HERO
-    "hero.title": "Webs artesanales<br />para negocios de servicios en crecimiento.",
+    "hero.title": "Webs artesanales para profesionales creativos y negocios locales",
     "hero.subtitle":
-      "Hecho por una sola persona, no una agencia. Estructuradas, rápidas y pensadas para convertir.",
+      "Sitios web diseñados para presentar tu trabajo con claridad, generar confianza y ayudar a los clientes a entender lo que ofreces.",
     "hero.ctaQuote": "Pedir presupuesto",
     "hero.fast": "Entrega rápida",
     "hero.mobile": "Mobile-first",
@@ -264,6 +281,22 @@ const I18N = {
     "services.viewDetails": "Ver detalles",
     "services.mini.note": "¿Buscas algo más sencillo?",
     "services.mini.link": "Ver opción Mini Web",
+
+    //WHO I WORK WITH
+
+    "sectors_title": "Con quién trabajo",
+
+    "sector_creative_title": "Estudios creativos",
+    "sector_creative_desc": "Arquitectura, diseño y fotografía que necesitan una presencia online sólida.",
+
+    "sector_wellness_title": "Bienestar",
+    "sector_wellness_desc": "Yoga, pilates y profesionales del bienestar que quieren una web clara y profesional.",
+
+    "sector_business_title": "Negocios locales",
+    "sector_business_desc": "Pequeños negocios que quieren una web clara para presentar sus servicios y atraer clientes.",
+
+    "sector_creators_title": "Artistas y creadores",
+    "sector_creators_desc": "Tattoo artists, DJs y creativos que quieren mostrar su trabajo profesionalmente.",
 
     // PACKAGES
     "packages.title": "Paquetes y detalles",
@@ -475,9 +508,9 @@ const I18N = {
     "nav.quote": "Richiedi preventivo",
 
     // HERO
-    "hero.title": "Siti web su misura<br />per negozi di servizi in crescimento.",
+    "hero.title": "Siti web artigianali per professionisti creativi e attività locali",
     "hero.subtitle":
-      "Creato da una sola persona, non da un’agenzia. Moderno, minimal e pensato per convertire.",
+      "Siti web progettati per presentare il tuo lavoro con chiarezza, creare fiducia e aiutare i clienti a capire cosa offri.",
     "hero.ctaQuote": "Richiedi preventivo",
     "hero.fast": "Consegna rapida",
     "hero.mobile": "Mobile-first",
@@ -500,6 +533,21 @@ const I18N = {
     "services.mini.link": "See Mini Web option",
     "services.mini.note": "Cerchi qualcosa di più semplice?",
     "services.mini.link": "Scopri l'opzione Mini Web",
+
+    //WHO I WORK WITH
+    "sectors_title": "Con chi lavoro",
+
+    "sector_creative_title": "Studi creativi",
+    "sector_creative_desc": "Architettura, design e fotografia che hanno bisogno di una presenza online forte.",
+
+    "sector_wellness_title": "Benessere",
+    "sector_wellness_desc": "Yoga, pilates e professionisti del benessere che vogliono un sito chiaro e professionale.",
+
+    "sector_business_title": "Attività locali",
+    "sector_business_desc": "Piccole imprese che vogliono un sito chiaro per presentare i propri servizi e attirare clienti.",
+
+    "sector_creators_title": "Artisti e creativi",
+    "sector_creators_desc": "Tattoo artist, DJ e creativi che vogliono mostrare il proprio lavoro in modo professionale.",
 
     // PACKAGES
     "packages.title": "Pacchetti e dettagli",

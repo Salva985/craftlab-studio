@@ -154,6 +154,20 @@ a.nav-link:hover{ color:var(--lime) !important; }
   line-height:1;
 }
 
+/* WHO I WORK WITH */
+
+.sectors{
+  padding:90px 0;
+  background:#121212;
+  }
+  
+  .sectors h2{
+  font-family:'Bebas Neue';
+  font-size:2.2rem;
+  margin-bottom:40px;
+  }
+  
+
 /* ---------- Hero ---------- */
 .hero-logo{
   width: clamp(280px, 45vw, 620px);
