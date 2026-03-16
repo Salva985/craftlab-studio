@@ -629,6 +629,7 @@ p + p{
 #services .text-accent:hover{
   color:var(--neon);
   text-decoration-line: underline;
+  font-weight: 600;
 }
 
 #services .btn-outline-accent{
@@ -649,6 +650,69 @@ p + p{
   0 0 6px var(--charcoal),
   0 0 14px var(--neon);
   font-weight: 600;
+}
+
+/* WORK / PROJECTS */
+
+.project-card{
+  overflow:hidden;
+  line-height: 1.7rem;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.project-card:hover{
+  transform:translateY(-6px);
+}
+
+.project-card h3 {
+  padding: 5px;
+}
+
+.project-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-bottom:1px solid #2f2f2f;
+}
+
+.project-card .btn{
+  margin-top:auto;
+  align-self:flex-start;
+}
+
+.project-card .card-body{
+  display:flex;
+  flex-direction:column;
+}
+
+#work .row.mb-4 .text-muted-ivory{
+  color: var(--charcoal) !important;
+}
+
+#work strong{
+  color: var(--ivory);
+  font-weight:600;
+}
+
+#work .btn-outline-accent{
+  color: var(--charcoal);
+}
+
+#work .btn-outline-accent:hover{
+  color: var(--lime);
+  font-weight: 600;
+
+}
+
+#work .project-meta {
+  color: var(--neon);
+  border-bottom:1px solid var(--charcoal);
+  display:inline-block;
+  padding-bottom:2px;  font-weight: 800;
+
 }
 
 /* PACKAGES */
@@ -785,6 +849,10 @@ p + p{
     0 0 14px var(--neon);
 }
 
+#why .text-muted-ivory{
+  color: var(--charcoal) !important;
+}
+
 /* PROCESS */
 
 #process .step-card{
@@ -885,7 +953,7 @@ p + p{
 
   background:var(--neon);
   border-color:var(--neon);
-  color:var(--ivory);
+  color:var(--lime);
   font-weight: 600;
 }
 
@@ -950,7 +1018,7 @@ p + p{
 #faq .btn-outline-accent:hover{
   background:var(--neon);
   border-color:var(--neon);
-  color:var(--ivory);
+  color:var(--lime);
   border: var(--neon);
   font-weight: 600;
 }

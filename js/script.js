@@ -18,6 +18,39 @@ const I18N = {
     "hero.mobile": "Mobile-first",
     "hero.seo": "SEO-ready",
 
+    // WORK / PROJECTS
+    "work.title": "Selected Projects",
+    "work.subtitle": "A few recent websites built for real clients and creators.",
+
+    "work.problem": "Problem:",
+    "work.solution": "Solution:",
+    "work.result": "Result:",
+    "work.viewProject": "View project",
+
+    // 5D
+    "work.5d.title": "5D Topografía",
+    "work.5d.meta": "Surveying & BIM Engineering · Custom Web + CMS",
+
+    "work.5d.problem": "The previous website was built through a digital agency on WordPress with limited flexibility — the client could only modify basic text content.",
+    "work.5d.solution": "A fully custom website giving the client full ownership of the code and a CMS to manage technology sections and project content.",
+    "work.5d.result": "Full control of the website structure and content without platform lock-in.",
+
+    // BOJE
+    "work.boje.title": "Boje Sax",
+    "work.boje.meta": "Artist Portfolio · Landing Page",
+
+    "work.boje.problem": "The artist’s presence was fragmented across Instagram, Linktree and shared files, making it harder for promoters to evaluate the project.",
+    "work.boje.solution": "A central portfolio website combining performances, photos, press kit and booking contact.",
+    "work.boje.result": "A clearer and more professional presentation for event organizers.",
+
+    // MINI WEB
+    "work.mini.title": "CraftLab Mini Web",
+    "work.mini.meta": "Yoga & Wellness Studios · Mini Web Product",
+
+    "work.mini.problem": "Small yoga and wellness studios often need a website but cannot invest in a full custom build.",
+    "work.mini.solution": "A fixed-structure one-page website designed for fast launch and easy client contact.",
+    "work.mini.result": "A professional online presence ready in under 7 days.",
+
     // SERVICES
     "services.title": "Services",
     "services.subtitle":
@@ -119,6 +152,7 @@ const I18N = {
 
     // WHY
     "why.title": "Why CraftLab",
+    "why.subtitle": "Why clients choose CraftLab Studio for their website.",
     "why.a": "Fast delivery (typically 1–3 weeks)",
     "why.b": "Built by a developer, not templates",
     "why.c": "Mobile-first & SEO-ready",
@@ -282,6 +316,39 @@ const I18N = {
     "services.mini.note": "¿Buscas algo más sencillo?",
     "services.mini.link": "Ver opción Mini Web",
 
+    // WORK / PROJECTS
+    "work.title": "Proyectos seleccionados",
+    "work.subtitle": "Algunas webs recientes creadas para clientes y creadores reales.",
+
+    "work.problem": "Problema:",
+    "work.solution": "Solución:",
+    "work.result": "Resultado:",
+    "work.viewProject": "Ver proyecto",
+
+    // 5D TOPOGRAFIA
+    "work.5d.title": "5D Topografía",
+    "work.5d.meta": "Topografía y BIM · Web personalizada + CMS",
+
+    "work.5d.problem": "La web anterior estaba desarrollada por una agencia digital en WordPress, donde el cliente solo podía modificar textos y tenía un control muy limitado sobre la estructura.",
+    "work.5d.solution": "Una web totalmente personalizada desarrollada desde cero con un CMS ligero que permite al cliente actualizar proyectos y contenido técnico de forma independiente.",
+    "work.5d.result": "Una web más rápida, limpia y completamente independiente sin limitaciones de plataforma.",
+
+    // BOJE
+    "work.boje.title": "Boje Sax",
+    "work.boje.meta": "Portfolio de artista · Landing page",
+
+    "work.boje.problem": "La presencia del artista estaba fragmentada entre Instagram, Linktree y archivos compartidos, lo que dificultaba a los promotores entender el proyecto.",
+    "work.boje.solution": "Una web portfolio centralizada que reúne actuaciones, fotos, press kit y contacto para contrataciones.",
+    "work.boje.result": "Una presentación más clara y profesional para organizadores de eventos.",
+
+    // MINI WEB
+    "work.mini.title": "CraftLab Mini Web",
+    "work.mini.meta": "Estudios de yoga y bienestar · Mini Web", 
+
+    "work.mini.problem": "Muchos estudios de yoga y bienestar necesitan una web pero no pueden invertir en un desarrollo completamente personalizado.",
+    "work.mini.solution": "Una web de una página con estructura fija diseñada para lanzarse rápidamente y facilitar el contacto con clientes.",
+    "work.mini.result": "Una presencia online profesional lista en menos de 7 días.",
+
     //WHO I WORK WITH
 
     "sectors_title": "Con quién trabajo",
@@ -367,6 +434,7 @@ const I18N = {
 
     // WHY
     "why.title": "Por qué CraftLab",
+    "why.subtitle": "Por qué los clientes eligen CraftLab Studio para su web.",
     "why.a": "Entrega rápida (normalmente 1–3 semanas)",
     "why.b": "Hecho por un developer, sin plantillas",
     "why.c": "Mobile-first y SEO listo",
@@ -534,6 +602,39 @@ const I18N = {
     "services.mini.note": "Cerchi qualcosa di più semplice?",
     "services.mini.link": "Scopri l'opzione Mini Web",
 
+    // WORK / PROJECTS
+    "work.title": "Progetti selezionati",
+    "work.subtitle": "Alcuni siti web recenti realizzati per clienti e creatori.",
+
+    "work.problem": "Problema:",
+    "work.solution": "Soluzione:",
+    "work.result": "Risultato:",
+    "work.viewProject": "Vedi progetto",
+
+    // 5D TOPOGRAFIA
+    "work.5d.title": "5D Topografía",
+    "work.5d.meta": "Topografia e BIM · Sito personalizzato + CMS",
+
+    "work.5d.problem": "Il sito precedente era stato realizzato da un'agenzia digitale in WordPress, dove il cliente poteva modificare solo i testi con un controllo molto limitato sulla struttura.",
+    "work.5d.solution": "Un sito web completamente personalizzato sviluppato da zero con un CMS leggero che permette al cliente di aggiornare progetti e contenuti tecnici in autonomia.",
+    "work.5d.result": "Un sito più veloce, pulito e completamente indipendente senza limitazioni di piattaforma.",
+
+    // BOJE
+    "work.boje.title": "Boje Sax",
+    "work.boje.meta": "Portfolio artista · Landing page",
+
+    "work.boje.problem": "La presenza dell’artista era frammentata tra Instagram, Linktree e file condivisi, rendendo più difficile per i promoter valutare il progetto.",
+    "work.boje.solution": "Un sito portfolio centrale che riunisce performance, foto, press kit e contatto per booking.",
+    "work.boje.result": "Una presentazione più chiara e professionale per gli organizzatori di eventi.",
+
+    // MINI WEB
+    "work.mini.title": "CraftLab Mini Web",
+    "work.mini.meta": "Studi yoga e benessere · Mini Web",
+
+    "work.mini.problem": "Molti studi di yoga e benessere hanno bisogno di un sito web ma non possono investire in uno sviluppo completamente personalizzato.",
+    "work.mini.solution": "Un sito one-page con struttura fissa progettato per un lancio rapido e un contatto semplice con i clienti.",
+    "work.mini.result": "Una presenza online professionale pronta in meno di 7 giorni.",
+
     //WHO I WORK WITH
     "sectors_title": "Con chi lavoro",
 
@@ -618,6 +719,7 @@ const I18N = {
 
     // WHY
     "why.title": "Perché CraftLab",
+    "why.subtitle": "Perché i clienti scelgono CraftLab Studio per il loro sito web.",
     "why.a": "Consegna rapida (di solito 1–3 settimane)",
     "why.b": "Fatto da uno sviluppatore, niente template",
     "why.c": "Mobile-first & SEO pronto",
