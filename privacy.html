@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body class="bg-dark text-light">
+<body class="legal-page">
 
   <!-- NAV -->
   <nav class="navbar bg-black border-bottom border-secondary">
@@ -36,53 +36,99 @@
 
   <!-- CONTENT -->
   <main class="container py-6">
-    <h1 class="section-title" data-i18n="privacy.title">Privacy Policy</h1>
+    <h1 class="section-title" data-i18n="privacy.metaTitle"> </h1>
 
     <p class="text-muted-ivory mt-3" data-i18n="privacy.intro">
-      CraftLab Studio is a one-person studio. This website collects personal data only when you submit the contact form.
     </p>
 
-    <h2 class="h4 mt-4" data-i18n="privacy.collectTitle">What data we collect</h2>
+    <h2 class="h4 mt-4" data-i18n="privacy.collect.title"> </h2>
     <ul class="text-muted-ivory">
-      <li data-i18n="privacy.collect.li1">Name</li>
-      <li data-i18n="privacy.collect.li2">Email</li>
-      <li data-i18n="privacy.collect.li3">Message content and optional project details</li>
+      <li data-i18n="privacy.collect.li1"> </li>
+      <li data-i18n="privacy.collect.li2"> </li>
+      <li data-i18n="privacy.collect.li3"> </li>
     </ul>
 
-    <h2 class="h4 mt-4" data-i18n="privacy.why.title">Why we collect it</h2>
+    <h2 class="h4 mt-4" data-i18n="privacy.why.title"> </h2>
     <p class="text-muted-ivory" data-i18n="privacy.why.body">
-      We use it only to reply to your enquiry and discuss your project.
     </p>
 
-    <h2 class="h4 mt-4" data-i18n="privacy.retention.title">Data retention</h2>
+    <h2 class="h4 mt-4" data-i18n="privacy.retention.title"> </h2>
     <p class="text-muted-ivory" data-i18n="privacy.retention.body">
-      Messages are kept only as long as needed for communication and project administration.
     </p>
 
-    <h2 class="h4 mt-4" data-i18n="privacy.third.title">Third parties</h2>
+    <h2 class="h4 mt-4" data-i18n="privacy.third.title"> </h2>
     <p class="text-muted-ivory" data-i18n="privacy.third.body">
-      The contact form may use an email delivery provider to send messages to our inbox. No marketing lists are used.
     </p>
 
-    <h2 class="h4 mt-4" data-i18n="privacy.rights.title">Your rights</h2>
-    <p class="text-muted-ivory" data-i18n="privacy.rights.body">
-      You can request access, correction, or deletion of your data by emailing:
-      <a class="link-light" href="mailto:hello@craftlab-studio.com">
-        hello@craftlab-studio.com
+    <h2 class="h4 mt-4" data-i18n="privacy.rights.title"> </h2>
+    <p class="text-muted-ivory">
+      <span data-i18n="privacy.rights.body"></span>
+      <a href="mailto:info@craftlab-studio.com" class="legal-link">
       </a>
     </p>
 
     <p class="small text-muted mt-5">
-      <span data-i18n="privacy.updated">Last updated:</span>
+      <span data-i18n="privacy.updated"> </span>
       <span id="d"></span>
     </p>
   </main>
+
+  <footer class="py-5 bg-black border-top border-secondary">
+    <div class="container small footer-grid">
+      <!-- Left -->
+      <div class="footer-left" data-i18n="footer.tagline">
+        © <span id="y"></span> CraftLab Studio — Built by hand. Designed with soul.
+      </div>
+
+      <!-- Center -->
+      <div class="footer-center">
+        <a href="mailto:info@craftlab-studio.com" class="footer-link">
+          info@craftlab-studio.com
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/craftlab-studio-bcn/"
+          class="footer-social"
+          aria-label="CraftLab Studio on LinkedIn"
+        >
+          <img
+            src="img/linkedin.svg"
+            alt="LinkedIn"
+            class="footer-icon"
+            width="44"
+            height="44"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/craftlab.studio.bcn/"
+          class="footer-social"
+          aria-label="CraftLab Studio on Instagram"
+        >
+          <img
+            src="img/instagram.svg"
+            alt="Instagram"
+            class="footer-icon"
+            width="40"
+            height="40"
+          />
+        </a>
+      </div>
+
+      <!-- Right -->
+      <div class="footer-right">
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="cookies.html" class="footer-link">Cookies</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="js/script.js"></script>
   <script>
     document.getElementById("d").textContent =
-      new Date().toISOString().slice(0, 10);
+    new Date().toISOString().slice(0, 10);
+    
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
 </body>

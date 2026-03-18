@@ -167,7 +167,9 @@ p + p{
   transform .2s ease,
   box-shadow .2s ease,
   border-color .2s ease;
-
+  display:flex;
+  flex-direction:column;
+  height:100%;
 }
 
 .card:hover,
@@ -510,6 +512,9 @@ p + p{
 /* =================================
    9 FOOTER
 ================================= */
+footer{
+  color: var(--ivory);
+}
 
 .footer-link{
   color:#fff;
@@ -630,6 +635,15 @@ p + p{
   color:var(--neon);
   text-decoration-line: underline;
   font-weight: 600;
+}
+
+.service-card .card-body{
+  display:flex;
+  flex-direction:column;
+}
+
+.service-card .btn{
+  margin-top:auto;
 }
 
 #services .btn-outline-accent{
@@ -1021,4 +1035,88 @@ p + p{
   color:var(--lime);
   border: var(--neon);
   font-weight: 600;
+}
+
+/* LEGAL & COOKIES */
+
+.legal-page{
+  background: var(--ivory);
+  color: var(--charcoal);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.legal-page .navbar{
+  background-color: var(--charcoal) !important;
+  border-bottom: 1px solid var(--charcoal);
+}
+
+.legal-page main{
+  flex:1;
+}
+
+.legal-page .section-title{
+  color:var(--charcoal);
+  font-weight: 700;
+}
+
+.legal-page .text-muted-ivory{
+  color:var(--charcoal) !important;
+}
+
+.legal-link{
+  color:var(--lime);
+  text-decoration:none;
+}
+
+.legal-link:hover{
+  text-decoration:underline;
+}
+
+/* COOKIE MODAL */
+
+#cookieModal .modal-content{
+  background: var(--charcoal);
+  border: 1px solid var(--lime);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+#cookieModal h5{
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.5px;
+  font-size: 1.4rem;
+}
+
+#cookieModal p{
+  color: #cfcfcf;
+  line-height: 1.5;
+}
+
+/* Buttons base */
+#cookieModal button{
+  transition: all 0.2s ease;
+}
+
+/* Accept button */
+#cookieModal .btn-accent{
+  background-color: var(--neon);
+  color: #000;
+  border: none;
+}
+
+#cookieModal .btn-accent:hover{
+  background-color: var(--lime);
+}
+
+/* Reject button */
+#cookieModal .btn-outline-light{
+  border: 1px solid var(--neon);
+  color: var(--neon);
+}
+
+#cookieModal .btn-outline-light:hover{
+  color: var(--ivory);
+  border-color: var(--ivory);
 }

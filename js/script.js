@@ -20,7 +20,7 @@ const I18N = {
 
     // WORK / PROJECTS
     "work.title": "Selected Projects",
-    "work.subtitle": "A few recent websites built for real clients and creators.",
+    "work.subtitle": "A selection of websites built for real clients and creative professionals.",
 
     "work.problem": "Problem:",
     "work.solution": "Solution:",
@@ -230,11 +230,11 @@ const I18N = {
     "faq.cta": "Ask a question",
 
     // FOOTER
-    "footer.tagline": "CraftLab Studio — Built by hand. Designed with soul.",
+    "footer.tagline": "© 2026 CraftLab Studio — Built by hand. Designed with soul.",
 
     // COOKIES PAGE
     "cookies.back": "← Back",
-    "cookies.title": "Cookies Policy",
+    "cookies.metaTitle": "Cookies Policy — CraftLab Studio",
     "cookies.intro": "This website does not use cookies for advertising.",
 
     "cookies.essential.title": "Essential cookies",
@@ -256,7 +256,8 @@ const I18N = {
 
     // PRIVACY
     "privacy.back": "← Back",
-    "privacy.title": "Privacy Policy",
+    "privacy.metaTitle": "Privacy Policy — CraftLab Studio",
+
     "privacy.intro":
       "CraftLab Studio is a one-person studio. This website collects personal data only when you submit the contact form.",
 
@@ -318,7 +319,7 @@ const I18N = {
 
     // WORK / PROJECTS
     "work.title": "Proyectos seleccionados",
-    "work.subtitle": "Algunas webs recientes creadas para clientes y creadores reales.",
+    "work.subtitle": "Una selección de webs creadas para clientes y profesionales creativos.",
 
     "work.problem": "Problema:",
     "work.solution": "Solución:",
@@ -512,11 +513,11 @@ const I18N = {
     "faq.cta": "Hacer una consulta",
 
     // FOOTER
-    "footer.tagline": "CraftLab Studio — Hecho a mano. Diseñado con alma.",
+    "footer.tagline": "© 2026 CraftLab Studio — Hecho a mano. Diseñado con alma.",
 
     // COOKIES PAGE
     "cookies.back": "← Volver",
-    "cookies.title": "Política de Cookies",
+    "cookies.metaTitle": "Política de Cookies — CraftLab Studio",
     "cookies.intro":
       "Este sitio web no utiliza cookies con fines publicitarios.",
 
@@ -539,7 +540,7 @@ const I18N = {
 
     // PRIVACY
     "privacy.back": "← Volver",
-    "privacy.title": "Política de Privacidad",
+    "privacy.metaTitle": "Política de Privacidad — CraftLab Studio",
     "privacy.intro":
       "CraftLab Studio es un estudio unipersonal. Este sitio web solo recoge datos personales cuando envías el formulario de contacto.",
 
@@ -597,14 +598,12 @@ const I18N = {
     "services.custom.desc":
       "Architettura avanzata · CMS admin-lite · setup scalabile",
     "services.viewDetails": "Dettagli",
-    "services.mini.note": "Looking for something simpler?",
-    "services.mini.link": "See Mini Web option",
     "services.mini.note": "Cerchi qualcosa di più semplice?",
     "services.mini.link": "Scopri l'opzione Mini Web",
 
     // WORK / PROJECTS
     "work.title": "Progetti selezionati",
-    "work.subtitle": "Alcuni siti web recenti realizzati per clienti e creatori.",
+    "work.subtitle": "Una selezione di siti web realizzati per clienti e professionisti creativi.",
 
     "work.problem": "Problema:",
     "work.solution": "Soluzione:",
@@ -797,11 +796,11 @@ const I18N = {
     "faq.cta": "Fai una domanda",
 
     // FOOTER
-    "footer.tagline": "CraftLab Studio — Fatto a mano. Progettato con anima.",
+    "footer.tagline": "© 2026 CraftLab Studio — Fatto a mano. Progettato con anima.",
 
     // COOKIES PAGE
     "cookies.back": "← Indietro",
-    "cookies.title": "Informativa sui Cookie",
+    "cookies.metaTitle": "Informativa sui Cookie — CraftLab Studio",
     "cookies.intro": "Questo sito web non utilizza cookie per pubblicità.",
 
     "cookies.essential.title": "Cookie essenziali",
@@ -823,7 +822,7 @@ const I18N = {
 
     // PRIVACY
     "privacy.back": "← Indietro",
-    "privacy.title": "Informativa sulla Privacy",
+    "privacy.metaTitle": "Informativa sulla Privacy — CraftLab Studio",
     "privacy.intro":
       "CraftLab Studio è uno studio individuale. Questo sito raccoglie dati personali solo quando invii il modulo di contatto.",
 
@@ -954,6 +953,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Cookie modal
+
+  function loadOptionalScripts() {
+    console.log("✅ Optional scripts enabled");
+  }
+
   const CONSENT_KEY = "craftlab_cookie_consent"; // "accepted" | "rejected"
   const modalEl = document.getElementById("cookieModal");
   const acceptBtn = document.getElementById("cookieAccept");
@@ -961,6 +965,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modalEl && typeof bootstrap !== "undefined") {
     const consent = localStorage.getItem(CONSENT_KEY);
+    if (consent === "accepted") {
+      loadOptionalScripts();
+    }
+
     if (!consent) {
       const modal = bootstrap.Modal.getOrCreateInstance(modalEl, {
         backdrop: "static",
@@ -975,6 +983,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     acceptBtn?.addEventListener("click", () => {
       localStorage.setItem(CONSENT_KEY, "accepted");
+      loadOptionalScripts(); 
       closeModal();
     });
 

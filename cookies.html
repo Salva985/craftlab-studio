@@ -9,42 +9,104 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body class="bg-dark text-light">
+<body class="legal-page">
   <nav class="navbar bg-black border-bottom border-secondary">
-    <div class="container-fluid px-3 px-lg-4">
-      <a class="navbar-brand text-light text-decoration-none"
-         href="index.html"
-         data-i18n="cookies.back">← Back</a>
+    <div class="container-fluid px-3 px-lg-4 d-flex justify-content-between">
+  
+      <a
+        class="navbar-brand text-light text-decoration-none"
+        href="index.html"
+        data-i18n="cookies.back"
+      >
+        ← Back
+      </a>
+  
+      <!-- Language switch -->
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-accent btn-sm" data-lang="en">EN</button>
+        <button class="btn btn-outline-accent btn-sm" data-lang="es">ES</button>
+        <button class="btn btn-outline-accent btn-sm" data-lang="it">IT</button>
+      </div>
+  
     </div>
   </nav>
 
   <main class="container py-6">
-    <h1 class="section-title" data-i18n="cookies.title">Cookies Policy</h1>
+    <h1 class="section-title" data-i18n="cookies.metaTitle"> </h1>
 
     <p class="text-muted-ivory mt-3" data-i18n="cookies.intro">
-      This website does not use cookies for advertising.
     </p>
 
-    <h2 class="h4 mt-4" data-i18n="cookies.essential.title">Essential cookies</h2>
+    <h2 class="h4 mt-4" data-i18n="cookies.essential.title"></h2>
     <p class="text-muted-ivory" data-i18n="cookies.essential.body">
-      If any essential cookies are used by the hosting platform, they are required for basic site functionality.
     </p>
 
-    <h2 class="h4 mt-4" data-i18n="cookies.analytics.title">Analytics (optional)</h2>
+    <h2 class="h4 mt-4" data-i18n="cookies.analytics.title"></h2>
     <p class="text-muted-ivory" data-i18n="cookies.analytics.body">
-      If analytics tools are enabled in the future (e.g., Google Analytics), this policy will be updated.
     </p>
 
     <p class="small text-muted mt-5">
-      <span data-i18n="cookies.updated">Last updated:</span> <span id="d"></span>
+      <span data-i18n="cookies.updated"> </span> <span id="d"></span>
     </p>
+
   </main>
+
+  <footer class="py-5 bg-black border-top border-secondary">
+    <div class="container small footer-grid">
+      <!-- Left -->
+      <div class="footer-left" data-i18n="footer.tagline">
+        © <span id="y"></span> CraftLab Studio — Built by hand. Designed with
+        soul.
+      </div>
+
+      <!-- Center -->
+      <div class="footer-center">
+        <a href="mailto:info@craftlab-studio.com" class="footer-link">
+          info@craftlab-studio.com
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/craftlab-studio-bcn/"
+          class="footer-social"
+          aria-label="CraftLab Studio on LinkedIn"
+        >
+          <img
+            src="img/linkedin.svg"
+            alt="LinkedIn"
+            class="footer-icon"
+            width="44"
+            height="44"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/craftlab.studio.bcn/"
+          class="footer-social"
+          aria-label="CraftLab Studio on Instagram"
+        >
+          <img
+            src="img/instagram.svg"
+            alt="Instagram"
+            class="footer-icon"
+            width="40"
+            height="40"
+          />
+        </a>
+      </div>
+
+      <!-- Right -->
+      <div class="footer-right">
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="cookies.html" class="footer-link">Cookies</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
     document.getElementById("d").textContent = new Date().toISOString().slice(0,10);
+
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
-  <!-- Optional: if you want cookies.html to auto-translate based on localStorage -->
   <script src="js/script.js"></script>
 </body>
 </html>
