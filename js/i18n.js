@@ -1,0 +1,898 @@
+
+// i18n (EN/ES/IT)
+
+export const I18N = {
+    en: {
+      // NAV
+      "nav.services": "Services",
+      "nav.process": "Process",
+      "nav.about": "About",
+      "nav.work": "Work",
+      "nav.contact": "Contact",
+      "nav.quote": "Get a quote",
+  
+      // HERO
+      "hero.title": "Handcrafted websites for creative professionals and local businesses",
+      "hero.subtitle":
+        "Custom websites designed to present your work clearly, build trust and help clients understand what you offer.",
+      "hero.ctaQuote": "Get a quote",
+      "hero.fast": "Fast delivery",
+      "hero.mobile": "Mobile-first",
+      "hero.seo": "SEO-ready",
+  
+      // WORK / PROJECTS
+      "work.title": "Selected Projects",
+      "work.subtitle": "A selection of websites built for real clients and creative professionals.",
+  
+      "work.problem": "Problem:",
+      "work.solution": "Solution:",
+      "work.result": "Result:",
+      "work.viewProject": "View project",
+  
+      // 5D
+      "work.5d.title": "5D Topografía",
+      "work.5d.meta": "Surveying & BIM Engineering · Custom Web + CMS",
+  
+      "work.5d.problem": "The previous website was built through a digital agency on WordPress with limited flexibility — the client could only modify basic text content.",
+      "work.5d.solution": "A fully custom website giving the client full ownership of the code and a CMS to manage technology sections and project content.",
+      "work.5d.result": "Full control of the website structure and content without platform lock-in.",
+  
+      // BOJE
+      "work.boje.title": "Boje Sax",
+      "work.boje.meta": "Artist Portfolio · Landing Page",
+  
+      "work.boje.problem": "The artist’s presence was fragmented across Instagram, Linktree and shared files, making it harder for promoters to evaluate the project.",
+      "work.boje.solution": "A central portfolio website combining performances, photos, press kit and booking contact.",
+      "work.boje.result": "A clearer and more professional presentation for event organizers.",
+  
+      // MINI WEB
+      "work.mini.title": "CraftLab Mini Web",
+      "work.mini.meta": "Yoga & Wellness Studios · Mini Web Product",
+  
+      "work.mini.problem": "Small yoga and wellness studios often need a website but cannot invest in a full custom build.",
+      "work.mini.solution": "A fixed-structure one-page website designed for fast launch and easy client contact.",
+      "work.mini.result": "A professional online presence ready in under 7 days.",
+  
+      // SERVICES
+      "services.title": "Services",
+      "services.subtitle":
+        "Choose your starting point — we’ll tailor it to your project.",
+      "services.launch.title": "Strategic Landing",
+      "services.launch.desc": "Conversion-focused · one-page · booking ready",
+      "services.studio.title": "Studio Website",
+      "services.studio.desc":
+        "Structured site · artists & services · clear booking flow",
+      "services.custom.title": "Custom Website + CMS",
+      "services.custom.desc":
+        "Advanced architecture · admin-lite CMS · scalable setup",
+      "services.viewDetails": "View details",
+  
+      //WHO I WORK WITH
+  
+      "sectors_title": "Who I work with",
+  
+      "sector_creative_title": "Creative Studios",
+      "sector_creative_desc": "Architecture, design and photography studios that need a strong portfolio presence.",
+  
+      "sector_wellness_title": "Wellness",
+      "sector_wellness_desc": "Yoga, pilates and wellness professionals who want a clear and professional online presence.",
+  
+      "sector_business_title": "Local Businesses",
+      "sector_business_desc": "Small businesses that want a clear website to present their services and attract clients.",
+  
+      "sector_creators_title": "Artists & Creators",
+      "sector_creators_desc": "Tattoo artists, DJs and creatives who want to showcase their work professionally.",
+  
+  
+      // PACKAGES
+      "packages.title": "Packages & Details",
+      "packages.subtitle":
+        "What’s included, timelines, and how we’ll work together.",
+  
+      "packages.from": "from",
+      "packages.timelineLabel": "Typical delivery:",
+      "packages.cta": "Discuss this project",
+      "packages.pricingNote":
+        "Prices are indicative and depend on content and features. Final scope and price are always agreed upfront — no surprises.",
+  
+      // Mini Web package
+      "packages.mini.header": "Mini Web — €249 (Fixed Structure)",
+      "packages.mini.intro":
+        "A fixed-structure one-page website. Layout stays the same — only colors, images and content are customized.",
+      "packages.mini.li1": "Predefined layout",
+      "packages.mini.li2": "Hero + Services + About + Contact",
+      "packages.mini.li3": "Mobile-first design",
+      "packages.mini.li4": "Basic SEO-ready structure",
+      "packages.mini.li5": "1 revision round",
+      "packages.mini.li6": "No additional sections",
+      "packages.mini.timeline": "5–7 days",
+      "packages.mini.cta": "Request Mini Web",
+  
+      // Launch package
+      "packages.launch.header": "Launch Page — One-page website",
+      "packages.launch.price": "€450",
+      "packages.launch.intro":
+        "A clean, custom one-page website focused on clarity, mobile experience and an easy way for people to contact or book you.",
+      "packages.launch.li1": "One-page custom website",
+      "packages.launch.li2": "Mobile-first design",
+      "packages.launch.li3":
+        "Clear booking / contact CTA (WhatsApp, email, form)",
+      "packages.launch.li4": "Custom layout (no templates)",
+      "packages.launch.li5": "Basic SEO-ready structure",
+      "packages.launch.li6": "Launch-ready setup",
+      "packages.launch.timeline": "7-10 days",
+      "packages.launch.note":
+        "Perfect if you already have your content and want something clean, fast and effective.",
+  
+      // Studio package
+      "packages.studio.header": "Studio Website — Structured studio site",
+      "packages.studio.price": "€900",
+      "packages.studio.intro":
+        "A more structured website for studios that need more content, multiple sections or artists, and a clearer booking flow.",
+      "packages.studio.li1": "Multi-section or multi-page website",
+      "packages.studio.li2": "Structure for artists, services or styles",
+      "packages.studio.li3": "Clear booking flow and contact paths",
+      "packages.studio.li4": "Mobile-first UX",
+      "packages.studio.li5": "SEO-ready base",
+      "packages.studio.li6": "Scalable foundation for future updates",
+      "packages.studio.timeline": "2–3 weeks",
+      "packages.studio.note":
+        "Designed for studios that want clarity, structure and a more professional digital presence.",
+  
+      // Custom package
+      "packages.custom.header": "Custom Website + CMS — Scalable solution",
+      "packages.custom.price": "Custom quote",
+      "packages.custom.intro":
+      "For projects that require advanced structure, admin-lite CMS integration, or a scalable architecture.",
+      "packages.custom.li1": "Custom layouts or interactions",
+      "packages.custom.li2": "Galleries, filters or special sections",
+      "packages.custom.li3": "Admin-lite or advanced setups",
+      "packages.custom.li4": "More complex content structures",
+      "packages.custom.timeline": "defined after scoping",
+      "packages.custom.note":
+        "We define scope, timing and price together after a short chat.",
+  
+      // WHY
+      "why.title": "Why CraftLab",
+      "why.subtitle": "Why clients choose CraftLab Studio for their website.",
+      "why.a": "Fast delivery (typically 1–3 weeks)",
+      "why.b": "Built by a developer, not templates",
+      "why.c": "Mobile-first & SEO-ready",
+  
+      // PROCESS
+      "process.title": "Process",
+      "process.subtitle": "Simple, clear, and collaborative.",
+      "process.s1.title": "Brief & mood",
+      "process.s1.desc": "Quick call + examples you love",
+      "process.s2.title": "Design draft",
+      "process.s2.desc": "Hero, palette, type scale",
+      "process.s3.title": "Build & iterate",
+      "process.s3.desc": "Responsive, fast, accessible",
+      "process.s4.title": "Launch & handoff",
+      "process.s4.desc": "Domain, analytics, support",
+  
+      // ABOUT
+      "about.title": "Studio, not agency.",
+      "about.body":
+        "CraftLab Studio is a one-person creative lab in Barcelona. I build websites for artists, creators, and small brands. Minimal, fast, and handcrafted — no templates, no fluff.",
+      "about.stack": "Stack: HTML · CSS · JavaScript",
+      "about.langs": "Languages: EN · ES · IT",
+      "about.invoice": "Invoices via cooperative",
+  
+      // CONTACT
+      "contact.title": "Let’s build something real",
+      "contact.subtitle":
+        "Tell me about your project. I’ll reply within 24–48 hours.",
+      "contact.nameLabel": "Name",
+      "contact.emailLabel": "Email",
+      "contact.brandLabel": "Brand / Project",
+      "contact.budgetLabel": "Budget",
+      "contact.messageLabel": "Message",
+      "contact.send": "Send",
+      "contact.note": "Invoices via cooperative. 50% to start, 50% on delivery.",
+  
+      "contact.namePh": "Your name",
+      "contact.emailPh": "you@email.com",
+      "contact.brandPh": "e.g. DJ booking page",
+      "contact.messagePh": "Tell me what you need…",
+  
+      "status.sending": "Sending…",
+      "status.sent": "✅ Sent! I’ll reply within 24–48 hours.",
+      "status.error": "❌ Something went wrong. Try again.",
+      "btn.sending": "Sending...",
+  
+      // FAQ
+      "faq.title": "FAQ",
+      "faq.subtitle": "Quick answers to the most common questions.",
+  
+      "faq.q1.q": "What do you need from me to start?",
+      "faq.q1.a":
+        "Ideally: your logo, a short description, services or prices (if any), contact details, and 5–10 photos. If you don’t have everything yet, we can still start and define what’s missing.",
+  
+      "faq.q2.q": "Do you use templates?",
+      "faq.q2.a":
+        "No. I design and build each site based on your brand and goals. That’s how we keep it clean, fast, and different from generic websites.",
+  
+      "faq.q3.q": "How do bookings work?",
+      "faq.q3.a":
+        "Usually via WhatsApp, a contact form, or both. The goal is fewer messages back and forth and clearer booking steps on mobile.",
+  
+      "faq.q4.q": "Can you update the site later?",
+      "faq.q4.a":
+        "Yes. I can help with changes, new sections, and improvements. If you need frequent updates, we can plan a simple admin-lite solution later.",
+  
+      "faq.q5.q": "Do you provide hosting and domain?",
+      "faq.q5.a":
+        "I can guide you through the setup or handle it with you. The goal is a clean launch: domain connected, SSL active, and analytics ready if needed.",
+  
+      "faq.q6.q": "How many revisions are included?",
+      "faq.q6.a":
+        "Two revision rounds are included for most projects. Small tweaks are normal — the goal is to launch something you’re proud of without endless cycles.",
+  
+      "faq.cta": "Ask a question",
+  
+      // FOOTER
+      "footer.tagline": "© 2026 CraftLab Studio — Built by hand. Designed with soul.",
+  
+      // COOKIES PAGE
+      "cookies.back": "← Back",
+      "cookies.metaTitle": "Cookies Policy — CraftLab Studio",
+      "cookies.intro": "This website does not use cookies for advertising.",
+  
+      "cookies.essential.title": "Essential cookies",
+      "cookies.essential.body":
+        "If any essential cookies are used by the hosting platform, they are required for basic site functionality.",
+  
+      "cookies.analytics.title": "Analytics (optional)",
+      "cookies.analytics.body":
+        "If analytics tools are enabled in the future (e.g., Google Analytics), this policy will be updated.",
+  
+      "cookies.updated": "Last updated:",
+  
+      // COOKIES MODAL
+      "cookie.title": "Cookies",
+      "cookie.body":
+        "We use cookies to improve your experience. You can accept all cookies or reject non-essential ones.",
+      "cookie.reject": "Reject",
+      "cookie.accept": "Accept",
+  
+      // PRIVACY
+      "privacy.back": "← Back",
+      "privacy.metaTitle": "Privacy Policy — CraftLab Studio",
+  
+      "privacy.intro":
+        "CraftLab Studio is a one-person studio. This website collects personal data only when you submit the contact form.",
+  
+      "privacy.collect.title": "What data we collect",
+      "privacy.collect.li1": "Name",
+      "privacy.collect.li2": "Email",
+      "privacy.collect.li3": "Message content and optional project details",
+  
+      "privacy.why.title": "Why we collect it",
+      "privacy.why.body":
+        "We use it only to reply to your enquiry and discuss your project.",
+  
+      "privacy.retention.title": "Data retention",
+      "privacy.retention.body":
+        "Messages are kept only as long as needed for communication and project administration.",
+  
+      "privacy.third.title": "Third parties",
+      "privacy.third.body":
+        "The contact form may use an email delivery provider to send messages to our inbox. No marketing lists are used.",
+  
+      "privacy.rights.title": "Your rights",
+      "privacy.rights.body":
+        "You can request access, correction, or deletion of your data by emailing:",
+  
+      "privacy.updated": "Last updated:",
+    },
+  
+    es: {
+      // NAV
+      "nav.services": "Servicios",
+      "nav.process": "Proceso",
+      "nav.about": "Sobre mí",
+      "nav.work": "Proyectos",
+      "nav.contact": "Contacto",
+      "nav.quote": "Pedir presupuesto",
+  
+      // HERO
+      "hero.title": "Webs artesanales para profesionales creativos y negocios locales",
+      "hero.subtitle":
+        "Sitios web diseñados para presentar tu trabajo con claridad, generar confianza y ayudar a los clientes a entender lo que ofreces.",
+      "hero.ctaQuote": "Pedir presupuesto",
+      "hero.fast": "Entrega rápida",
+      "hero.mobile": "Mobile-first",
+      "hero.seo": "SEO listo",
+  
+      // SERVICES
+      "services.title": "Servicios",
+      "services.subtitle":
+        "Elige un punto de partida — lo adaptamos a tu proyecto.",
+      "services.launch.title": "Landing Estratégica",
+      "services.launch.desc": "Enfocada en conversión · una página · lista para reservas",
+      "services.studio.title": "Studio Website",
+      "services.studio.desc":
+        "Web estructurada · artistas y servicios · reservas claras",
+      "services.custom.title": "Custom Website + CMS",
+      "services.custom.desc":
+        "Arquitectura avanzada · CMS admin-lite · estructura escalable",
+      "services.viewDetails": "Ver detalles",
+      "services.mini.note": "¿Buscas algo más sencillo?",
+      "services.mini.link": "Ver opción Mini Web",
+  
+      // WORK / PROJECTS
+      "work.title": "Proyectos seleccionados",
+      "work.subtitle": "Una selección de webs creadas para clientes y profesionales creativos.",
+  
+      "work.problem": "Problema:",
+      "work.solution": "Solución:",
+      "work.result": "Resultado:",
+      "work.viewProject": "Ver proyecto",
+  
+      // 5D TOPOGRAFIA
+      "work.5d.title": "5D Topografía",
+      "work.5d.meta": "Topografía y BIM · Web personalizada + CMS",
+  
+      "work.5d.problem": "La web anterior estaba desarrollada por una agencia digital en WordPress, donde el cliente solo podía modificar textos y tenía un control muy limitado sobre la estructura.",
+      "work.5d.solution": "Una web totalmente personalizada desarrollada desde cero con un CMS ligero que permite al cliente actualizar proyectos y contenido técnico de forma independiente.",
+      "work.5d.result": "Una web más rápida, limpia y completamente independiente sin limitaciones de plataforma.",
+  
+      // BOJE
+      "work.boje.title": "Boje Sax",
+      "work.boje.meta": "Portfolio de artista · Landing page",
+  
+      "work.boje.problem": "La presencia del artista estaba fragmentada entre Instagram, Linktree y archivos compartidos, lo que dificultaba a los promotores entender el proyecto.",
+      "work.boje.solution": "Una web portfolio centralizada que reúne actuaciones, fotos, press kit y contacto para contrataciones.",
+      "work.boje.result": "Una presentación más clara y profesional para organizadores de eventos.",
+  
+      // MINI WEB
+      "work.mini.title": "CraftLab Mini Web",
+      "work.mini.meta": "Estudios de yoga y bienestar · Mini Web", 
+  
+      "work.mini.problem": "Muchos estudios de yoga y bienestar necesitan una web pero no pueden invertir en un desarrollo completamente personalizado.",
+      "work.mini.solution": "Una web de una página con estructura fija diseñada para lanzarse rápidamente y facilitar el contacto con clientes.",
+      "work.mini.result": "Una presencia online profesional lista en menos de 7 días.",
+  
+      //WHO I WORK WITH
+  
+      "sectors_title": "Con quién trabajo",
+  
+      "sector_creative_title": "Estudios creativos",
+      "sector_creative_desc": "Arquitectura, diseño y fotografía que necesitan una presencia online sólida.",
+  
+      "sector_wellness_title": "Bienestar",
+      "sector_wellness_desc": "Yoga, pilates y profesionales del bienestar que quieren una web clara y profesional.",
+  
+      "sector_business_title": "Negocios locales",
+      "sector_business_desc": "Pequeños negocios que quieren una web clara para presentar sus servicios y atraer clientes.",
+  
+      "sector_creators_title": "Artistas y creadores",
+      "sector_creators_desc": "Tattoo artists, DJs y creativos que quieren mostrar su trabajo profesionalmente.",
+  
+      // PACKAGES
+      "packages.title": "Paquetes y detalles",
+      "packages.subtitle": "Qué incluye, tiempos y cómo trabajaremos.",
+  
+      "packages.from": "desde",
+      "packages.timelineLabel": "Entrega habitual:",
+      "packages.cta": "Hablemos del proyecto",
+      "packages.pricingNote":
+        "Los precios son orientativos y dependen del contenido y las funcionalidades. El alcance y el precio final se acuerdan siempre antes de empezar — sin sorpresas.",
+  
+      // Mini Web package
+      "packages.mini.header": "Mini Web — €249 (Estructura fija)",
+      "packages.mini.intro":
+        "Web de una sola página con estructura predefinida. Solo se personalizan colores, imágenes y contenido.",
+      "packages.mini.li1": "Layout predefinido",
+      "packages.mini.li2": "Hero + Servicios + Sobre mí + Contacto",
+      "packages.mini.li3": "Diseño mobile-first",
+      "packages.mini.li4": "Base SEO lista",
+      "packages.mini.li5": "1 ronda de revisión",
+      "packages.mini.li6": "No incluye secciones adicionales",
+      "packages.mini.timeline": "5–7 días",
+      "packages.mini.cta": "Solicitar Mini Web",
+  
+      // Launch package
+      "packages.launch.header": "Launch Page — web de 1 página",
+      "packages.launch.price": "€450",
+      "packages.launch.intro":
+        "Una web de una sola página, hecha a medida, centrada en claridad, experiencia móvil y una forma fácil de contacto o reserva.",
+      "packages.launch.li1": "Web de 1 página hecha a medida",
+      "packages.launch.li2": "Diseño mobile-first",
+      "packages.launch.li3":
+        "CTA claro para reservas/contacto (WhatsApp, email, formulario)",
+      "packages.launch.li4": "Diseño personalizado (sin plantillas)",
+      "packages.launch.li5": "Estructura SEO básica lista",
+      "packages.launch.li6": "Preparada para publicar",
+      "packages.launch.timeline": "7-10 días",
+      "packages.launch.note":
+        "Ideal si ya tienes el contenido y quieres algo limpio, rápido y efectivo.",
+  
+      // Studio package
+      "packages.studio.header": "Studio Website — web para estudio",
+      "packages.studio.price": "€900",
+      "packages.studio.intro":
+        "Una web más estructurada para estudios que necesitan más contenido, varias secciones o artistas, y un flujo de reservas más claro.",
+      "packages.studio.li1": "Web multi-sección o multi-página",
+      "packages.studio.li2": "Estructura para artistas, servicios o estilos",
+      "packages.studio.li3": "Flujo de reservas y vías de contacto claras",
+      "packages.studio.li4": "UX mobile-first",
+      "packages.studio.li5": "Base SEO lista",
+      "packages.studio.li6": "Base escalable para futuras mejoras",
+      "packages.studio.timeline": "2–3 semanas",
+      "packages.studio.note":
+        "Pensada para estudios que quieren claridad, estructura y una presencia digital más profesional.",
+  
+      // Custom package
+      "packages.custom.header": "Custom Website + CMS — solución escalable",
+      "packages.custom.price": "Presupuesto a medida",
+      "packages.custom.intro":
+      "Para proyectos que requieren estructura avanzada, integración de CMS admin-lite o una arquitectura escalable.",
+      "packages.custom.li1": "Layouts o interacciones personalizadas",
+      "packages.custom.li2": "Galerías, filtros o secciones especiales",
+      "packages.custom.li3": "Admin-lite o configuraciones avanzadas",
+      "packages.custom.li4": "Estructuras de contenido más complejas",
+      "packages.custom.timeline": "se define al concretar el alcance",
+      "packages.custom.note":
+        "Definimos alcance, tiempos y precio juntos tras una charla corta.",
+  
+      // WHY
+      "why.title": "Por qué CraftLab",
+      "why.subtitle": "Por qué los clientes eligen CraftLab Studio para su web.",
+      "why.a": "Entrega rápida (normalmente 1–3 semanas)",
+      "why.b": "Hecho por un developer, sin plantillas",
+      "why.c": "Mobile-first y SEO listo",
+  
+      // PROCESS
+      "process.title": "Proceso",
+      "process.subtitle": "Simple, claro y colaborativo.",
+      "process.s1.title": "Brief & estilo",
+      "process.s1.desc": "Llamada rápida + referencias",
+      "process.s2.title": "Boceto de diseño",
+      "process.s2.desc": "Hero, paleta, escala tipográfica",
+      "process.s3.title": "Construcción & ajustes",
+      "process.s3.desc": "Responsive, rápido, accesible",
+      "process.s4.title": "Lanzamiento & entrega",
+      "process.s4.desc": "Dominio, analítica, soporte",
+  
+      // ABOUT
+      "about.title": "Estudio, no agencia.",
+      "about.body":
+        "CraftLab Studio es un laboratorio creativo de una sola persona en Barcelona. Diseño y desarrollo webs para artistas, creadores y pequeñas marcas. Minimal, rápidas y artesanales — sin plantillas.",
+      "about.stack": "Stack: HTML · CSS · JavaScript",
+      "about.langs": "Idiomas: EN · ES · IT",
+      "about.invoice": "Facturas vía cooperativa",
+  
+      // CONTACT
+      "contact.title": "Construyamos algo real",
+      "contact.subtitle": "Cuéntame tu proyecto. Respondo en 24–48 horas.",
+      "contact.nameLabel": "Nombre",
+      "contact.emailLabel": "Email",
+      "contact.brandLabel": "Marca / Proyecto",
+      "contact.budgetLabel": "Presupuesto",
+      "contact.messageLabel": "Mensaje",
+      "contact.send": "Enviar",
+      "contact.note":
+        "Facturas vía cooperativa. 50% al inicio, 50% a la entrega.",
+  
+      "contact.namePh": "Tu nombre",
+      "contact.emailPh": "tu@email.com",
+      "contact.brandPh": "ej. landing para DJ",
+      "contact.messagePh": "Cuéntame qué necesitas…",
+  
+      "status.sending": "Enviando…",
+      "status.sent": "✅ Enviado. Respondo en 24–48 horas.",
+      "status.error": "❌ Algo falló. Inténtalo de nuevo.",
+      "btn.sending": "Enviando...",
+  
+      // FAQ
+      "faq.title": "Preguntas frecuentes",
+      "faq.subtitle": "Respuestas rápidas a las dudas más comunes.",
+  
+      "faq.q1.q": "¿Qué necesitas de mí para empezar?",
+      "faq.q1.a":
+        "Idealmente: tu logo, una breve descripción, servicios o precios (si los tienes), datos de contacto y 5–10 fotos. Si no lo tienes todo aún, podemos empezar igualmente y definir lo que falte.",
+  
+      "faq.q2.q": "¿Usas plantillas?",
+      "faq.q2.a":
+        "No. Diseño y desarrollo cada web según tu marca y tus objetivos. Así evitamos webs genéricas y conseguimos algo limpio y rápido.",
+  
+      "faq.q3.q": "¿Cómo funcionan las reservas?",
+      "faq.q3.a":
+        "Normalmente a través de WhatsApp, un formulario de contacto o ambos. La idea es reducir mensajes innecesarios y aclarar el proceso de reserva en móvil.",
+  
+      "faq.q4.q": "¿Se puede actualizar la web más adelante?",
+      "faq.q4.a":
+        "Sí. Puedo ayudarte con cambios, nuevas secciones o mejoras. Si necesitas actualizaciones frecuentes, podemos plantear una solución sencilla tipo admin-lite.",
+  
+      "faq.q5.q": "¿Incluyes hosting y dominio?",
+      "faq.q5.a":
+        "Puedo guiarte en la configuración o hacerlo contigo. El objetivo es un lanzamiento limpio: dominio conectado, SSL activo y analítica lista si hace falta.",
+  
+      "faq.q6.q": "¿Cuántas revisiones incluye?",
+      "faq.q6.a":
+        "La mayoría de proyectos incluyen dos rondas de revisiones. Pequeños ajustes son normales — la idea es lanzar algo que te represente sin alargar el proceso.",
+  
+      "faq.cta": "Hacer una consulta",
+  
+      // FOOTER
+      "footer.tagline": "© 2026 CraftLab Studio — Hecho a mano. Diseñado con alma.",
+  
+      // COOKIES PAGE
+      "cookies.back": "← Volver",
+      "cookies.metaTitle": "Política de Cookies — CraftLab Studio",
+      "cookies.intro":
+        "Este sitio web no utiliza cookies con fines publicitarios.",
+  
+      "cookies.essential.title": "Cookies esenciales",
+      "cookies.essential.body":
+        "Si la plataforma de alojamiento utiliza cookies esenciales, son necesarias para el funcionamiento básico del sitio.",
+  
+      "cookies.analytics.title": "Analítica (opcional)",
+      "cookies.analytics.body":
+        "Si en el futuro se habilitan herramientas de analítica (por ejemplo, Google Analytics), esta política se actualizará.",
+  
+      "cookies.updated": "Última actualización:",
+  
+      //MODAL COOKIES
+      "cookie.title": "Cookies",
+      "cookie.body":
+        "Usamos cookies para mejorar tu experiencia. Puedes aceptar todas o rechazar las no esenciales.",
+      "cookie.reject": "Rechazar",
+      "cookie.accept": "Aceptar",
+  
+      // PRIVACY
+      "privacy.back": "← Volver",
+      "privacy.metaTitle": "Política de Privacidad — CraftLab Studio",
+      "privacy.intro":
+        "CraftLab Studio es un estudio unipersonal. Este sitio web solo recoge datos personales cuando envías el formulario de contacto.",
+  
+      "privacy.collect.title": "Qué datos recopilamos",
+      "privacy.collect.li1": "Nombre",
+      "privacy.collect.li2": "Correo electrónico",
+      "privacy.collect.li3":
+        "Contenido del mensaje y detalles opcionales del proyecto",
+  
+      "privacy.why.title": "Por qué los recopilamos",
+      "privacy.why.body":
+        "Los utilizamos únicamente para responder a tu consulta y hablar sobre tu proyecto.",
+  
+      "privacy.retention.title": "Conservación de los datos",
+      "privacy.retention.body":
+        "Los mensajes se conservan solo el tiempo necesario para la comunicación y la gestión del proyecto.",
+  
+      "privacy.third.title": "Terceros",
+      "privacy.third.body":
+        "El formulario de contacto puede utilizar un proveedor de envío de correos electrónicos para entregar el mensaje en nuestra bandeja de entrada. No se crean listas de marketing.",
+  
+      "privacy.rights.title": "Tus derechos",
+      "privacy.rights.body":
+        "Puedes solicitar acceso, corrección o eliminación de tus datos escribiendo a:",
+  
+      "privacy.updated": "Última actualización:",
+    },
+  
+    it: {
+      // NAV
+      "nav.services": "Servizi",
+      "nav.process": "Processo",
+      "nav.about": "Chi sono",
+      "nav.work": "Progetti",
+      "nav.contact": "Contatto",
+      "nav.quote": "Richiedi preventivo",
+  
+      // HERO
+      "hero.title": "Siti web artigianali per professionisti creativi e attività locali",
+      "hero.subtitle":
+        "Siti web progettati per presentare il tuo lavoro con chiarezza, creare fiducia e aiutare i clienti a capire cosa offri.",
+      "hero.ctaQuote": "Richiedi preventivo",
+      "hero.fast": "Consegna rapida",
+      "hero.mobile": "Mobile-first",
+      "hero.seo": "SEO pronto",
+  
+      // SERVICES
+      "services.title": "Servizi",
+      "services.subtitle":
+        "Scegli un punto di partenza — lo adattiamo al tuo progetto.",
+      "services.launch.title": "Landing Strategica",
+      "services.launch.desc": "Focalizzata sulla conversione · one-page · pronta per prenotazioni",
+      "services.studio.title": "Studio Website",
+      "services.studio.desc":
+        "Sito strutturato · artisti e servizi · prenotazioni chiare",
+      "services.custom.title": "Custom Website + CMS",
+      "services.custom.desc":
+        "Architettura avanzata · CMS admin-lite · setup scalabile",
+      "services.viewDetails": "Dettagli",
+      "services.mini.note": "Cerchi qualcosa di più semplice?",
+      "services.mini.link": "Scopri l'opzione Mini Web",
+  
+      // WORK / PROJECTS
+      "work.title": "Progetti selezionati",
+      "work.subtitle": "Una selezione di siti web realizzati per clienti e professionisti creativi.",
+  
+      "work.problem": "Problema:",
+      "work.solution": "Soluzione:",
+      "work.result": "Risultato:",
+      "work.viewProject": "Vedi progetto",
+  
+      // 5D TOPOGRAFIA
+      "work.5d.title": "5D Topografía",
+      "work.5d.meta": "Topografia e BIM · Sito personalizzato + CMS",
+  
+      "work.5d.problem": "Il sito precedente era stato realizzato da un'agenzia digitale in WordPress, dove il cliente poteva modificare solo i testi con un controllo molto limitato sulla struttura.",
+      "work.5d.solution": "Un sito web completamente personalizzato sviluppato da zero con un CMS leggero che permette al cliente di aggiornare progetti e contenuti tecnici in autonomia.",
+      "work.5d.result": "Un sito più veloce, pulito e completamente indipendente senza limitazioni di piattaforma.",
+  
+      // BOJE
+      "work.boje.title": "Boje Sax",
+      "work.boje.meta": "Portfolio artista · Landing page",
+  
+      "work.boje.problem": "La presenza dell’artista era frammentata tra Instagram, Linktree e file condivisi, rendendo più difficile per i promoter valutare il progetto.",
+      "work.boje.solution": "Un sito portfolio centrale che riunisce performance, foto, press kit e contatto per booking.",
+      "work.boje.result": "Una presentazione più chiara e professionale per gli organizzatori di eventi.",
+  
+      // MINI WEB
+      "work.mini.title": "CraftLab Mini Web",
+      "work.mini.meta": "Studi yoga e benessere · Mini Web",
+  
+      "work.mini.problem": "Molti studi di yoga e benessere hanno bisogno di un sito web ma non possono investire in uno sviluppo completamente personalizzato.",
+      "work.mini.solution": "Un sito one-page con struttura fissa progettato per un lancio rapido e un contatto semplice con i clienti.",
+      "work.mini.result": "Una presenza online professionale pronta in meno di 7 giorni.",
+  
+      //WHO I WORK WITH
+      "sectors_title": "Con chi lavoro",
+  
+      "sector_creative_title": "Studi creativi",
+      "sector_creative_desc": "Architettura, design e fotografia che hanno bisogno di una presenza online forte.",
+  
+      "sector_wellness_title": "Benessere",
+      "sector_wellness_desc": "Yoga, pilates e professionisti del benessere che vogliono un sito chiaro e professionale.",
+  
+      "sector_business_title": "Attività locali",
+      "sector_business_desc": "Piccole imprese che vogliono un sito chiaro per presentare i propri servizi e attirare clienti.",
+  
+      "sector_creators_title": "Artisti e creativi",
+      "sector_creators_desc": "Tattoo artist, DJ e creativi che vogliono mostrare il proprio lavoro in modo professionale.",
+  
+      // PACKAGES
+      "packages.title": "Pacchetti e dettagli",
+      "packages.subtitle": "Cosa include, tempi e come lavoreremo insieme.",
+  
+      "packages.from": "da",
+      "packages.timelineLabel": "Consegna tipica:",
+      "packages.cta": "Parliamone",
+      "packages.pricingNote":
+        "I prezzi sono indicativi e dipendono da contenuti e funzionalità. Scopo e prezzo finale vengono concordati prima di iniziare — niente sorprese.",
+  
+      // Mini Web package
+    "packages.mini.header": "Mini Web — €249 (Struttura fissa)",
+    "packages.mini.intro":
+      "Sito one-page con struttura predefinita. Si personalizzano solo colori, immagini e contenuti.",
+    "packages.mini.li1": "Layout predefinito",
+    "packages.mini.li2": "Hero + Servizi + Chi sono + Contatto",
+    "packages.mini.li3": "Design mobile-first",
+    "packages.mini.li4": "Struttura SEO pronta",
+    "packages.mini.li5": "1 revisione inclusa",
+    "packages.mini.li6": "Nessuna sezione aggiuntiva",
+    "packages.mini.timeline": "5–7 giorni",
+    "packages.mini.cta": "Richiedi Mini Web",
+  
+      // Launch package
+      "packages.launch.header": "Launch Page — sito 1 pagina",
+      "packages.launch.price": "€450",
+      "packages.launch.intro":
+        "Un sito one-page su misura, focalizzato su chiarezza, esperienza mobile e un modo semplice per contattarti o prenotare.",
+      "packages.launch.li1": "Sito one-page su misura",
+      "packages.launch.li2": "Design mobile-first",
+      "packages.launch.li3":
+        "CTA chiara per contatto/prenotazioni (WhatsApp, email, form)",
+      "packages.launch.li4": "Layout personalizzato (no template)",
+      "packages.launch.li5": "Struttura SEO base pronta",
+      "packages.launch.li6": "Pronto per la pubblicazione",
+      "packages.launch.timeline": "7-10 giorni",
+      "packages.launch.note":
+        "Perfetto se hai già i contenuti e vuoi qualcosa di pulito, veloce ed efficace.",
+  
+      // Studio package
+      "packages.studio.header": "Studio Website — sito per studio",
+      "packages.studio.price": "€900",
+      "packages.studio.intro":
+        "Un sito più strutturato per studi che hanno più contenuti, sezioni o artisti, e un flusso prenotazioni più chiaro.",
+      "packages.studio.li1": "Sito multi-sezione o multi-pagina",
+      "packages.studio.li2": "Struttura per artisti, servizi o stili",
+      "packages.studio.li3": "Flusso prenotazioni e contatti chiari",
+      "packages.studio.li4": "UX mobile-first",
+      "packages.studio.li5": "Base SEO pronta",
+      "packages.studio.li6": "Base scalabile per miglioramenti futuri",
+      "packages.studio.timeline": "2–3 settimane",
+      "packages.studio.note":
+        "Pensato per studi che vogliono chiarezza, struttura e una presenza digitale più professionale.",
+  
+      // Custom package
+      "packages.custom.header": "Custom Website + CMS — soluzione scalabile",
+      "packages.custom.price": "Preventivo su misura",
+      "packages.custom.intro":
+      "Per progetti che richiedono struttura avanzata, integrazione CMS admin-lite o architettura scalabile.",
+      "packages.custom.li1": "Layout o interazioni personalizzate",
+      "packages.custom.li2": "Gallerie, filtri o sezioni speciali",
+      "packages.custom.li3": "Admin-lite o setup avanzati",
+      "packages.custom.li4": "Strutture contenuti più complesse",
+      "packages.custom.timeline": "definita dopo lo scoping",
+      "packages.custom.note":
+        "Definiamo insieme scopo, tempi e prezzo dopo una breve call.",
+  
+      // WHY
+      "why.title": "Perché CraftLab",
+      "why.subtitle": "Perché i clienti scelgono CraftLab Studio per il loro sito web.",
+      "why.a": "Consegna rapida (di solito 1–3 settimane)",
+      "why.b": "Fatto da uno sviluppatore, niente template",
+      "why.c": "Mobile-first & SEO pronto",
+  
+      // PROCESS
+      "process.title": "Processo",
+      "process.subtitle": "Semplice, chiaro e collaborativo.",
+      "process.s1.title": "Brief & mood",
+      "process.s1.desc": "Call veloce + esempi che ti piacciono",
+      "process.s2.title": "Bozza design",
+      "process.s2.desc": "Hero, palette, scala tipografica",
+      "process.s3.title": "Build & iterazioni",
+      "process.s3.desc": "Responsive, veloce, accessibile",
+      "process.s4.title": "Lancio & consegna",
+      "process.s4.desc": "Dominio, analytics, supporto",
+  
+      // ABOUT
+      "about.title": "Studio, non agenzia.",
+      "about.body":
+        "CraftLab Studio è un laboratorio creativo di una sola persona a Barcellona. Creo siti per artisti, creator e piccoli brand. Minimal, veloci e artigianali — niente template.",
+      "about.stack": "Stack: HTML · CSS · JavaScript",
+      "about.langs": "Lingue: EN · ES · IT",
+      "about.invoice": "Fatture via cooperativa",
+  
+      // CONTACT
+      "contact.title": "Costruiamo qualcosa di vero",
+      "contact.subtitle": "Parlami del tuo progetto. Rispondo in 24–48 ore.",
+      "contact.nameLabel": "Nome",
+      "contact.emailLabel": "Email",
+      "contact.brandLabel": "Brand / Progetto",
+      "contact.budgetLabel": "Budget",
+      "contact.messageLabel": "Messaggio",
+      "contact.send": "Invia",
+      "contact.note":
+        "Fatture via cooperativa. 50% all’inizio, 50% alla consegna.",
+  
+      "contact.namePh": "Il tuo nome",
+      "contact.emailPh": "tu@email.com",
+      "contact.brandPh": "es. landing per DJ",
+      "contact.messagePh": "Dimmi di cosa hai bisogno…",
+  
+      "status.sending": "Invio…",
+      "status.sent": "✅ Inviato! Rispondo in 24–48 ore.",
+      "status.error": "❌ Qualcosa è andato storto. Riprova.",
+      "btn.sending": "Invio...",
+  
+      // FAQ
+      "faq.title": "Domande frequenti",
+      "faq.subtitle": "Risposte rapide alle domande più comuni.",
+  
+      "faq.q1.q": "Di cosa hai bisogno per iniziare?",
+      "faq.q1.a":
+        "Idealmente: logo, una breve descrizione, servizi o prezzi (se disponibili), contatti e 5–10 foto. Se non hai tutto subito, possiamo comunque iniziare e definire il resto strada facendo.",
+  
+      "faq.q2.q": "Usi dei template?",
+      "faq.q2.a":
+        "No. Ogni sito viene progettato e sviluppato in base al tuo brand e ai tuoi obiettivi. È così che rimane pulito, veloce e non generico.",
+  
+      "faq.q3.q": "Come funzionano le prenotazioni?",
+      "faq.q3.a":
+        "Di solito tramite WhatsApp, modulo di contatto o entrambi. L’obiettivo è ridurre i messaggi inutili e rendere il processo chiaro soprattutto da mobile.",
+  
+      "faq.q4.q": "È possibile aggiornare il sito in futuro?",
+      "faq.q4.a":
+        "Sì. Posso occuparmi di modifiche, nuove sezioni o miglioramenti. Se servono aggiornamenti frequenti, possiamo valutare una soluzione admin-lite.",
+  
+      "faq.q5.q": "Ti occupi di hosting e dominio?",
+      "faq.q5.a":
+        "Posso guidarti nella configurazione o farlo insieme a te. L’obiettivo è un lancio pulito: dominio collegato, SSL attivo e analytics pronti se necessari.",
+  
+      "faq.q6.q": "Quante revisioni sono incluse?",
+      "faq.q6.a":
+        "La maggior parte dei progetti include due revisioni. Piccoli aggiustamenti sono normali — l’obiettivo è lanciare qualcosa di cui sei davvero soddisfatto.",
+  
+      "faq.cta": "Fai una domanda",
+  
+      // FOOTER
+      "footer.tagline": "© 2026 CraftLab Studio — Fatto a mano. Progettato con anima.",
+  
+      // COOKIES PAGE
+      "cookies.back": "← Indietro",
+      "cookies.metaTitle": "Informativa sui Cookie — CraftLab Studio",
+      "cookies.intro": "Questo sito web non utilizza cookie per pubblicità.",
+  
+      "cookies.essential.title": "Cookie essenziali",
+      "cookies.essential.body":
+        "Se la piattaforma di hosting utilizza cookie essenziali, sono necessari per il funzionamento di base del sito.",
+  
+      "cookies.analytics.title": "Analisi (opzionale)",
+      "cookies.analytics.body":
+        "Se in futuro verranno attivati strumenti di analisi (ad esempio Google Analytics), questa informativa verrà aggiornata.",
+  
+      "cookies.updated": "Ultimo aggiornamento:",
+  
+      // MODAL COOKIES
+      "cookie.title": "Cookies",
+      "cookie.body":
+        "Usiamo i cookie per migliorare l’esperienza. Puoi accettare tutto o rifiutare quelli non essenziali.",
+      "cookie.reject": "Rifiuta",
+      "cookie.accept": "Accetta",
+  
+      // PRIVACY
+      "privacy.back": "← Indietro",
+      "privacy.metaTitle": "Informativa sulla Privacy — CraftLab Studio",
+      "privacy.intro":
+        "CraftLab Studio è uno studio individuale. Questo sito raccoglie dati personali solo quando invii il modulo di contatto.",
+  
+      "privacy.collect.title": "Quali dati raccogliamo",
+      "privacy.collect.li1": "Nome",
+      "privacy.collect.li2": "Email",
+      "privacy.collect.li3":
+        "Contenuto del messaggio e dettagli opzionali del progetto",
+  
+      "privacy.why.title": "Perché li raccogliamo",
+      "privacy.why.body":
+        "I dati vengono utilizzati esclusivamente per rispondere alla tua richiesta e discutere del tuo progetto.",
+  
+      "privacy.retention.title": "Conservazione dei dati",
+      "privacy.retention.body":
+        "I messaggi vengono conservati solo per il tempo necessario alla comunicazione e alla gestione del progetto.",
+  
+      "privacy.third.title": "Terze parti",
+      "privacy.third.body":
+        "Il modulo di contatto può utilizzare un servizio di invio email per recapitarci il messaggio. Nessuna lista di marketing viene creata.",
+  
+      "privacy.rights.title": "I tuoi diritti",
+      "privacy.rights.body":
+        "Puoi richiedere accesso, modifica o cancellazione dei tuoi dati scrivendo a:",
+  
+      "privacy.updated": "Ultimo aggiornamento:",
+    },
+  };
+
+const LANG_KEY = "craftlab_lang";
+
+export function applyLang(lang) {
+  const dict = I18N[lang] || I18N.en;
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const value = dict[key];
+    if (value == null) return;
+
+    el.innerHTML = value;
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const value = dict[key];
+    if (value == null) return;
+
+    el.setAttribute("placeholder", value);
+  });
+
+  document.querySelectorAll("[data-lang]").forEach((btn) => {
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle("btn-accent", isActive);
+    btn.classList.toggle("btn-outline-accent", !isActive);
+  });
+
+  localStorage.setItem(LANG_KEY, lang);
+}
+
+export function initLang() {
+  const savedLang = localStorage.getItem(LANG_KEY) || "en";
+  applyLang(savedLang);
+
+  document.querySelectorAll("[data-lang]").forEach((btn) => {
+    btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+  });
+}
