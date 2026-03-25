@@ -2,6 +2,9 @@ export function initUI() {
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", (e) => {
+        
+        if (!anchor.closest('.craftlab-site')) return;
+
         const targetId = anchor.getAttribute("href");
         if (!targetId || targetId === "#") return;
   
