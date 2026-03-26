@@ -1,6 +1,6 @@
 :root {
     /* Base */
-    --bg: #f6efe8;          /* warm cream */
+    --bg: #05f9ed21;          /* warm cream */
     --surface: #fff8f2;     /* soft card background */
     --surface-2: #ffffff;
   
@@ -9,14 +9,14 @@
     --muted: #7a6f66;
   
     /* Lines */
-    --line: #5d934a;
+    --line: #4e72a6;
   
     /* Primary accent (main CTA) */
-    --accent: #306d20;      
-    --accent-dark: #0e4b0e;
+    --accent: #5699c0;      
+    --accent-dark: #317ca8;
   
     /* Secondary accent (calm tone) */
-    --accent-soft: #eaeaea; /* soft pastel clay */
+    --accent-soft: #e8f4fb; /* soft pastel clay */
   
     /* Optional calm green (very subtle) */
     --accent-green: #4b7d67;
